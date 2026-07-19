@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Finder by Subject Grades | NYP School of Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon-deep:#7A1414;
+    --maroon-mid:#9E2323;
+    --gold:#C9A227;
+    --gold-light:#E9CE7A;
+    --cream:#F7EFE1;
+    --cream-dark:#ECDFC2;
+    --ink:#2B1210;
+    --paper:#FFFDF8;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:#FFFFFF; color:var(--ink); font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 20px;}
+
+  /* Header */
+  .hero{
+    background:linear-gradient(180deg, var(--maroon-deep) 0%, var(--maroon-mid) 100%);
+    color:var(--cream); padding:40px 20px 34px; position:relative;
+  }
+  .hero-inner{max-width:760px; margin:0 auto;}
+  .home-link{
+    position:absolute; top:18px; right:18px;
+    display:inline-flex; align-items:center; gap:6px;
+    height:32px; padding:0 14px; border-radius:99px;
+    border:1.5px solid rgba(233,206,122,0.55); background:rgba(233,206,122,0.12);
+    color:var(--gold-light); font-size:12px; font-weight:700; text-decoration:none;
+  }
+  .home-link:hover{background:rgba(233,206,122,0.25);}
+  .eyebrow{
+    display:inline-block; font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--gold-light); margin-bottom:10px;
+  }
+  .hero h1{font-size:clamp(1.6rem, 4.5vw, 2.2rem); margin:0 0 8px; line-height:1.15;}
+  .hero p{margin:0; font-size:0.95rem; color:rgba(247,239,225,0.85); line-height:1.55; max-width:560px;}
+
+  /* Grade entry */
+  .entry-section{padding:34px 20px 10px;}
+  .subject-card{
+    background:var(--paper); border:1px solid var(--cream-dark); border-radius:14px;
+    padding:14px 14px 12px; margin-bottom:12px;
+  }
+  .subject-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:9px;}
+  .subject-name{font-size:0.95rem; font-weight:600;}
+  .subject-hint{font-size:0.78rem; color:#8a6266;}
+  .grade-row{display:flex; gap:4px;}
+  .grade-btn{
+    flex:1; height:36px; border-radius:8px;
+    border:1px solid var(--cream-dark); background:var(--cream);
+    color:#5a3a3e; font-family:'Inter',sans-serif; font-size:11.5px; font-weight:600;
+    cursor:pointer; padding:0; transition:all .12s;
+  }
+  .grade-btn:hover{border-color:var(--gold);}
+  .grade-btn.selected{background:var(--maroon-mid); border-color:var(--maroon-mid); color:#FFFFFF;}
+
+  /* Aggregate panel */
+  .agg-panel{
+    background:var(--maroon-deep); color:var(--cream); border-radius:16px;
+    padding:16px 20px; margin:18px 0 6px;
+    display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;
+  }
+  .agg-label{font-size:12.5px; color:var(--gold-light);}
+  .agg-sub{font-size:11px; color:rgba(233,206,122,0.75); margin-top:2px;}
+  .agg-value{font-size:40px; font-weight:700; font-family:'Space Grotesk',sans-serif; line-height:1;}
+  .agg-warn{
+    font-size:12px; background:rgba(233,206,122,0.15); border:1px solid rgba(233,206,122,0.4);
+    color:var(--gold-light); border-radius:10px; padding:8px 12px; margin-top:10px; line-height:1.5;
+    display:none;
+  }
+  .agg-warn.show{display:block;}
+
+  /* Results */
+  .results-section{padding:14px 20px 30px;}
+  .results-heading{font-size:1.15rem; margin:14px 0 12px; color:var(--maroon-deep);}
+  .results-heading span{color:#2F9E62;}
+  .course-card{
+    background:var(--paper); border:1px solid var(--cream-dark); border-radius:14px;
+    padding:13px 15px; margin-bottom:10px; transition:opacity .2s;
+  }
+  .course-card.eligible{border-color:#BFE3CC;}
+  .course-card.out{opacity:0.62;}
+  .course-top{display:flex; justify-content:space-between; gap:10px; align-items:flex-start;}
+  .course-name{font-size:0.95rem; font-weight:600; line-height:1.35;}
+  .course-name span{color:#8a6266; font-weight:500; font-size:0.85rem;}
+  .status-badge{
+    flex-shrink:0; font-size:11px; font-weight:700; padding:4px 10px; border-radius:99px; white-space:nowrap;
+  }
+  .status-eligible{background:#E7F5EC; color:#2F9E62;}
+  .status-borderline{background:#FDF3E3; color:#B97A1C;}
+  .status-out{background:#F3F4F7; color:#8A90A0;}
+  .course-detail{font-size:0.82rem; color:#5a3a3e; margin-top:5px; line-height:1.5;}
+  .course-link{font-size:0.8rem; font-weight:700; color:var(--maroon-mid); text-decoration:none; display:inline-block; margin-top:7px;}
+  .course-link:hover{text-decoration:underline;}
+
+  /* Cross-link band */
+  .crosslink-band{
+    background:var(--cream); border:2px dashed var(--gold); border-radius:16px;
+    padding:18px 20px; margin:10px 20px 40px; max-width:720px;
+  }
+  @media (min-width:800px){ .crosslink-band{margin-left:auto; margin-right:auto;} }
+  .crosslink-band h3{margin:0 0 6px; font-size:1rem; color:var(--maroon-deep);}
+  .crosslink-band p{margin:0 0 12px; font-size:0.86rem; color:#5a3a3e; line-height:1.55;}
+  .crosslink-btn{
+    display:inline-block; background:var(--maroon-deep); color:var(--cream);
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.88rem;
+    padding:10px 20px; border-radius:99px; text-decoration:none;
+  }
+  .crosslink-btn:hover{background:var(--maroon-mid);}
+
+  footer{
+    background:var(--maroon-deep); color:rgba(247,239,225,0.85);
+    padding:26px 20px; text-align:center; font-size:0.8rem; line-height:1.6;
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <a class="home-link" href="index.html">⌂ Home</a>
+  <div class="hero-inner">
+    <span class="eyebrow">NYP · School of Engineering</span>
+    <h1>Find courses by your subject grades</h1>
+    <p>Tap in your actual or expected O-Level grade for each subject. Your ELR2B2-C aggregate updates live, and every SEG course sorts itself into eligible, borderline, or out of range.</p>
+  </div>
+</section>
+
+<section class="entry-section">
+  <div class="wrap" id="subjectsWrap"></div>
+
+  <div class="wrap">
+    <div class="agg-panel">
+      <div>
+        <div class="agg-label">Your ELR2B2-C aggregate</div>
+        <div class="agg-sub">English + Maths + Science + best 2 other subjects (lower is better)</div>
+      </div>
+      <div class="agg-value" id="aggValue">–</div>
+    </div>
+    <div class="agg-warn" id="minWarn">
+      Heads up: JAE entry to these courses also needs English at D7 or better, and Maths &amp; Science at C6 or better. Adjust those grades to see eligible courses.
+    </div>
+  </div>
+</section>
+
+<section class="results-section">
+  <div class="wrap">
+    <h2 class="results-heading">Courses you qualify for <span id="eligCount"></span></h2>
+    <div id="courseList"></div>
+  </div>
+</section>
+
+<div class="crosslink-band">
+  <h3>Prefer the app-style version?</h3>
+  <p>The Poly Course Finder covers the same eligibility check in a phone-app layout, plus interest matching and a full COP comparison list.</p>
+  <a class="crosslink-btn" href="CourseFinder.html">Open Poly Course Finder →</a>
+</div>
+
+<footer>
+  2026 JAE ELR2B2-C figures from nyp.edu.sg. Cut-off points shift each year — use as a guide, not a guarantee. Check with your ECG counsellor or NYP Admissions.
+</footer>
+
+<script>
+(function(){
+  var gradeLabels = ['A1','A2','B3','B4','C5','C6','D7','E8','F9'];
+
+  var subjects = [
+    {key:'en', label:'English Language', hint:'EL — must be D7 or better'},
+    {key:'ma', label:'Mathematics', hint:'R2 — must be C6 or better'},
+    {key:'sc', label:'Best Science', hint:'R2 — must be C6 or better'},
+    {key:'o1', label:'Best other subject', hint:'B2'},
+    {key:'o2', label:'2nd best other subject', hint:'B2'}
+  ];
+
+  var grades = {en:3, ma:3, sc:4, o1:4, o2:5};
+
+  var base = 'https://www.nyp.edu.sg/student/study/schools/engineering/';
+  var courses = [
+    {name:'Electronic & Computer Engineering', code:'C89', min:5, cop:25, url:base+'diploma-electronic-computer-engineering'},
+    {name:'AI & Data Engineering', code:'C31', min:6, cop:12, url:base+'diploma-AI-data-engineering'},
+    {name:'Aerospace Engineering', code:'C26', min:7, cop:14, url:base+'diploma-aerospace-engineering'},
+    {name:'Biomedical Engineering', code:'C71', min:7, cop:12, url:base+'diploma-biomedical-engineering'},
+    {name:'Cloud Engineering', code:'C75', min:9, cop:21, url:base+'diploma-cloud-engineering'},
+    {name:'Advanced & Digital Manufacturing', code:'C62', min:10, cop:26, url:base+'diploma-advanced-digital-manufacturing'},
+    {name:'AI Robotics', code:'C87', min:11, cop:26, url:base+'diploma-ai-robotics'},
+    {name:'Sustainability in Engineering with Business', code:'C41', min:10, cop:23, url:base+'diploma-sustainability-engineering-business'},
+    {name:'Common Engineering Programme', code:'C42', min:10, cop:23, url:base+'common-engineering-programme'},
+    {name:'Common Business & Technology Programme', code:'C24', min:5, cop:16, url:'https://www.nyp.edu.sg/student/study/common-programmes'}
+  ];
+
+  var subjectsWrap = document.getElementById('subjectsWrap');
+
+  subjects.forEach(function(sub){
+    var card = document.createElement('div');
+    card.className = 'subject-card';
+    var head = '<div class="subject-head"><span class="subject-name">' + sub.label + '</span><span class="subject-hint">' + sub.hint + '</span></div>';
+    var row = document.createElement('div');
+    row.className = 'grade-row';
+    gradeLabels.forEach(function(lab, i){
+      var v = i + 1;
+      var btn = document.createElement('button');
+      btn.className = 'grade-btn' + (grades[sub.key] === v ? ' selected' : '');
+      btn.textContent = lab;
+      btn.addEventListener('click', function(){
+        grades[sub.key] = v;
+        Array.prototype.forEach.call(row.children, function(b, j){
+          b.classList.toggle('selected', j === i);
+        });
+        update();
+      });
+      row.appendChild(btn);
+    });
+    card.innerHTML = head;
+    card.appendChild(row);
+    subjectsWrap.appendChild(card);
+  });
+
+  function update(){
+    var agg = grades.en + grades.ma + grades.sc + grades.o1 + grades.o2;
+    var meetsMin = grades.en <= 7 && grades.ma <= 6 && grades.sc <= 6;
+
+    document.getElementById('aggValue').textContent = agg;
+    document.getElementById('minWarn').classList.toggle('show', !meetsMin);
+
+    var list = document.getElementById('courseList');
+    list.innerHTML = '';
+
+    var scored = courses.map(function(c){
+      var inCop = agg <= c.cop;
+      var eligible = inCop && meetsMin;
+      var margin = c.cop - agg;
+      var status, badgeClass, detail, cardClass;
+      if(eligible){
+        if(margin <= 1){
+          status = 'Borderline'; badgeClass = 'status-borderline';
+        } else {
+          status = 'Eligible'; badgeClass = 'status-eligible';
+        }
+        cardClass = 'eligible';
+        detail = '2026 COP ' + c.cop + ' — you\u2019re ' + (margin === 0 ? 'right at the cut-off' : margin + ' point' + (margin > 1 ? 's' : '') + ' inside') + '. Range ' + c.min + '\u2013' + c.cop + '.';
+      } else {
+        status = 'Out of range'; badgeClass = 'status-out'; cardClass = 'out';
+        detail = !meetsMin
+          ? 'Needs English \u2264 D7, Maths & Science \u2264 C6.'
+          : '2026 COP ' + c.cop + ' — ' + (agg - c.cop) + ' point' + (agg - c.cop > 1 ? 's' : '') + ' above cut-off. Range ' + c.min + '\u2013' + c.cop + '.';
+      }
+      return {c:c, eligible:eligible, status:status, badgeClass:badgeClass, detail:detail, cardClass:cardClass};
+    }).sort(function(a, b){
+      return (b.eligible - a.eligible) || (a.c.cop - b.c.cop);
+    });
+
+    var eligCount = scored.filter(function(s){ return s.eligible; }).length;
+    document.getElementById('eligCount').textContent = eligCount + ' of ' + courses.length;
+
+    scored.forEach(function(s){
+      var card = document.createElement('div');
+      card.className = 'course-card ' + s.cardClass;
+      card.innerHTML =
+        '<div class="course-top">' +
+          '<div class="course-name">' + s.c.name + ' <span>' + s.c.code + '</span></div>' +
+          '<span class="status-badge ' + s.badgeClass + '">' + s.status + '</span>' +
+        '</div>' +
+        '<div class="course-detail">' + s.detail + '</div>' +
+        '<a class="course-link" href="' + s.c.url + '" target="_blank" rel="noopener">Full course on nyp.edu.sg \u2197</a>';
+      list.appendChild(card);
+    });
+  }
+
+  update();
+})();
+</script>
+
+</body>
+</html>

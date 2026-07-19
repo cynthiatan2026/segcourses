@@ -103,6 +103,13 @@
   .hero-btn-row{
     display:flex; flex-wrap:wrap; gap:14px; justify-content:center;
   }
+  .hero-group-label{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:15px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--gold-light);
+    margin-bottom:10px;
+  }
   .cta-btn-secondary{
     background:transparent;
     color:var(--cream);
@@ -114,21 +121,35 @@
     box-shadow:none;
     border-color:var(--cream);
   }
+  a.cta-btn{
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
 
   .promise-strip{
-    display:flex; flex-wrap:wrap; justify-content:center; gap:10px;
+    display:grid; grid-template-columns:repeat(2, auto);
+    justify-content:center;
+    column-gap:36px; row-gap:10px;
     margin-top:38px;
+    max-width:720px; margin-left:auto; margin-right:auto;
   }
   .promise-chip{
-    font-size:12.5px; font-weight:600;
-    background:rgba(247,239,225,0.1);
-    border:1px solid rgba(247,239,225,0.25);
-    color:var(--cream);
-    padding:8px 14px;
-    border-radius:999px;
+    font-size:13px; font-weight:500;
+    background:none; border:none; padding:0;
+    color:rgba(247,239,225,0.82);
+    letter-spacing:0.01em;
+    text-align:left;
+  }
+  @media (max-width:520px){
+    .promise-strip{grid-template-columns:1fr;}
   }
 
   /* ---------- QUIZ ---------- */
+  .quiz-header{text-align:center; max-width:600px; margin:0 auto 26px; padding:0 4px;}
+  .quiz-header h2{font-size:1.8rem; color:var(--maroon-deep); margin:0 0 10px;}
+  .quiz-header p{color:#5a3a3e; font-size:0.95rem; line-height:1.55; margin:0;}
   .quiz-section{
     display:none;
     padding:56px 24px 40px;
@@ -734,7 +755,8 @@
 
   /* ---------- TOP NAV ---------- */
   #heroSection, #eligibilitySection, #quizSection, #interestSection,
-  #browseSection, #pointsSection, #pulseSection, #gamesSection{
+  #browseSection, #pointsSection, #pulseSection, #gamesSection,
+  #clusterPhysical, #clusterDigital, #clusterHuman, #commonProgrammes{
     scroll-margin-top:64px;
   }
   html{scroll-behavior:smooth;}
@@ -749,10 +771,8 @@
     max-width:920px; margin:0 auto;
     display:flex; align-items:center; gap:4px;
     padding:0 12px;
-    overflow-x:auto;
-    scrollbar-width:none;
+    flex-wrap:wrap;
   }
-  .top-nav-inner::-webkit-scrollbar{display:none;}
   .top-nav-brand{
     flex-shrink:0;
     font-family:'Space Grotesk',sans-serif;
@@ -781,6 +801,51 @@
     color:var(--gold-light);
     border-bottom-color:var(--gold-light);
   }
+
+  /* Nav dropdown groups */
+  .nav-group{position:relative; flex-shrink:0;}
+  .nav-dropdown{
+    display:none;
+    position:absolute; top:100%; left:0;
+    background:var(--maroon-deep);
+    border:1px solid rgba(233,206,122,0.3);
+    border-top:none;
+    border-radius:0 0 12px 12px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.3);
+    min-width:180px;
+    padding:6px 0;
+    z-index:250;
+  }
+  .nav-group.open .nav-dropdown{display:block;}
+  @media (hover:hover){
+    .nav-group:hover .nav-dropdown{display:block;}
+  }
+  .nav-sub-link{
+    display:block; width:100%; text-align:left;
+    padding:11px 18px;
+    border-bottom:none;
+  }
+  .nav-sub-link:hover{background:rgba(233,206,122,0.12);}
+  .nav-sub-link.current{
+    color:var(--gold-light);
+    background:rgba(233,206,122,0.1);
+    border-bottom:none;
+  }
+
+  /* ---------- BACK TO TOP ---------- */
+  .back-to-top-row{
+    text-align:center; margin-top:28px;
+  }
+  .back-to-top{
+    background:none; border:none; cursor:pointer;
+    font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.85rem;
+    color:var(--maroon-mid);
+    padding:6px 12px;
+    text-decoration:underline;
+    text-underline-offset:3px;
+  }
+  .back-to-top:hover{color:var(--maroon-deep);}
+  .back-to-top:focus-visible{outline:2px solid var(--gold); outline-offset:2px; border-radius:6px;}
 
   /* ---------- SECTION DIVIDER ---------- */
   .section-divider{
@@ -1032,6 +1097,11 @@
     padding:26px 24px;
   }
   .common-band h3{margin:0 0 4px; color:var(--maroon-deep); font-size:1.15rem;}
+  .common-band-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.5rem; font-weight:700; color:var(--maroon-deep);
+    margin:0 0 12px;
+  }
   .common-band > p{margin:0 0 18px; color:#5a3a3e; font-size:0.95rem;}
   .common-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;}
   .common-card{
@@ -1062,12 +1132,32 @@
   <div class="top-nav-inner">
     <span class="top-nav-brand">SEG · NYP</span>
     <button class="top-nav-link" data-target="heroSection">Home</button>
-    <button class="top-nav-link" data-target="pulseSection">Pulse Game</button>
-    <button class="top-nav-link" data-target="eligibilitySection">Eligibility</button>
-    <button class="top-nav-link" data-target="quizSection">Quiz</button>
-    <button class="top-nav-link" data-target="interestSection">Interests</button>
-    <button class="top-nav-link" data-target="browseSection">Browse All</button>
-    <button class="top-nav-link" data-target="pointsSection">Compare Points</button>
+    <div class="nav-group">
+      <button class="top-nav-link nav-group-btn">ECG Matching ▾</button>
+      <div class="nav-dropdown">
+        <button class="top-nav-link nav-sub-link" data-target="quizSection">Start the Sort</button>
+        <button class="top-nav-link nav-sub-link" data-target="pulseSection">Pulse Game</button>
+        <button class="top-nav-link nav-sub-link" data-target="interestSection">Interests</button>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="top-nav-link nav-group-btn">Find Your Course ▾</button>
+      <div class="nav-dropdown">
+        <button class="top-nav-link nav-sub-link" data-target="eligibilitySection">Eligibility</button>
+        <button class="top-nav-link nav-sub-link" data-target="pointsSection">Compare Points</button>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="top-nav-link nav-group-btn">Browse Courses ▾</button>
+      <div class="nav-dropdown">
+        <button class="top-nav-link nav-sub-link" data-target="browseSection">All Courses</button>
+        <button class="top-nav-link nav-sub-link" data-target="clusterPhysical">Build the Physical Future</button>
+        <button class="top-nav-link nav-sub-link" data-target="clusterDigital">Build the Intelligent Future</button>
+        <button class="top-nav-link nav-sub-link" data-target="clusterHuman">Build the Human Future</button>
+        <button class="top-nav-link nav-sub-link" data-target="commonProgrammes">Common Programmes</button>
+        <a class="top-nav-link nav-sub-link" href="seg-university-pathways.html" style="text-decoration:none;">Universities</a>
+      </div>
+    </div>
     <button class="top-nav-link" data-target="gamesSection">Games</button>
   </div>
 </nav>
@@ -1077,9 +1167,18 @@
     <span class="eyebrow">NYP · School of Engineering</span>
     <h1>Which <span>Engineer</span><br>Are You?</h1>
     <p class="sub">8 diplomas. 2 common programmes. One quiz that sorts it out in 60 seconds — based on what actually excites you, not a list of course names.</p>
+    <div class="hero-group-label">ECG Matching</div>
     <div class="hero-btn-row">
       <button class="cta-btn" id="startBtn">Start the Sort →</button>
+      <button class="cta-btn" id="pulseHeroBtn">Pulse Games →</button>
+      <button class="cta-btn" id="interestHeroBtn">Interests →</button>
+    </div>
+    <div class="hero-group-label" style="margin-top:22px;">Find Your Course</div>
+    <div class="hero-btn-row">
       <button class="cta-btn cta-btn-secondary" id="eligBtn">Check My Eligibility →</button>
+      <button class="cta-btn cta-btn-secondary" id="pointsHeroBtn">Compare by Points →</button>
+      <a class="cta-btn cta-btn-secondary" href="cfinder.html">O-levels Results →</a>
+      <a class="cta-btn cta-btn-secondary" href="seg-university-pathways.html">Universities →</a>
     </div>
 
     <div class="promise-strip">
@@ -1089,6 +1188,49 @@
       <span class="promise-chip">🖨️ 3D printing from Year 1</span>
     </div>
   </div>
+</section>
+
+<div class="section-divider" id="quizDivider"><span class="section-divider-icon"></span></div>
+
+<section class="quiz-section active" id="quizSection">
+  <div class="quiz-header">
+    <h2>Start the Sort</h2>
+    <p>Three quick questions, zero overthinking — watch the gauges fill as your answers sort you into a track.</p>
+  </div>
+  <div class="progress-row" id="progressRow"></div>
+
+  <div class="gauges">
+    <div class="gauge" data-track="physical">
+      <div class="gauge-track"><div class="gauge-fill" id="fillPhysical"></div></div>
+      <div class="gauge-label">Build 🔧</div>
+    </div>
+    <div class="gauge" data-track="digital">
+      <div class="gauge-track"><div class="gauge-fill" id="fillDigital"></div></div>
+      <div class="gauge-label">Code 💻</div>
+    </div>
+    <div class="gauge" data-track="human">
+      <div class="gauge-track"><div class="gauge-fill" id="fillHuman"></div></div>
+      <div class="gauge-label">Heal 💚</div>
+    </div>
+  </div>
+
+  <div class="q-card" id="qCard">
+    <h2 id="qText"></h2>
+    <div class="options" id="qOptions"></div>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<section class="result-section" id="resultSection">
+  <div class="result-card">
+    <div class="result-badge" id="resultBadge"></div>
+    <div class="result-eyebrow">Your result</div>
+    <h2 id="resultTitle"></h2>
+    <p class="result-blurb" id="resultBlurb"></p>
+    <div class="result-diplomas" id="resultDiplomas"></div>
+    <button class="retake-btn" id="retakeBtn">Take it again</button>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
 </section>
 
 <div class="section-divider"><span class="section-divider-icon"></span></div>
@@ -1157,70 +1299,14 @@
       <button class="pulse-replay-btn" id="pulseReplayBtn">Run it again</button>
     </div>
   </div>
-</section>
-
-<div class="section-divider"><span class="section-divider-icon"></span></div>
-
-<section class="eligibility-section" id="eligibilitySection">
-  <div class="eligibility-card">
-    <h2>Check what you're eligible for</h2>
-    <p class="elig-sub">Enter your net ELR2B2-C aggregate from the O-Level JAE and we'll show which SEG diplomas you qualify for, ranked from most to least competitive.</p>
-    <div class="elig-input-row">
-      <input type="number" id="eligInput" placeholder="e.g. 8" min="0" max="30" inputmode="numeric">
-      <button class="elig-check-btn" id="eligCheckBtn">Check eligibility</button>
-    </div>
-    <p class="elig-hint">Lower aggregate = better O-Level grades. Most SEG courses range roughly 5–26 points.</p>
-
-    <div class="elig-results hidden" id="eligResults">
-      <p class="elig-results-heading" id="eligResultsHeading"></p>
-      <div class="elig-list" id="eligList"></div>
-      <p class="elig-disclaimer">Ranges shown are net ELR2B2-C aggregates for the 2026 JAE intake, based on NYP's published figures. Admission is merit-based and subject to vacancies — treat this as a guide, not a guarantee. Click any result to see full course details.</p>
-    </div>
-  </div>
-</section>
-
-<div class="section-divider"><span class="section-divider-icon"></span></div>
-
-<section class="quiz-section" id="quizSection">
-  <div class="progress-row" id="progressRow"></div>
-
-  <div class="gauges">
-    <div class="gauge" data-track="physical">
-      <div class="gauge-track"><div class="gauge-fill" id="fillPhysical"></div></div>
-      <div class="gauge-label">Build 🔧</div>
-    </div>
-    <div class="gauge" data-track="digital">
-      <div class="gauge-track"><div class="gauge-fill" id="fillDigital"></div></div>
-      <div class="gauge-label">Code 💻</div>
-    </div>
-    <div class="gauge" data-track="human">
-      <div class="gauge-track"><div class="gauge-fill" id="fillHuman"></div></div>
-      <div class="gauge-label">Heal 💚</div>
-    </div>
-  </div>
-
-  <div class="q-card" id="qCard">
-    <h2 id="qText"></h2>
-    <div class="options" id="qOptions"></div>
-  </div>
-</section>
-
-<section class="result-section" id="resultSection">
-  <div class="result-card">
-    <div class="result-badge" id="resultBadge"></div>
-    <div class="result-eyebrow">Your result</div>
-    <h2 id="resultTitle"></h2>
-    <p class="result-blurb" id="resultBlurb"></p>
-    <div class="result-diplomas" id="resultDiplomas"></div>
-    <button class="retake-btn" id="retakeBtn">Take it again</button>
-  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
 </section>
 
 <div class="section-divider"><span class="section-divider-icon"></span></div>
 
 <section class="interest-section" id="interestSection">
   <div class="interest-header">
-    <h2>What are you into?</h2>
+    <h2>Interests - What are you into?</h2>
     <p>Tap everything that sounds like you — we'll rank the diplomas that match best.</p>
   </div>
   <div class="interest-chips" id="interestChips">
@@ -1244,6 +1330,43 @@
     <p class="interest-results-heading" id="interestResultsHeading"></p>
     <div class="match-list" id="matchList"></div>
   </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon"></span></div>
+
+<section class="eligibility-section" id="eligibilitySection">
+  <div class="eligibility-card">
+    <h2>Check what you're eligible for</h2>
+    <p class="elig-sub">Enter your net ELR2B2-C aggregate from the O-Level JAE and we'll show which SEG diplomas you qualify for, ranked from most to least competitive.</p>
+    <div class="elig-input-row">
+      <input type="number" id="eligInput" placeholder="e.g. 8" min="0" max="30" inputmode="numeric">
+      <button class="elig-check-btn" id="eligCheckBtn">Check eligibility</button>
+    </div>
+    <p class="elig-hint">Lower aggregate = better O-Level grades. Most SEG courses range roughly 5–26 points.</p>
+
+    <div class="elig-results hidden" id="eligResults">
+      <p class="elig-results-heading" id="eligResultsHeading"></p>
+      <div class="elig-list" id="eligList"></div>
+      <p class="elig-disclaimer">Ranges shown are net ELR2B2-C aggregates for the 2026 JAE intake, based on NYP's published figures. Admission is merit-based and subject to vacancies — treat this as a guide, not a guarantee. Click any result to see full course details.</p>
+    </div>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon"></span></div>
+
+<section class="points-section" id="pointsSection">
+  <div class="points-header">
+    <h2>Compare all by points</h2>
+    <p>Every diploma and common programme's net ELR2B2-C aggregate range for the 2026 JAE, side by side. Lower points mean stronger O-Level grades were needed.</p>
+  </div>
+  <div class="points-sort-toggle">
+    <button class="points-sort-btn active" id="sortLowHighBtn">Low to High (most competitive first)</button>
+    <button class="points-sort-btn" id="sortHighLowBtn">High to Low</button>
+  </div>
+  <div class="points-list" id="pointsList"></div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
 </section>
 
 <div class="section-divider"><span class="section-divider-icon"></span></div>
@@ -1255,7 +1378,7 @@
       <p>All 8 diplomas, grouped by what they're really about — plus 2 programmes for when you genuinely can't decide yet.</p>
     </div>
 
-    <div class="cluster" data-track="physical">
+    <div class="cluster" data-track="physical" id="clusterPhysical">
       <div class="cluster-head">
         <span class="cluster-dot"></span>
         <h3>Build the Physical Future</h3>
@@ -1277,7 +1400,7 @@
       </div>
     </div>
 
-    <div class="cluster" data-track="digital">
+    <div class="cluster" data-track="digital" id="clusterDigital">
       <div class="cluster-head">
         <span class="cluster-dot"></span>
         <h3>Build the Intelligent Future</h3>
@@ -1311,7 +1434,7 @@
       </div>
     </div>
 
-    <div class="cluster" data-track="human">
+    <div class="cluster" data-track="human" id="clusterHuman">
       <div class="cluster-head">
         <span class="cluster-dot"></span>
         <h3>Build the Human Future</h3>
@@ -1333,7 +1456,8 @@
       </div>
     </div>
 
-    <div class="common-band">
+    <div class="common-band" id="commonProgrammes">
+      <div class="common-band-title">Common Programmes</div>
       <h3>Still torn between all three?</h3>
       <p>That's exactly what these two are for — a year (or more) to explore before you commit.</p>
       <div class="common-grid">
@@ -1352,20 +1476,7 @@
       </div>
     </div>
   </div>
-</section>
-
-<div class="section-divider"><span class="section-divider-icon"></span></div>
-
-<section class="points-section" id="pointsSection">
-  <div class="points-header">
-    <h2>Compare all by points</h2>
-    <p>Every diploma and common programme's net ELR2B2-C aggregate range for the 2026 JAE, side by side. Lower points mean stronger O-Level grades were needed.</p>
-  </div>
-  <div class="points-sort-toggle">
-    <button class="points-sort-btn active" id="sortLowHighBtn">Low to High (most competitive first)</button>
-    <button class="points-sort-btn" id="sortHighLowBtn">High to Low</button>
-  </div>
-  <div class="points-list" id="pointsList"></div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
 </section>
 
 <div class="section-divider"><span class="section-divider-icon"></span></div>
@@ -1376,6 +1487,7 @@
     <p>Ten quick games, one for each diploma and programme. Each one plays like the actual problem that discipline solves — not just a quiz with a costume on.</p>
   </div>
   <div class="games-grid" id="gamesGrid"></div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
 </section>
 
 <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
@@ -1842,7 +1954,6 @@
   var heroSection = document.getElementById('heroSection');
   var quizSection = document.getElementById('quizSection');
   var resultSection = document.getElementById('resultSection');
-  var startBtn = document.getElementById('startBtn');
   var retakeBtn = document.getElementById('retakeBtn');
   var progressRow = document.getElementById('progressRow');
   var qText = document.getElementById('qText');
@@ -1929,11 +2040,24 @@
     quizSection.scrollIntoView({behavior:'smooth', block:'start'});
   }
 
-  startBtn.addEventListener('click', function(){
-    quizSection.classList.add('active');
-    renderQuestion();
-    updateGauges();
-    quizSection.scrollIntoView({behavior:'smooth', block:'start'});
+  function startQuiz(){
+    var target = resultSection.classList.contains('active') ? resultSection : quizSection;
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // Quiz is visible by default — render it immediately
+  renderQuestion();
+  updateGauges();
+
+  document.getElementById('startBtn').addEventListener('click', startQuiz);
+  document.getElementById('pulseHeroBtn').addEventListener('click', function(){
+    document.getElementById('pulseSection').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('interestHeroBtn').addEventListener('click', function(){
+    document.getElementById('interestSection').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('pointsHeroBtn').addEventListener('click', function(){
+    document.getElementById('pointsSection').scrollIntoView({behavior:'smooth', block:'start'});
   });
 
   /* ---------- ELIGIBILITY DATA (2026 JAE net ELR2B2-C ranges, from nyp.edu.sg) ---------- */
@@ -2235,15 +2359,36 @@
     if(e.target === modalOverlay) closeModal();
   });
 
-  /* ---------- TOP NAV: click-to-scroll + scroll-spy ---------- */
-  var navLinks = document.querySelectorAll('.top-nav-link');
-  var navSections = Array.prototype.map.call(navLinks, function(link){
-    return document.getElementById(link.getAttribute('data-target'));
+  /* ---------- TOP NAV: dropdown groups + click-to-scroll + scroll-spy ---------- */
+  var navTargets = Array.prototype.slice.call(document.querySelectorAll('.top-nav [data-target]'));
+  var navGroupBtns = document.querySelectorAll('.nav-group-btn');
+
+  function closeAllGroups(){
+    document.querySelectorAll('.nav-group').forEach(function(g){ g.classList.remove('open'); });
+  }
+
+  navGroupBtns.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var group = btn.parentElement;
+      var wasOpen = group.classList.contains('open');
+      closeAllGroups();
+      if(!wasOpen){ group.classList.add('open'); }
+    });
   });
 
-  navLinks.forEach(function(link){
-    link.addEventListener('click', function(){
-      var target = document.getElementById(link.getAttribute('data-target'));
+  document.addEventListener('click', closeAllGroups);
+
+  navTargets.forEach(function(link){
+    link.addEventListener('click', function(e){
+      e.stopPropagation();
+      closeAllGroups();
+      var targetId = link.getAttribute('data-target');
+      if(targetId === 'quizSection'){
+        startQuiz();
+        return;
+      }
+      var target = document.getElementById(targetId);
       if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
     });
   });
@@ -2251,16 +2396,30 @@
   function updateActiveNavLink(){
     var scrollPos = window.scrollY + 90;
     var activeIndex = 0;
-    navSections.forEach(function(sec, i){
-      if(sec && sec.offsetTop <= scrollPos){ activeIndex = i; }
+    navTargets.forEach(function(link, i){
+      var sec = document.getElementById(link.getAttribute('data-target'));
+      if(sec && sec.offsetParent !== null && sec.offsetTop <= scrollPos){ activeIndex = i; }
     });
-    navLinks.forEach(function(link, i){
-      link.classList.toggle('current', i === activeIndex);
+    navGroupBtns.forEach(function(b){ b.classList.remove('current'); });
+    navTargets.forEach(function(link, i){
+      var isCurrent = i === activeIndex;
+      link.classList.toggle('current', isCurrent);
+      if(isCurrent){
+        var group = link.closest('.nav-group');
+        if(group){ group.querySelector('.nav-group-btn').classList.add('current'); }
+      }
     });
   }
 
   window.addEventListener('scroll', updateActiveNavLink, {passive:true});
   updateActiveNavLink();
+
+  /* ---------- BACK TO TOP ---------- */
+  document.querySelectorAll('.back-to-top').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
 
   /* ======================================================================
      GAMES SECTION — one mini-game per diploma, mechanic tied to its concept
