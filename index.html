@@ -945,6 +945,37 @@
     margin-top:20px; font-size:0.78rem; color:#8a6266; text-align:center; line-height:1.5;
   }
 
+  /* ---------- ENTER YOUR RESULTS ---------- */
+  .grades-section{
+    padding:20px 24px 20px;
+    background:#ffffff;
+  }
+  .grades-card{
+    max-width:720px; margin:0 auto;
+    background:var(--paper);
+    border-radius:24px;
+    padding:36px 30px;
+    box-shadow:0 12px 40px rgba(122,20,20,0.08);
+    border:1px solid var(--cream-dark);
+  }
+  .grades-card h2{
+    font-size:1.55rem; text-align:center; margin:0 0 8px; color:var(--maroon-deep);
+  }
+  .grades-card > p.grades-sub{
+    text-align:center; margin:0 0 22px; color:#5a3a3e; font-size:0.95rem; line-height:1.55;
+  }
+  .grades-mode-toggle{
+    display:flex; justify-content:center; gap:8px; margin-bottom:26px; flex-wrap:wrap;
+  }
+  .grades-mode-btn{
+    display:inline-block; text-decoration:none;
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.85rem;
+    background:var(--cream); border:2px solid var(--cream-dark); color:var(--maroon-deep);
+    padding:9px 18px; border-radius:999px; cursor:pointer; transition:all .15s;
+  }
+  .grades-mode-btn:hover{border-color:var(--gold);}
+  .grades-mode-btn.active{background:var(--maroon-deep); border-color:var(--maroon-deep); color:var(--cream);}
+
   /* ---------- BROWSE ALL ---------- */
   .browse-section{padding:20px 24px 70px;}
   .browse-header{text-align:center; max-width:560px; margin:0 auto 40px;}
@@ -1144,6 +1175,7 @@
       <button class="top-nav-link nav-group-btn">Find Your Course ▾</button>
       <div class="nav-dropdown">
         <button class="top-nav-link nav-sub-link" data-target="eligibilitySection">Eligibility</button>
+        <a class="top-nav-link nav-sub-link" href="cfinder.html" style="text-decoration:none;">O-Level aggregate</a>
         <button class="top-nav-link nav-sub-link" data-target="pointsSection">Compare Points</button>
       </div>
     </div>
@@ -1349,6 +1381,20 @@
       <p class="elig-results-heading" id="eligResultsHeading"></p>
       <div class="elig-list" id="eligList"></div>
       <p class="elig-disclaimer">Ranges shown are net ELR2B2-C aggregates for the 2026 JAE intake, based on NYP's published figures. Admission is merit-based and subject to vacancies — treat this as a guide, not a guarantee. Click any result to see full course details.</p>
+    </div>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon"></span></div>
+
+<section class="grades-section" id="gradesSection">
+  <div class="grades-card">
+    <h2>Enter your results</h2>
+    <p class="grades-sub" id="gradesSub">Don't know your aggregate off-hand? Punch in your subject grades instead and we'll work it out for you.</p>
+
+    <div class="grades-mode-toggle">
+      <a class="grades-mode-btn active" id="gradesModeActual" href="cfinder.html">Enter your target/actual O-Level results</a>
     </div>
   </div>
   <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
