@@ -28,14 +28,6 @@
     background:linear-gradient(180deg, var(--maroon-deep) 0%, var(--maroon-mid) 100%);
     color:var(--cream); padding:40px 20px 34px; position:relative; text-align:center;
   }
-  .home-link{
-    position:absolute; top:18px; right:18px;
-    display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 14px;
-    border-radius:99px; border:1.5px solid rgba(233,206,122,0.55);
-    background:rgba(233,206,122,0.12); color:var(--gold-light);
-    font-size:12px; font-weight:700; text-decoration:none;
-  }
-  .home-link:hover{background:rgba(233,206,122,0.25);}
   .eyebrow{
     display:inline-block; font-size:12px; font-weight:600; letter-spacing:0.12em;
     text-transform:uppercase; color:var(--gold-light); margin-bottom:10px;
@@ -125,12 +117,119 @@
     padding:26px 20px; text-align:center; font-size:0.8rem; line-height:1.6;
   }
   footer a{color:var(--gold-light);}
+
+  /* ---------- TOP NAV ---------- */
+  .top-nav{
+    position:sticky; top:0; z-index:200;
+    background:rgba(122,20,20,0.97);
+    backdrop-filter:blur(6px);
+    box-shadow:0 2px 12px rgba(0,0,0,0.15);
+  }
+  .top-nav-inner{
+    max-width:920px; margin:0 auto;
+    display:flex; align-items:center; gap:4px;
+    padding:0 12px;
+    flex-wrap:wrap;
+  }
+  .top-nav-brand{
+    flex-shrink:0;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:700; font-size:0.92rem;
+    color:var(--gold-light);
+    padding:14px 16px 14px 4px;
+    white-space:nowrap;
+    border-right:1px solid rgba(247,239,225,0.2);
+    margin-right:6px;
+  }
+  .top-nav-link{
+    flex-shrink:0;
+    font-family:'Inter',sans-serif;
+    font-size:0.86rem; font-weight:600;
+    color:rgba(247,239,225,0.8);
+    background:none; border:none;
+    padding:14px 14px;
+    cursor:pointer;
+    white-space:nowrap;
+    border-bottom:2px solid transparent;
+    transition:color .15s, border-color .15s;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .top-nav-link:hover{color:var(--cream);}
+  .top-nav-link:focus-visible{outline:2px solid var(--gold-light); outline-offset:-2px;}
+  .top-nav-link.current{
+    color:var(--gold-light);
+    border-bottom-color:var(--gold-light);
+  }
+
+  .nav-group{position:relative; flex-shrink:0;}
+  .nav-dropdown{
+    display:none;
+    position:absolute; top:100%; left:0;
+    background:var(--maroon-deep);
+    border:1px solid rgba(233,206,122,0.3);
+    border-top:none;
+    border-radius:0 0 12px 12px;
+    box-shadow:0 12px 28px rgba(0,0,0,0.3);
+    min-width:180px;
+    padding:6px 0;
+    z-index:250;
+  }
+  .nav-group.open .nav-dropdown{display:block;}
+  @media (hover:hover){
+    .nav-group:hover .nav-dropdown{display:block;}
+  }
+  .nav-sub-link{
+    display:block; width:100%; text-align:left;
+    padding:11px 18px;
+    border-bottom:none;
+  }
+  .nav-sub-link:hover{background:rgba(233,206,122,0.12);}
+  .nav-sub-link.current{
+    color:var(--gold-light);
+    background:rgba(233,206,122,0.1);
+    border-bottom:none;
+  }
 </style>
 </head>
 <body>
 
+<nav class="top-nav" id="topNav" aria-label="Section navigation">
+  <div class="top-nav-inner">
+    <span class="top-nav-brand">SEG · NYP</span>
+    <a class="top-nav-link" href="index.html">Home</a>
+    <div class="nav-group">
+      <button class="top-nav-link nav-group-btn" type="button">ECG Matching ▾</button>
+      <div class="nav-dropdown">
+        <a class="top-nav-link nav-sub-link" href="index.html#quizSection">Start the Sort</a>
+        <a class="top-nav-link nav-sub-link" href="index.html#pulseSection">Pulse Game</a>
+        <a class="top-nav-link nav-sub-link" href="index.html#interestSection">Interests</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="top-nav-link nav-group-btn" type="button">Find Your Course ▾</button>
+      <div class="nav-dropdown">
+        <a class="top-nav-link nav-sub-link" href="index.html#eligibilitySection">Eligibility</a>
+        <a class="top-nav-link nav-sub-link" href="cfinder.html">O-Level aggregate</a>
+        <a class="top-nav-link nav-sub-link" href="index.html#pointsSection">Compare Points</a>
+      </div>
+    </div>
+    <div class="nav-group">
+      <button class="top-nav-link nav-group-btn" type="button">Browse Courses ▾</button>
+      <div class="nav-dropdown">
+        <a class="top-nav-link nav-sub-link" href="index.html#browseSection">All Courses</a>
+        <a class="top-nav-link nav-sub-link" href="index.html#clusterPhysical">Build the Physical Future</a>
+        <a class="top-nav-link nav-sub-link" href="index.html#clusterDigital">Build the Intelligent Future</a>
+        <a class="top-nav-link nav-sub-link" href="index.html#clusterHuman">Build the Human Future</a>
+        <a class="top-nav-link nav-sub-link" href="index.html#commonProgrammes">Common Programmes</a>
+        <a class="top-nav-link nav-sub-link current" href="seg-university-pathways.html">Universities</a>
+      </div>
+    </div>
+    <a class="top-nav-link" href="index.html#gamesSection">Games</a>
+  </div>
+</nav>
+
 <section class="hero">
-  <a class="home-link" href="index.html">⌂ Home</a>
   <span class="eyebrow">NYP · School of Engineering</span>
   <h1>Universities you can <span>reach</span> from SEG</h1>
   <p>Every local university that SEG diplomas unlock through the University Pathway Programme — flip between viewing by university or by diploma.</p>
@@ -238,6 +337,25 @@
     byDipBtn.classList.add('active'); byUniBtn.classList.remove('active');
     dipView.classList.add('active'); uniView.classList.remove('active');
   });
+
+  /* ---------- TOP NAV: dropdown groups ---------- */
+  var navGroupBtns = document.querySelectorAll('.nav-group-btn');
+
+  function closeAllGroups(){
+    document.querySelectorAll('.nav-group').forEach(function(g){ g.classList.remove('open'); });
+  }
+
+  navGroupBtns.forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var group = btn.parentElement;
+      var wasOpen = group.classList.contains('open');
+      closeAllGroups();
+      if(!wasOpen){ group.classList.add('open'); }
+    });
+  });
+
+  document.addEventListener('click', closeAllGroups);
 })();
 </script>
 
