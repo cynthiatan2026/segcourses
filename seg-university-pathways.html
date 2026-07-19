@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University Pathway Explorer | NYP School of Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon-deep:#7A1414;
+    --maroon-mid:#9E2323;
+    --gold:#C9A227;
+    --gold-light:#E9CE7A;
+    --cream:#F7EFE1;
+    --cream-dark:#ECDFC2;
+    --ink:#2B1210;
+    --paper:#FFFFFF;
+    --c-physical:#7A1414;
+    --c-digital:#8A6A1E;
+    --c-human:#B54A2C;
+    --c-common:#C9A227;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#FFFFFF; color:var(--ink); font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; letter-spacing:-0.01em;}
+  .wrap{max-width:1000px; margin:0 auto; padding:0 24px;}
+
+  /* Hero */
+  .hero{
+    padding:56px 24px 44px;
+    background:linear-gradient(180deg, var(--maroon-deep) 0%, var(--maroon-mid) 100%);
+    color:var(--cream); text-align:center;
+  }
+  .eyebrow{
+    display:inline-block; font-size:12.5px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--gold-light); border:1px solid rgba(233,206,122,0.4); border-radius:999px; padding:6px 16px; margin-bottom:18px;
+  }
+  .hero h1{font-size:clamp(1.9rem, 5vw, 2.8rem); margin:0 0 14px; line-height:1.1;}
+  .hero h1 span{color:var(--gold-light);}
+  .hero p{font-size:1rem; max-width:600px; margin:0 auto; color:rgba(247,239,225,0.88); line-height:1.6;}
+
+  /* How it works strip */
+  .how-it-works{
+    max-width:900px; margin:-28px auto 0; padding:0 24px;
+  }
+  .how-card{
+    background:var(--paper); border-radius:18px; padding:24px 26px;
+    box-shadow:0 12px 32px rgba(122,20,20,0.12); border:1px solid var(--cream-dark);
+  }
+  .how-card h3{margin:0 0 10px; font-size:1.05rem; color:var(--maroon-deep);}
+  .how-card p{margin:0 0 10px; font-size:0.92rem; line-height:1.6; color:#4a2c30;}
+  .how-options{display:flex; gap:12px; flex-wrap:wrap; margin-top:12px;}
+  .how-opt{
+    flex:1; min-width:220px; background:var(--cream); border-radius:12px; padding:12px 14px;
+    font-size:0.85rem; color:#4a2c30; line-height:1.5;
+  }
+  .how-opt b{color:var(--maroon-deep);}
+
+  /* Tabs */
+  .tabs-section{padding:44px 24px 20px;}
+  .tabs-row{
+    display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:34px;
+  }
+  .tab-btn{
+    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.9rem;
+    background:var(--cream); border:2px solid var(--cream-dark); color:var(--maroon-deep);
+    padding:11px 20px; border-radius:999px; cursor:pointer; transition:all .15s;
+  }
+  .tab-btn:hover{border-color:var(--gold);}
+  .tab-btn.active{background:var(--maroon-deep); border-color:var(--maroon-deep); color:var(--cream);}
+
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;}
+
+  /* Selector row (dropdown-style pills) */
+  .selector-row{
+    display:flex; flex-wrap:wrap; gap:10px; justify-content:center; margin-bottom:28px;
+  }
+  .selector-pill{
+    font-size:0.86rem; font-weight:600; background:var(--paper); border:2px solid var(--cream-dark);
+    color:var(--ink); padding:9px 16px; border-radius:999px; cursor:pointer; transition:all .15s;
+  }
+  .selector-pill:hover{border-color:var(--gold);}
+  .selector-pill.active{background:var(--gold); border-color:var(--gold); color:var(--maroon-deep);}
+  .selector-pill .pill-code{font-weight:700; margin-right:4px; opacity:0.7;}
+
+  /* Result cards */
+  .result-area{max-width:820px; margin:0 auto;}
+  .uni-result-card{
+    background:var(--paper); border:1px solid var(--cream-dark); border-left:6px solid var(--gold);
+    border-radius:16px; padding:22px 24px; margin-bottom:16px;
+  }
+  .uni-result-card[data-uni="NUS"]{border-left-color:#003D7C;}
+  .uni-result-card[data-uni="NTU"]{border-left-color:#00693C;}
+  .uni-result-card[data-uni="SMU"]{border-left-color:#8E1B3A;}
+  .uni-result-card[data-uni="SIT"]{border-left-color:#E4572E;}
+  .uni-result-card[data-uni="SUTD"]{border-left-color:#5C2D91;}
+
+  .uni-result-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; margin-bottom:10px; flex-wrap:wrap;}
+  .uni-result-head h3{margin:0; font-size:1.15rem; color:var(--ink);}
+  .uni-badge{
+    font-size:0.76rem; font-weight:700; background:var(--cream); color:var(--maroon-deep);
+    padding:5px 12px; border-radius:999px; white-space:nowrap;
+  }
+  .uni-track-name{font-size:0.88rem; font-weight:600; color:var(--maroon-mid); margin:0 0 8px;}
+  .uni-desc{font-size:0.88rem; color:#4a2c30; line-height:1.6; margin:0 0 12px;}
+  .diploma-chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .diploma-chip{
+    font-size:0.8rem; font-weight:600; background:var(--cream); border:1px solid var(--cream-dark);
+    padding:6px 12px; border-radius:999px; color:var(--ink); cursor:pointer;
+  }
+  .diploma-chip.highlighted{background:var(--gold); border-color:var(--gold); color:var(--maroon-deep);}
+  .diploma-chip .chip-code{font-weight:700; opacity:0.7; margin-right:4px;}
+
+  .empty-note{
+    text-align:center; color:#8a6266; font-size:0.9rem; padding:24px; line-height:1.6;
+  }
+
+  /* Matrix table */
+  .matrix-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  .matrix-table{
+    border-collapse:collapse; width:100%; min-width:780px; font-size:0.82rem;
+  }
+  .matrix-table th, .matrix-table td{
+    padding:10px 8px; text-align:center; border:1px solid var(--cream-dark);
+  }
+  .matrix-table thead th{
+    background:var(--maroon-deep); color:var(--cream); font-family:'Space Grotesk',sans-serif;
+    font-weight:600; font-size:0.76rem; vertical-align:bottom; padding:12px 6px;
+  }
+  .matrix-table thead th.diploma-col-head{text-align:left; background:var(--maroon-mid);}
+  .matrix-table tbody th{
+    text-align:left; background:var(--cream); font-weight:600; color:var(--ink); white-space:nowrap;
+    font-family:'Inter',sans-serif; font-size:0.82rem;
+  }
+  .matrix-table tbody th .mcode{font-weight:700; color:var(--gold); margin-right:6px; font-size:0.76rem;}
+  .matrix-cell-yes{background:#e3d17a; color:var(--maroon-deep); font-weight:700;}
+  .matrix-cell-no{color:#c9c2b4;}
+  .matrix-note{font-size:0.8rem; color:#8a6266; text-align:center; margin-top:14px; line-height:1.6;}
+
+  /* Extra programmes */
+  .extra-section{padding:20px 24px 60px;}
+  .extra-grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; max-width:900px; margin:0 auto;
+  }
+  .extra-card{
+    background:var(--cream); border-radius:16px; padding:20px 22px; border:1px solid var(--cream-dark);
+  }
+  .extra-card h4{margin:0 0 8px; font-size:1rem; color:var(--maroon-deep);}
+  .extra-card p{margin:0; font-size:0.86rem; line-height:1.6; color:#4a2c30;}
+
+  footer{
+    background:var(--maroon-deep); color:rgba(247,239,225,0.85); padding:30px 24px; text-align:center; font-size:0.82rem;
+  }
+  footer a{color:var(--gold-light);}
+
+  .section-heading{text-align:center; max-width:640px; margin:0 auto 22px;}
+  .section-heading h2{font-size:1.5rem; color:var(--maroon-deep); margin:0 0 8px;}
+  .section-heading p{font-size:0.9rem; color:#5a3a3e; line-height:1.55; margin:0;}
+
+  @media (max-width:560px){
+    .hero{padding:44px 20px 60px;}
+    .how-card{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero" style="position:relative;">
+  <a href="index.html" style="position:absolute; top:18px; right:18px; display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 14px; border-radius:99px; border:1.5px solid rgba(233,206,122,0.55); background:rgba(233,206,122,0.12); color:var(--gold-light); font-size:12px; font-weight:700; text-decoration:none;">⌂ Home</a>
+  <div class="wrap">
+    <span class="eyebrow">NYP · School of Engineering</span>
+    <h1>University <span>Pathway</span> Explorer</h1>
+    <p>See exactly which universities, schools, and modules each SEG diploma unlocks in your final semester — straight from NYP's University Pathways page.</p>
+  </div>
+</section>
+
+<div class="how-it-works">
+  <div class="how-card">
+    <h3>How the University Pathway Programme (UPP) works</h3>
+    <p>Through partnerships with local universities, eligible NYP students can secure early conditional offers and/or module exemptions. In your <b>final semester (Year 3, Semester 2)</b>, you get one of two options:</p>
+    <div class="how-options">
+      <div class="how-opt"><b>Option 1 — University modules.</b> Take modules offered by NUS, NTU, SMU or SIT in place of NYP learning units.</div>
+      <div class="how-opt"><b>Option 2 — Immersion project.</b> Complete a 12-week final-year project co-mentored by SUTD professors (SUTD track only).</div>
+    </div>
+  </div>
+</div>
+
+<section class="tabs-section">
+  <div class="wrap">
+    <div class="tabs-row">
+      <button class="tab-btn active" data-tab="byDiploma">By Diploma</button>
+      <button class="tab-btn" data-tab="byUni">By University</button>
+      <button class="tab-btn" data-tab="byTrack">By Module Track</button>
+      <button class="tab-btn" data-tab="matrix">Full Matrix</button>
+    </div>
+
+    <!-- TAB 1: BY DIPLOMA -->
+    <div class="tab-panel active" id="panel-byDiploma">
+      <div class="section-heading">
+        <h2>Pick your diploma</h2>
+        <p>See every university, school, and module track it unlocks.</p>
+      </div>
+      <div class="selector-row" id="diplomaSelector"></div>
+      <div class="result-area" id="byDiplomaResults"></div>
+    </div>
+
+    <!-- TAB 2: BY UNIVERSITY -->
+    <div class="tab-panel" id="panel-byUni">
+      <div class="section-heading">
+        <h2>Pick a university</h2>
+        <p>See its module track(s) and which SEG diplomas can access each one.</p>
+      </div>
+      <div class="selector-row" id="uniSelector"></div>
+      <div class="result-area" id="byUniResults"></div>
+    </div>
+
+    <!-- TAB 3: BY MODULE TRACK -->
+    <div class="tab-panel" id="panel-byTrack">
+      <div class="section-heading">
+        <h2>Browse by module track</h2>
+        <p>Every specific school/faculty track NYP partners with, and which diplomas qualify.</p>
+      </div>
+      <div class="result-area" id="byTrackResults"></div>
+    </div>
+
+    <!-- TAB 4: MATRIX -->
+    <div class="tab-panel" id="panel-matrix">
+      <div class="section-heading">
+        <h2>Diploma × Module Track matrix</h2>
+        <p>The full picture at a glance — every diploma against every track.</p>
+      </div>
+      <div class="matrix-scroll">
+        <table class="matrix-table" id="matrixTable"></table>
+      </div>
+      <p class="matrix-note">Gold cells mark eligibility. Streaming into a diploma from a Common Programme carries the same UPP access as entering that diploma directly.</p>
+    </div>
+  </div>
+</section>
+
+<section class="extra-section">
+  <div class="wrap">
+    <div class="section-heading">
+      <h2>Related pathways worth knowing</h2>
+      <p>UPP isn't the only route into university-level work while still at NYP.</p>
+    </div>
+    <div class="extra-grid">
+      <div class="extra-card">
+        <h4>University Foundation Programme (UFP) <span style="color:var(--gold); font-size:0.75rem;">NEW</span></h4>
+        <p>Offered only in Year 3, Semester 2. Take up to three learning units under UFP for 12 credit units, in place of your final-year project — builds critical thinking, professional writing, and pre-university subject knowledge to prepare for matriculation.</p>
+      </div>
+      <div class="extra-card">
+        <h4>Diploma-Plus Programmes</h4>
+        <p>Start as early as Year 1, Semester 2. Complete specific degree-level modules at NYP to sharpen your competitiveness for university admission — you graduate with a Dip-Plus Transcript that may also exempt you from selected modules at NUS or NTU. Applicable to selected diplomas only.</p>
+      </div>
+      <div class="extra-card">
+        <h4>University Preparatory Mentorship Programme</h4>
+        <p>From Year 2 through to one year after graduation, get dedicated mentorship for university interviews, portfolio development, scholarship applications, and the transition into university life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Source: NYP's <a href="https://www.nyp.edu.sg/student/study/university-pathways" target="_blank" rel="noopener">University Pathways</a> page. Eligibility and module counts are set by NYP and its university partners and may change — always confirm current details with NYP School of Engineering before making decisions.
+</footer>
+
+<script>
+(function(){
+  var diplomas = [
+    {code:"C62", name:"Advanced & Digital Manufacturing", track:"physical"},
+    {code:"C26", name:"Aerospace Engineering", track:"physical"},
+    {code:"C31", name:"AI & Data Engineering", track:"digital"},
+    {code:"C87", name:"AI Robotics", track:"digital"},
+    {code:"C71", name:"Biomedical Engineering", track:"human"},
+    {code:"C75", name:"Cloud Engineering", track:"digital"},
+    {code:"C89", name:"Electronic & Computer Engineering", track:"digital"},
+    {code:"C41", name:"Sustainability in Engineering with Business", track:"human"},
+    {code:"C24", name:"Common Business & Technology Programme", track:"common"},
+    {code:"C42", name:"Common Engineering Programme", track:"common"}
+  ];
+
+  var diplomaMap = {};
+  diplomas.forEach(function(d){ diplomaMap[d.code] = d; });
+
+  // Module tracks — sourced from NYP University Pathways page
+  var tracks = [
+    {
+      id:"NUS-CDE", uni:"NUS", uniFullName:"National University of Singapore",
+      trackName:"College of Design & Engineering", moduleCount:3, type:"modules",
+      desc:"Eligible final-year students take three NUS CDE modules in place of three NYP learning units.",
+      diplomas:["C26","C87","C71","C89","C41"]
+    },
+    {
+      id:"NTU-EEE", uni:"NTU", uniFullName:"Nanyang Technological University",
+      trackName:"School of Electrical & Electronic Engineering (EEE)", moduleCount:3, type:"modules",
+      desc:"Eligible final-year students take up to three NTU EEE modules in place of NYP learning units.",
+      diplomas:["C26","C31","C87","C71","C75","C89","C41"]
+    },
+    {
+      id:"NTU-MAE", uni:"NTU", uniFullName:"Nanyang Technological University",
+      trackName:"School of Mechanical & Aerospace Engineering (MAE)", moduleCount:3, type:"modules",
+      desc:"Eligible final-year students take up to three NTU MAE modules in place of NYP learning units.",
+      diplomas:["C62","C26","C31","C87"]
+    },
+    {
+      id:"SMU-SCIS", uni:"SMU", uniFullName:"Singapore Management University",
+      trackName:"School of Computing & Information Systems (SCIS)", moduleCount:2, type:"modules",
+      desc:"Eligible final-year students take two SMU SCIS modules in place of NYP learning units.",
+      diplomas:["C31","C75","C89"]
+    },
+    {
+      id:"SIT-EICT", uni:"SIT", uniFullName:"Singapore Institute of Technology",
+      trackName:"Engineering & Infocomm Technology degree programmes", moduleCount:2, type:"modules",
+      desc:"Eligible final-year students take two SIT modules in place of NYP learning units.",
+      diplomas:["C62","C26","C31","C87","C71","C75","C89","C41"]
+    },
+    {
+      id:"SUTD-IMM", uni:"SUTD", uniFullName:"Singapore University of Technology and Design",
+      trackName:"Immersion Project Track", moduleCount:0, type:"project",
+      desc:"Selected students complete a 12-week final-year project under co-mentorship of SUTD professors and NYP lecturers — no modules taken, project-based instead.",
+      diplomas:["C62","C26","C31","C87","C71","C75","C89","C41"]
+    }
+  ];
+
+  var uniOrder = ["NUS","NTU","SMU","SIT","SUTD"];
+  var uniFullNames = {
+    NUS:"National University of Singapore", NTU:"Nanyang Technological University",
+    SMU:"Singapore Management University", SIT:"Singapore Institute of Technology",
+    SUTD:"Singapore University of Technology and Design"
+  };
+
+  function tracksForUni(uni){ return tracks.filter(function(t){ return t.uni === uni; }); }
+  function tracksForDiploma(code){ return tracks.filter(function(t){ return t.diplomas.indexOf(code) !== -1; }); }
+
+  function trackBadgeLabel(t){
+    return t.type === 'project' ? 'Immersion project' : (t.moduleCount + ' module' + (t.moduleCount === 1 ? '' : 's'));
+  }
+
+  function renderTrackCard(t, highlightCode){
+    var chips = t.diplomas.map(function(code){
+      var d = diplomaMap[code];
+      var hl = (code === highlightCode) ? ' highlighted' : '';
+      return '<span class="diploma-chip' + hl + '"><span class="chip-code">' + code + '</span>' + d.name + '</span>';
+    }).join('');
+    return (
+      '<div class="uni-result-card" data-uni="' + t.uni + '">' +
+        '<div class="uni-result-head"><h3>' + t.uniFullName + ' (' + t.uni + ')</h3><span class="uni-badge">' + trackBadgeLabel(t) + '</span></div>' +
+        '<p class="uni-track-name">' + t.trackName + '</p>' +
+        '<p class="uni-desc">' + t.desc + '</p>' +
+        '<div class="diploma-chip-row">' + chips + '</div>' +
+      '</div>'
+    );
+  }
+
+  /* ---- TAB 1: BY DIPLOMA ---- */
+  var diplomaSelector = document.getElementById('diplomaSelector');
+  var byDiplomaResults = document.getElementById('byDiplomaResults');
+
+  diplomas.forEach(function(d){
+    var pill = document.createElement('button');
+    pill.className = 'selector-pill';
+    pill.setAttribute('data-code', d.code);
+    pill.innerHTML = '<span class="pill-code">' + d.code + '</span>' + d.name;
+    pill.addEventListener('click', function(){
+      Array.prototype.forEach.call(diplomaSelector.children, function(p){ p.classList.remove('active'); });
+      pill.classList.add('active');
+      renderByDiploma(d.code);
+    });
+    diplomaSelector.appendChild(pill);
+  });
+
+  function renderByDiploma(code){
+    var matches = tracksForDiploma(code);
+    if(matches.length === 0){
+      byDiplomaResults.innerHTML = '<p class="empty-note">' + diplomaMap[code].name +
+        ' streams into a specific diploma before Year 3 — UPP eligibility then follows whichever diploma you graduate into. Check that diploma\'s options here once you\'ve streamed.</p>';
+      return;
+    }
+    byDiplomaResults.innerHTML = matches.map(function(t){ return renderTrackCard(t, code); }).join('');
+  }
+
+  diplomaSelector.children[0].click();
+
+  /* ---- TAB 2: BY UNIVERSITY ---- */
+  var uniSelector = document.getElementById('uniSelector');
+  var byUniResults = document.getElementById('byUniResults');
+
+  uniOrder.forEach(function(uni){
+    var pill = document.createElement('button');
+    pill.className = 'selector-pill';
+    pill.setAttribute('data-uni', uni);
+    pill.textContent = uni;
+    pill.addEventListener('click', function(){
+      Array.prototype.forEach.call(uniSelector.children, function(p){ p.classList.remove('active'); });
+      pill.classList.add('active');
+      renderByUni(uni);
+    });
+    uniSelector.appendChild(pill);
+  });
+
+  function renderByUni(uni){
+    var matches = tracksForUni(uni);
+    byUniResults.innerHTML = matches.map(function(t){ return renderTrackCard(t, null); }).join('');
+  }
+
+  uniSelector.children[0].click();
+
+  /* ---- TAB 3: BY MODULE TRACK ---- */
+  var byTrackResults = document.getElementById('byTrackResults');
+  byTrackResults.innerHTML = tracks.map(function(t){ return renderTrackCard(t, null); }).join('');
+
+  /* ---- TAB 4: MATRIX ---- */
+  var seGDiplomas = diplomas.filter(function(d){ return d.track !== 'common'; });
+  var matrixTable = document.getElementById('matrixTable');
+
+  var thead = '<thead><tr><th class="diploma-col-head">Diploma</th>' +
+    tracks.map(function(t){ return '<th>' + t.uni + '<br>' + t.trackName.split('(')[0].trim() + '</th>'; }).join('') +
+    '</tr></thead>';
+
+  var tbody = '<tbody>' + seGDiplomas.map(function(d){
+    var cells = tracks.map(function(t){
+      var eligible = t.diplomas.indexOf(d.code) !== -1;
+      return '<td class="' + (eligible ? 'matrix-cell-yes' : 'matrix-cell-no') + '">' + (eligible ? '●' : '—') + '</td>';
+    }).join('');
+    return '<tr><th><span class="mcode">' + d.code + '</span>' + d.name + '</th>' + cells + '</tr>';
+  }).join('') + '</tbody>';
+
+  matrixTable.innerHTML = thead + tbody;
+
+  /* ---- TAB SWITCHING ---- */
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      tabBtns.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.tab-panel').forEach(function(p){ p.classList.remove('active'); });
+      document.getElementById('panel-' + btn.getAttribute('data-tab')).classList.add('active');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
