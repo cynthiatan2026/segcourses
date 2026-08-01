@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Which Engineer Are You? | NYP School of Engineering</title>
+<title>Personality Quiz | NYP School of Engineering</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -105,63 +105,10 @@
   }
   .hero-group-label{
     font-family:'Space Grotesk',sans-serif;
-    font-size:23px; font-weight:700;
-    line-height:1.1;
-    letter-spacing:0.04em; text-transform:uppercase;
+    font-size:15px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase;
     color:var(--gold-light);
-    margin-bottom:16px;
-  }
-  @media (max-width:700px){
-    .hero-group-label{font-size:19px; letter-spacing:0.05em;}
-  }
-  /* ---------- QUICK LINKS (moved out of the hero) ---------- */
-  .quicklinks-section{padding:10px 24px 20px;}
-  .quicklinks-header{text-align:center; max-width:620px; margin:0 auto 26px;}
-  .quicklinks-header h2{font-size:1.8rem; color:var(--maroon-deep); margin:0 0 10px;}
-  .quicklinks-header p{color:#5a3a3e; font-size:0.95rem; line-height:1.55; margin:0;}
-  #quickLinks{scroll-margin-top:64px;}
-
-  .hero-group-box{
-    max-width:880px;
-    margin:0 auto 18px;
-    padding:34px 28px 24px;
-    border-radius:24px;
-    border:3px solid;
-  }
-  .hero-box-quiz{
-    border-color:var(--gold);
-    background:rgba(201,162,39,0.05);
-  }
-  .hero-box-games{
-    border-color:var(--c-human);
-    background:rgba(181,74,44,0.05);
-  }
-  .hero-box-elig{
-    border-color:var(--maroon-deep);
-    background:rgba(122,20,20,0.04);
-  }
-  .hero-box-uni{
-    border-color:var(--c-digital);
-    background:rgba(138,106,30,0.05);
-  }
-  .hero-group-box .hero-group-label{
-    margin-bottom:18px;
-    color:var(--maroon-deep);
-  }
-  /* outlined buttons need dark ink now that they sit on white */
-  .quicklinks-section .cta-btn-secondary{
-    color:var(--maroon-deep);
-    border-color:var(--maroon-mid);
-  }
-  .quicklinks-section .cta-btn-secondary:hover{
-    background:rgba(122,20,20,0.06);
-    border-color:var(--maroon-deep);
-  }
-  .quicklinks-section .cta-btn{
-    box-shadow:0 6px 16px rgba(122,20,20,0.12);
-  }
-  @media (max-width:620px){
-    .hero-group-box{margin-left:16px; margin-right:16px; padding:24px 18px 18px; border-radius:18px;}
+    margin-bottom:10px;
   }
   .cta-btn-secondary{
     background:transparent;
@@ -205,9 +152,17 @@
   .quiz-header p{color:#5a3a3e; font-size:0.95rem; line-height:1.55; margin:0;}
   .quiz-section{
     display:none;
-    padding:56px 24px 40px;
+    max-width:880px;
+    margin:34px auto 10px;
+    padding:34px 28px 24px;
+    background:rgba(236,223,194,0.28);
+    border:3px solid var(--cream-dark);
+    border-radius:24px;
   }
   .quiz-section.active{display:block;}
+  @media (max-width:620px){
+    .quiz-section{margin-left:16px; margin-right:16px; padding:26px 18px 18px;}
+  }
 
   .progress-row{
     display:flex; align-items:center; justify-content:center; gap:8px;
@@ -326,7 +281,15 @@
 
   /* ---------- INTEREST PICKER ---------- */
   .interest-section{
-    padding:60px 24px 20px;
+    max-width:880px;
+    margin:34px auto 10px;
+    padding:34px 28px 20px;
+    background:rgba(201,162,39,0.05);
+    border:3px solid var(--gold);
+    border-radius:24px;
+  }
+  @media (max-width:620px){
+    .interest-section{margin-left:16px; margin-right:16px; padding:26px 18px 16px;}
   }
   .interest-header{text-align:center; max-width:600px; margin:0 auto 28px;}
   .interest-header h2{font-size:1.8rem; color:var(--maroon-deep); margin:0 0 10px;}
@@ -479,7 +442,17 @@
   .points-row[data-track="common"] .points-row-code{color:var(--gold);}
 
   /* ---------- PULSE GAME (ECG) ---------- */
-  .pulse-section{padding:60px 24px 20px;}
+  .pulse-section{
+    max-width:880px;
+    margin:34px auto 10px;
+    padding:34px 28px 20px;
+    background:rgba(122,20,20,0.04);
+    border:3px solid var(--maroon-deep);
+    border-radius:24px;
+  }
+  @media (max-width:620px){
+    .pulse-section{margin-left:16px; margin-right:16px; padding:26px 18px 16px;}
+  }
   .pulse-header{text-align:center; max-width:600px; margin:0 auto 30px;}
   .pulse-header h2{font-size:1.8rem; color:var(--maroon-deep); margin:0 0 10px;}
   .pulse-header p{color:#5a3a3e; font-size:0.95rem; line-height:1.55;}
@@ -578,13 +551,6 @@
   .pulse-dot{width:8px; height:8px; border-radius:50%; background:var(--cream-dark); transition:background .2s;}
   .pulse-dot.done{background:var(--gold);}
   .pulse-dot.current{background:var(--maroon-mid);}
-  .pulse-timer-track{
-    flex-shrink:0; width:90px; height:6px; border-radius:4px; background:var(--cream-dark); overflow:hidden;
-  }
-  .pulse-timer-fill{
-    height:100%; width:100%; background:var(--gold);
-    transform-origin:left; transition:transform linear;
-  }
   .pulse-question-text{
     text-align:center; font-size:1.02rem; font-weight:600; color:var(--maroon-deep);
     margin:0 0 20px;
@@ -1179,6 +1145,17 @@
     .result-card{padding:32px 20px;}
   }
 </style>
+<style>
+  .home-link-pq{
+    position:absolute; top:16px; right:18px;
+    display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 14px;
+    border-radius:99px; border:1.5px solid rgba(233,206,122,0.55);
+    background:rgba(233,206,122,0.12); color:var(--gold-light);
+    font-size:12px; font-weight:700; text-decoration:none; z-index:5;
+  }
+  .home-link-pq:hover{background:rgba(233,206,122,0.25);}
+  a.cta-btn{text-decoration:none;}
+</style>
 
 <body>
 
@@ -1232,67 +1209,160 @@
 </nav>
 
 <section class="hero" id="heroSection">
+  <a class="home-link-pq" href="index.html">⌂ Home</a>
   <div class="wrap">
     <span class="eyebrow">NYP · School of Engineering</span>
-    <h1>Which <span>Engineer</span><br>Are You?</h1>
-    <p class="sub">8 diplomas. 2 common programmes. One quiz that sorts it out in 60 seconds — based on what actually excites you, not a list of course names.</p>
-    <div class="promise-strip">
-      <span class="promise-chip">🤖 AI certification in every diploma</span>
-      <span class="promise-chip">🏆 Certs from Microsoft & Schneider Electric</span>
-      <span class="promise-chip">🎓 Head-start to NUS / NTU / SMU / SIT / SUTD</span>
-      <span class="promise-chip">🖨️ 3D printing from Year 1</span>
+    <h1>Personality <span>Quiz</span></h1>
+    <p class="sub">Three ways to find your track — a quick sort, a rapid-fire pulse game, and an interest matcher. No wrong answers, just your instincts.</p>
+    <div class="hero-btn-row">
+      <button class="cta-btn" id="pqInterestBtn">Interests →</button>
+      <button class="cta-btn" id="pqQuizBtn">Start the Sort →</button>
+      <button class="cta-btn" id="pqPulseBtn">Pulse Game →</button>
     </div>
   </div>
 </section>
 
 <div class="section-divider"><span class="section-divider-icon"></span></div>
 
-<section class="quicklinks-section" id="quickLinks">
-  <div class="quicklinks-header">
-    <h2>Where do you want to start?</h2>
-    <p>Four ways in — take a quiz, play a game, check what you qualify for, or look at university pathways.</p>
+<section class="interest-section" id="interestSection">
+  <div class="interest-header">
+    <h2>Interests - What are you into?</h2>
+    <p>Tap everything that sounds like you — we'll rank the diplomas that match best.</p>
   </div>
-  <div class="hero-group-box hero-box-quiz">
-    <div class="hero-group-label">Interest/Personality Quiz</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn" href="personalityquiz.html#interestSection">Interests →</a>
-      <a class="cta-btn" href="personalityquiz.html#quizSection">Start the Sort →</a>
-      <a class="cta-btn" href="personalityquiz.html#pulseSection">Pulse Games →</a>
-    </div>
+  <div class="interest-chips" id="interestChips">
+    <button class="interest-chip" data-interest="ai">🤖 AI & Machine Learning</button>
+    <button class="interest-chip" data-interest="robots">🦾 Robots</button>
+    <button class="interest-chip" data-interest="flight">✈️ Aircraft & Flight</button>
+    <button class="interest-chip" data-interest="manufacturing">🏭 Making & 3D Printing</button>
+    <button class="interest-chip" data-interest="health">🩺 Healthcare & Medical Devices</button>
+    <button class="interest-chip" data-interest="cloud">☁️ Cloud & Software</button>
+    <button class="interest-chip" data-interest="electronics">🔌 Electronics & Circuits</button>
+    <button class="interest-chip" data-interest="sustainability">🌱 Sustainability</button>
+    <button class="interest-chip" data-interest="business">💼 Business</button>
+    <button class="interest-chip" data-interest="data">📊 Data & Analytics</button>
   </div>
-
-  <div class="hero-group-box hero-box-games">
-    <div class="hero-group-label">Games</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn cta-btn-secondary" href="games.html#gamesDiplomas">Diplomas →</a>
-      <a class="cta-btn cta-btn-secondary" href="games.html#gamesCommon">Common Programmes →</a>
-    </div>
-  </div>
-
-  <div class="hero-group-box hero-box-elig">
-    <div class="hero-group-label">Eligibility</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn" href="eligibility.html#eligibilitySection">JAE Score →</a>
-      <a class="cta-btn" href="eligibility.html#subjectGradesSection">Subject Grades →</a>
-      <a class="cta-btn" href="eligibility.html#pointsSection">Compare by Points →</a>
-    </div>
+  <div class="interest-actions">
+    <button class="interest-find-btn" id="interestFindBtn">Find my matches</button>
+    <button class="interest-clear-btn" id="interestClearBtn">Clear</button>
   </div>
 
-  <div class="hero-group-box hero-box-uni">
-    <div class="hero-group-label">Universities</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn cta-btn-secondary" href="university.html#byDiploma">By Diploma →</a>
-      <a class="cta-btn cta-btn-secondary" href="university.html#byUni">By University →</a>
-      <a class="cta-btn cta-btn-secondary" href="university.html#byTrack">By Module Track →</a>
-      <a class="cta-btn cta-btn-secondary" href="university.html#matrix">Full Matrix →</a>
-    </div>
+  <div class="interest-results hidden" id="interestResults">
+    <p class="interest-results-heading" id="interestResultsHeading"></p>
+    <div class="match-list" id="matchList"></div>
   </div>
   <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
 </section>
 
+<div class="section-divider" id="quizDivider"><span class="section-divider-icon"></span></div>
 
+<section class="quiz-section active" id="quizSection">
+  <div class="quiz-header">
+    <h2>Start the Sort</h2>
+    <p>Six quick questions, zero overthinking — watch the gauges fill as your answers sort you into a track.</p>
+  </div>
+  <div class="progress-row" id="progressRow"></div>
 
+  <div class="gauges">
+    <div class="gauge" data-track="physical">
+      <div class="gauge-track"><div class="gauge-fill" id="fillPhysical"></div></div>
+      <div class="gauge-label">Build 🔧</div>
+    </div>
+    <div class="gauge" data-track="digital">
+      <div class="gauge-track"><div class="gauge-fill" id="fillDigital"></div></div>
+      <div class="gauge-label">Code 💻</div>
+    </div>
+    <div class="gauge" data-track="human">
+      <div class="gauge-track"><div class="gauge-fill" id="fillHuman"></div></div>
+      <div class="gauge-label">Heal 💚</div>
+    </div>
+  </div>
 
+  <div class="q-card" id="qCard">
+    <h2 id="qText"></h2>
+    <div class="options" id="qOptions"></div>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<section class="result-section" id="resultSection">
+  <div class="result-card">
+    <div class="result-badge" id="resultBadge"></div>
+    <div class="result-eyebrow">Your result</div>
+    <h2 id="resultTitle"></h2>
+    <p class="result-blurb" id="resultBlurb"></p>
+    <div class="result-diplomas" id="resultDiplomas"></div>
+    <button class="retake-btn" id="retakeBtn">Take it again</button>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon"></span></div>
+
+<section class="pulse-section" id="pulseSection">
+  <div class="pulse-header">
+    <h2>Find Your Engineering Pulse</h2>
+    <p>Tap one option in each round to spike its signal — get through all the rounds to reveal your reading. No timer, so take your time.</p>
+  </div>
+
+  <div class="pulse-monitor" id="pulseMonitor">
+    <div class="pulse-lane" data-track="physical">
+      <span class="pulse-lane-label">🔧 Build</span>
+      <div class="pulse-svg-wrap">
+        <svg class="pulse-svg" viewBox="0 0 1000 44" preserveAspectRatio="none">
+          <path class="pulse-line" d="M0,22 L210,22 L216,8 L222,36 L228,14 L234,22 L460,22 L468,8 L476,36 L484,14 L492,22 L710,22 L716,8 L722,36 L728,14 L734,22 L960,22 L968,8 L976,36 L984,14 L992,22 L1000,22" />
+        </svg>
+      </div>
+      <span class="pulse-score" id="pulseScorePhysical">0</span>
+    </div>
+    <div class="pulse-lane" data-track="digital">
+      <span class="pulse-lane-label">💻 Code</span>
+      <div class="pulse-svg-wrap">
+        <svg class="pulse-svg" viewBox="0 0 1000 44" preserveAspectRatio="none">
+          <path class="pulse-line" d="M0,22 L210,22 L216,8 L222,36 L228,14 L234,22 L460,22 L468,8 L476,36 L484,14 L492,22 L710,22 L716,8 L722,36 L728,14 L734,22 L960,22 L968,8 L976,36 L984,14 L992,22 L1000,22" />
+        </svg>
+      </div>
+      <span class="pulse-score" id="pulseScoreDigital">0</span>
+    </div>
+    <div class="pulse-lane" data-track="human">
+      <span class="pulse-lane-label">💚 Heal</span>
+      <div class="pulse-svg-wrap">
+        <svg class="pulse-svg" viewBox="0 0 1000 44" preserveAspectRatio="none">
+          <path class="pulse-line" d="M0,22 L210,22 L216,8 L222,36 L228,14 L234,22 L460,22 L468,8 L476,36 L484,14 L492,22 L710,22 L716,8 L722,36 L728,14 L734,22 L960,22 L968,8 L976,36 L984,14 L992,22 L1000,22" />
+        </svg>
+      </div>
+      <span class="pulse-score" id="pulseScoreHuman">0</span>
+    </div>
+  </div>
+
+  <div class="pulse-game-area">
+    <div class="pulse-start-wrap" id="pulseStartWrap">
+      <button class="pulse-start-btn" id="pulseStartBtn">Start Monitoring →</button>
+      <p class="pulse-start-hint" id="pulseStartHint">Take as long as you like — tap through every round to get your reading.</p>
+    </div>
+
+    <div class="pulse-game-card" id="pulseGameCard">
+      <div class="pulse-progress-row">
+        <span class="pulse-round-label" id="pulseRoundLabel"></span>
+        <div class="pulse-progress-dots" id="pulseProgressDots"></div>
+      </div>
+      <p class="pulse-question-text" id="pulseQuestionText">Tap the one that gets your pulse racing more:</p>
+      <div class="pulse-options" id="pulseOptions"></div>
+    </div>
+  </div>
+
+  <div class="pulse-diagnosis" id="pulseDiagnosis">
+    <div class="pulse-diagnosis-card">
+      <div class="pulse-diagnosis-badge" id="pulseDiagnosisBadge"></div>
+      <div class="pulse-diagnosis-kicker">Pulse reading complete</div>
+      <h2 class="pulse-diagnosis-title" id="pulseDiagnosisTitle"></h2>
+      <p class="pulse-diagnosis-blurb" id="pulseDiagnosisBlurb"></p>
+      <div class="pulse-score-breakdown" id="pulseScoreBreakdown"></div>
+      <div class="pulse-diagnosis-diplomas" id="pulseDiagnosisDiplomas"></div>
+      <button class="pulse-replay-btn" id="pulseReplayBtn">Run it again</button>
+    </div>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
 
 <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-panel">
@@ -1339,6 +1409,288 @@
 
 <script>
 (function(){
+  var questions = [
+    {
+      text: "School's out and you've got the whole afternoon. What are you doing?",
+      options: [
+        {label:"Taking apart an old speaker just to see what's inside", track:"physical"},
+        {label:"Messing with an AI chatbot to see how far you can push it", track:"digital"},
+        {label:"Helping your grandma figure out her phone \u2014 again", track:"human"}
+      ]
+    },
+    {
+      text: "Group project time. Which job do you grab first?",
+      options: [
+        {label:"Building the actual model or prototype", track:"physical"},
+        {label:"Coding the app or making the slides look unreal", track:"digital"},
+        {label:"Figuring out who we're helping and why it matters", track:"human"}
+      ]
+    },
+    {
+      text: "Something at home breaks. Be honest \u2014 what happens next?",
+      options: [
+        {label:"You open it up and try to fix it yourself", track:"physical"},
+        {label:"You YouTube it, then troubleshoot like a pro", track:"digital"},
+        {label:"You think about who it affects most and sort that out first", track:"human"}
+      ]
+    },
+    {
+      text: "Which video would you actually watch to the end?",
+      options: [
+        {label:"How a Formula 1 pit crew changes 4 tyres in 2 seconds", track:"physical"},
+        {label:"How an AI learned to beat the best gamers in the world", track:"digital"},
+        {label:"How a 3D-printed hand gave someone their grip back", track:"human"}
+      ]
+    },
+    {
+      text: "Your teacher says: \u201cBuild anything. No limits.\u201d You make...",
+      options: [
+        {label:"A drone that can carry stuff across the school field", track:"physical"},
+        {label:"An app your whole class would actually use daily", track:"digital"},
+        {label:"Something that makes life easier for someone who's struggling", track:"human"}
+      ]
+    },
+    {
+      text: "10 years from now, your friends describe you as the one who...",
+      options: [
+        {label:"Builds the machines and aircraft everyone relies on", track:"physical"},
+        {label:"Writes the code and AI behind the apps everyone uses", track:"digital"},
+        {label:"Fixes real problems for real people and the planet", track:"human"}
+      ]
+    }
+  ];
+
+  var results = {
+    physical:{
+      badge:"🔧",
+      title:"You're THE BUILDER",
+      blurb:"You're drawn to things you can see, touch, and watch come to life — machines, aircraft, factories. You want to build the physical world of tomorrow.",
+      diplomas:[
+        {code:"C62", name:"Advanced & Digital Manufacturing", blurb:"How things get made — prototypes to smart factories."},
+        {code:"C26", name:"Aerospace Engineering", blurb:"Planes, drones, and everything that flies."}
+      ]
+    },
+    digital:{
+      badge:"💻",
+      title:"You're THE ARCHITECT",
+      blurb:"You want to build the brains behind everything — the AI, the code, the systems that quietly run the modern world.",
+      diplomas:[
+        {code:"C31", name:"AI & Data Engineering", blurb:"Build the AI, don't just use it."},
+        {code:"C87", name:"AI Robotics", blurb:"Robots with brains and a body."},
+        {code:"C75", name:"Cloud Engineering", blurb:"The invisible infrastructure behind every app."},
+        {code:"C89", name:"Electronic & Computer Engineering", blurb:"Every layer, circuits to code."}
+      ]
+    },
+    human:{
+      badge:"💚",
+      title:"You're THE CHANGEMAKER",
+      blurb:"You want engineering that visibly helps people or the planet — tech with a purpose you can point to.",
+      diplomas:[
+        {code:"C71", name:"Biomedical Engineering", blurb:"The tech doctors rely on."},
+        {code:"C41", name:"Sustainability in Engineering with Business", blurb:"Fix the planet, run the business."}
+      ]
+    }
+  };
+
+  /* ---------- PULSE GAME (ECG) ---------- */
+  var pulseQuestionSetA = [
+    {left:{emoji:"🔧", label:"Rebuild a car engine", track:"physical", subTag:"manufacturing"}, right:{emoji:"💻", label:"Rewrite buggy code at 2am", track:"digital", subTag:"cloud"}},
+    {left:{emoji:"🤖", label:"Train an AI model", track:"digital", subTag:"ai"}, right:{emoji:"🩺", label:"Design a life-saving device", track:"human", subTag:"health"}},
+    {left:{emoji:"🌱", label:"Pitch a sustainability plan", track:"human", subTag:"sustainability"}, right:{emoji:"🖨️", label:"3D print a prototype part", track:"physical", subTag:"manufacturing"}},
+    {left:{emoji:"🏭", label:"Weld metal on a factory floor", track:"physical", subTag:"manufacturing"}, right:{emoji:"☁️", label:"Debug a cloud server outage", track:"digital", subTag:"cloud"}},
+    {left:{emoji:"🦾", label:"Build a robot that walks", track:"digital", subTag:"robots"}, right:{emoji:"🏥", label:"Redesign a hospital workflow", track:"human", subTag:"health"}},
+    {left:{emoji:"🌍", label:"Calculate a carbon footprint", track:"human", subTag:"sustainability"}, right:{emoji:"✈️", label:"Assemble a drone from scratch", track:"physical", subTag:"flight"}},
+    {left:{emoji:"✈️", label:"Tune an aircraft engine", track:"physical", subTag:"flight"}, right:{emoji:"📊", label:"Optimise a machine learning model", track:"digital", subTag:"ai"}},
+    {left:{emoji:"🕹️", label:"Automate a smart factory line", track:"digital", subTag:"robots"}, right:{emoji:"🩹", label:"Test a new medical implant", track:"human", subTag:"health"}},
+    {left:{emoji:"💼", label:"Present to investors", track:"human", subTag:"business"}, right:{emoji:"⚙️", label:"Machine a precision part", track:"physical", subTag:"manufacturing"}},
+    {left:{emoji:"🖨️", label:"Fix a jammed 3D printer", track:"physical", subTag:"manufacturing"}, right:{emoji:"📱", label:"Ship a new app feature", track:"digital", subTag:"cloud"}},
+    {left:{emoji:"☁️", label:"Architect a cloud server network", track:"digital", subTag:"cloud"}, right:{emoji:"🦾", label:"Programme a robot's next move", track:"digital", subTag:"robots"}},
+    {left:{emoji:"📦", label:"Deploy an app to thousands overnight", track:"digital", subTag:"cloud"}, right:{emoji:"🤖", label:"Teach a robot arm to grip objects", track:"digital", subTag:"robots"}}
+  ];
+
+  var pulseQuestionSetB = [
+    {left:{emoji:"🔩", label:"Assemble a satellite component", track:"physical", subTag:"manufacturing"}, right:{emoji:"🌐", label:"Migrate a website to the cloud", track:"digital", subTag:"cloud"}},
+    {left:{emoji:"🧠", label:"Fine-tune a chatbot's answers", track:"digital", subTag:"ai"}, right:{emoji:"❤️", label:"Fit a pacemaker prototype", track:"human", subTag:"health"}},
+    {left:{emoji:"♻️", label:"Redesign packaging to cut waste", track:"human", subTag:"sustainability"}, right:{emoji:"🔨", label:"Mill a custom aluminium part", track:"physical", subTag:"manufacturing"}},
+    {left:{emoji:"🛠️", label:"Calibrate a CNC machine", track:"physical", subTag:"manufacturing"}, right:{emoji:"🔐", label:"Patch a cloud security flaw", track:"digital", subTag:"cloud"}},
+    {left:{emoji:"🤖", label:"Choreograph a robot's movements", track:"digital", subTag:"robots"}, right:{emoji:"🧬", label:"Trial a new diagnostic tool", track:"human", subTag:"health"}},
+    {left:{emoji:"🌦️", label:"Model a climate impact report", track:"human", subTag:"sustainability"}, right:{emoji:"🚁", label:"Balance a drone's propellers", track:"physical", subTag:"flight"}},
+    {left:{emoji:"🛩️", label:"Inspect an aircraft wing", track:"physical", subTag:"flight"}, right:{emoji:"🧮", label:"Tune a neural network's parameters", track:"digital", subTag:"ai"}},
+    {left:{emoji:"⚙️", label:"Wire up a robot's sensors", track:"digital", subTag:"robots"}, right:{emoji:"🏨", label:"Streamline a clinic's patient flow", track:"human", subTag:"health"}},
+    {left:{emoji:"📈", label:"Build a business case for a new product", track:"human", subTag:"business"}, right:{emoji:"🔧", label:"Fit precision bearings by hand", track:"physical", subTag:"manufacturing"}},
+    {left:{emoji:"🖨️", label:"Recalibrate a 3D printer bed", track:"physical", subTag:"manufacturing"}, right:{emoji:"🚀", label:"Push a hotfix to production", track:"digital", subTag:"cloud"}},
+    {left:{emoji:"🌐", label:"Scale a server farm", track:"digital", subTag:"cloud"}, right:{emoji:"🦿", label:"Build a robot's walking gait", track:"digital", subTag:"robots"}},
+    {left:{emoji:"📡", label:"Monitor cloud uptime dashboards", track:"digital", subTag:"cloud"}, right:{emoji:"🤖", label:"Assemble a robot's gripper claw", track:"digital", subTag:"robots"}}
+  ];
+
+  var pulseQuestionSets = [pulseQuestionSetA, pulseQuestionSetB];
+  var pulseSetIndex = -1;
+  var pulseQuestions = pulseQuestionSetA;
+
+  function nextPulseQuestionSet(){
+    pulseSetIndex = (pulseSetIndex + 1) % pulseQuestionSets.length;
+    pulseQuestions = pulseQuestionSets[pulseSetIndex];
+  }
+
+  var pulseScores = {physical:0, digital:0, human:0};
+  var pulseSubScores = {ai:0, robots:0, cloud:0, electronics:0, data:0, manufacturing:0, flight:0, health:0, sustainability:0, business:0};
+  var pulseIndex = 0;
+
+  var pulseStartWrap = document.getElementById('pulseStartWrap');
+  var pulseStartBtn = document.getElementById('pulseStartBtn');
+  var pulseGameCard = document.getElementById('pulseGameCard');
+  var pulseProgressDots = document.getElementById('pulseProgressDots');
+  var pulseOptions = document.getElementById('pulseOptions');
+  var pulseDiagnosis = document.getElementById('pulseDiagnosis');
+  var pulseReplayBtn = document.getElementById('pulseReplayBtn');
+  var pulseScoreEls = {
+    physical: document.getElementById('pulseScorePhysical'),
+    digital: document.getElementById('pulseScoreDigital'),
+    human: document.getElementById('pulseScoreHuman')
+  };
+
+  function buildPulseDots(){
+    document.getElementById('pulseRoundLabel').textContent = 'Round ' + (pulseIndex + 1) + ' of ' + pulseQuestions.length;
+    pulseProgressDots.innerHTML = '';
+    pulseQuestions.forEach(function(q, i){
+      var d = document.createElement('div');
+      d.className = 'pulse-dot' + (i < pulseIndex ? ' done' : (i === pulseIndex ? ' current' : ''));
+      pulseProgressDots.appendChild(d);
+    });
+  }
+
+  function triggerSpike(track){
+    var lane = document.querySelector('.pulse-lane[data-track="' + track + '"]');
+    if(!lane) return;
+    lane.classList.remove('flash');
+    void lane.offsetWidth;
+    lane.classList.add('flash');
+
+    var float = document.createElement('span');
+    float.className = 'pulse-float';
+    float.textContent = '+1';
+    lane.querySelector('.pulse-svg-wrap').appendChild(float);
+    setTimeout(function(){ float.remove(); }, 850);
+
+    pulseScores[track]++;
+    pulseScoreEls[track].textContent = pulseScores[track];
+  }
+
+  function renderPulseQuestion(){
+    buildPulseDots();
+    var q = pulseQuestions[pulseIndex];
+    pulseOptions.innerHTML = '';
+    [q.left, q.right].forEach(function(opt){
+      var btn = document.createElement('div');
+      btn.className = 'pulse-option';
+      btn.setAttribute('tabindex', '0');
+      btn.setAttribute('role', 'button');
+      btn.innerHTML = '<span class="pulse-option-emoji">' + opt.emoji + '</span><span class="pulse-option-label">' + opt.label + '</span>';
+      btn.addEventListener('click', function(){ advancePulse(opt); });
+      btn.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); advancePulse(opt); }
+      });
+      pulseOptions.appendChild(btn);
+    });
+  }
+
+  function advancePulse(opt){
+    if(opt){
+      triggerSpike(opt.track);
+      if(opt.subTag){ pulseSubScores[opt.subTag] = (pulseSubScores[opt.subTag] || 0) + 1; }
+    }
+    pulseIndex++;
+    if(pulseIndex < pulseQuestions.length){
+      setTimeout(renderPulseQuestion, 250);
+    } else {
+      setTimeout(showPulseDiagnosis, 400);
+    }
+  }
+
+  function topPulseTrack(){
+    var best = 'physical';
+    ['digital','human'].forEach(function(t){
+      if(pulseScores[t] > pulseScores[best]) best = t;
+    });
+    return best;
+  }
+
+  function rankDiplomasBySubScore(diplomaList){
+    return diplomaList.slice().sort(function(a, b){
+      var tagsA = (diplomaInterests[a.code] && diplomaInterests[a.code].tags) || [];
+      var tagsB = (diplomaInterests[b.code] && diplomaInterests[b.code].tags) || [];
+      var scoreA = tagsA.reduce(function(sum, t){ return sum + (pulseSubScores[t] || 0); }, 0);
+      var scoreB = tagsB.reduce(function(sum, t){ return sum + (pulseSubScores[t] || 0); }, 0);
+      return scoreB - scoreA;
+    });
+  }
+
+  function showPulseDiagnosis(){
+    pulseGameCard.classList.remove('active');
+    pulseDiagnosis.classList.add('active');
+
+    var track = topPulseTrack();
+    var r = results[track];
+
+    document.getElementById('pulseDiagnosisBadge').textContent = r.badge;
+    document.getElementById('pulseDiagnosisTitle').textContent = r.title;
+    document.getElementById('pulseDiagnosisBlurb').textContent = r.blurb;
+
+    var breakdown = document.getElementById('pulseScoreBreakdown');
+    breakdown.innerHTML = '';
+    var labels = {physical:'🔧 Build', digital:'💻 Code', human:'💚 Heal'};
+    ['physical','digital','human'].forEach(function(t){
+      var item = document.createElement('div');
+      item.className = 'pulse-score-item';
+      item.innerHTML = '<div class="pulse-score-num">' + pulseScores[t] + '</div><div class="pulse-score-label">' + labels[t] + '</div>';
+      breakdown.appendChild(item);
+    });
+
+    var dCont = document.getElementById('pulseDiagnosisDiplomas');
+    dCont.innerHTML = '';
+    var rankedDiplomas = rankDiplomasBySubScore(r.diplomas);
+    rankedDiplomas.forEach(function(d){
+      var card = document.createElement('div');
+      card.className = 'mini-card';
+      card.setAttribute('data-code', d.code);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.innerHTML = '<div class="code">' + d.code + '</div><h4>' + d.name + '</h4><p>' + d.blurb + '</p><span class="card-more">See details →</span>';
+      dCont.appendChild(card);
+    });
+
+    pulseDiagnosis.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function resetPulseGame(){
+    pulseScores = {physical:0, digital:0, human:0};
+    pulseSubScores = {ai:0, robots:0, cloud:0, electronics:0, data:0, manufacturing:0, flight:0, health:0, sustainability:0, business:0};
+    pulseIndex = 0;
+    ['physical','digital','human'].forEach(function(t){ pulseScoreEls[t].textContent = '0'; });
+    pulseDiagnosis.classList.remove('active');
+    pulseStartWrap.style.display = '';
+    pulseGameCard.classList.remove('active');
+  }
+
+  document.getElementById('pulseStartHint').textContent =
+    pulseQuestions.length + ' rounds, no timer — take as long as you like on each one.';
+
+  pulseStartBtn.addEventListener('click', function(){
+    nextPulseQuestionSet();
+    pulseStartWrap.style.display = 'none';
+    pulseGameCard.classList.add('active');
+    renderPulseQuestion();
+  });
+
+  pulseReplayBtn.addEventListener('click', function(){
+    nextPulseQuestionSet();
+    resetPulseGame();
+    pulseStartWrap.style.display = 'none';
+    pulseGameCard.classList.add('active');
+    renderPulseQuestion();
+    pulseGameCard.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
   /* ---------- LEVEL 2 DETAIL DATA (sourced from nyp.edu.sg course pages) ---------- */
   var diplomaDetails = {
     C62:{
@@ -1463,6 +1815,222 @@
     }
   };
 
+  var scores = {physical:0, digital:0, human:0};
+  var current = 0;
+
+  var heroSection = document.getElementById('heroSection');
+  var quizSection = document.getElementById('quizSection');
+  var resultSection = document.getElementById('resultSection');
+  var retakeBtn = document.getElementById('retakeBtn');
+  var progressRow = document.getElementById('progressRow');
+  var qText = document.getElementById('qText');
+  var qOptions = document.getElementById('qOptions');
+
+  function buildProgress(){
+    progressRow.innerHTML = '';
+    for(var i=0;i<questions.length;i++){
+      var d = document.createElement('div');
+      d.className = 'dot' + (i < current ? ' done' : (i === current ? ' current' : ''));
+      progressRow.appendChild(d);
+    }
+  }
+
+  function updateGauges(){
+    var max = questions.length;
+    document.getElementById('fillPhysical').style.height = Math.min(100, (scores.physical/max)*100) + '%';
+    document.getElementById('fillDigital').style.height = Math.min(100, (scores.digital/max)*100) + '%';
+    document.getElementById('fillHuman').style.height = Math.min(100, (scores.human/max)*100) + '%';
+  }
+
+  function renderQuestion(){
+    buildProgress();
+    var q = questions[current];
+    qText.textContent = q.text;
+    qOptions.innerHTML = '';
+    q.options.forEach(function(opt){
+      var btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.textContent = opt.label;
+      btn.addEventListener('click', function(){ selectOption(opt.track); });
+      qOptions.appendChild(btn);
+    });
+  }
+
+  function selectOption(track){
+    scores[track]++;
+    updateGauges();
+    current++;
+    if(current < questions.length){
+      setTimeout(renderQuestion, 180);
+    } else {
+      setTimeout(showResult, 350);
+    }
+  }
+
+  function topTrack(){
+    var best = 'physical';
+    ['digital','human'].forEach(function(t){
+      if(scores[t] > scores[best]) best = t;
+    });
+    return best;
+  }
+
+  function showResult(){
+    quizSection.classList.remove('active');
+    resultSection.classList.add('active');
+    var track = topTrack();
+    var r = results[track];
+    document.getElementById('resultBadge').textContent = r.badge;
+    document.getElementById('resultTitle').textContent = r.title;
+    document.getElementById('resultBlurb').textContent = r.blurb;
+    var container = document.getElementById('resultDiplomas');
+    container.innerHTML = '';
+    r.diplomas.forEach(function(d){
+      var card = document.createElement('div');
+      card.className = 'mini-card';
+      card.setAttribute('data-code', d.code);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.innerHTML = '<div class="code">'+d.code+'</div><h4>'+d.name+'</h4><p>'+d.blurb+'</p><span class="card-more">See details →</span>';
+      container.appendChild(card);
+    });
+    resultSection.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function resetQuiz(){
+    scores = {physical:0, digital:0, human:0};
+    current = 0;
+    updateGauges();
+    resultSection.classList.remove('active');
+    quizSection.classList.add('active');
+    renderQuestion();
+    quizSection.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  function startQuiz(){
+    var target = resultSection.classList.contains('active') ? resultSection : quizSection;
+    target.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // Quiz is visible by default — render it immediately
+  renderQuestion();
+  updateGauges();
+
+  document.getElementById('pqQuizBtn').addEventListener('click', startQuiz);
+  document.getElementById('pqPulseBtn').addEventListener('click', function(){
+    document.getElementById('pulseSection').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('pqInterestBtn').addEventListener('click', function(){
+    document.getElementById('interestSection').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  /* ---------- INTEREST TAG MAPPING ---------- */
+  var interestLabels = {
+    ai:"AI & Machine Learning", robots:"Robots", flight:"Aircraft & Flight",
+    manufacturing:"Making & 3D Printing", health:"Healthcare & Medical Devices",
+    cloud:"Cloud & Software", electronics:"Electronics & Circuits",
+    sustainability:"Sustainability", business:"Business", data:"Data & Analytics"
+  };
+
+  var diplomaInterests = {
+    C62:{name:"Advanced & Digital Manufacturing", tags:["manufacturing","electronics"]},
+    C26:{name:"Aerospace Engineering", tags:["flight","manufacturing","electronics"]},
+    C31:{name:"AI & Data Engineering", tags:["ai","data","cloud"]},
+    C87:{name:"AI Robotics", tags:["robots","ai","electronics"]},
+    C75:{name:"Cloud Engineering", tags:["cloud","data","electronics"]},
+    C89:{name:"Electronic & Computer Engineering", tags:["electronics","ai","cloud"]},
+    C71:{name:"Biomedical Engineering", tags:["health","manufacturing"]},
+    C41:{name:"Sustainability in Engineering with Business", tags:["sustainability","business"]},
+    C24:{name:"Common Business & Technology Programme", tags:["business","cloud","data"]},
+    C42:{name:"Common Engineering Programme", tags:["manufacturing","electronics","robots","flight"]}
+  };
+
+  var selectedInterests = [];
+  var interestChips = document.querySelectorAll('.interest-chip');
+  var interestFindBtn = document.getElementById('interestFindBtn');
+  var interestClearBtn = document.getElementById('interestClearBtn');
+  var interestResults = document.getElementById('interestResults');
+  var matchList = document.getElementById('matchList');
+  var interestResultsHeading = document.getElementById('interestResultsHeading');
+
+  interestChips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var tag = chip.getAttribute('data-interest');
+      var idx = selectedInterests.indexOf(tag);
+      if(idx === -1){
+        selectedInterests.push(tag);
+        chip.classList.add('selected');
+      } else {
+        selectedInterests.splice(idx, 1);
+        chip.classList.remove('selected');
+      }
+    });
+  });
+
+  interestClearBtn.addEventListener('click', function(){
+    selectedInterests = [];
+    interestChips.forEach(function(c){ c.classList.remove('selected'); });
+    interestResults.classList.add('hidden');
+  });
+
+  interestFindBtn.addEventListener('click', function(){
+    matchList.innerHTML = '';
+
+    if(selectedInterests.length === 0){
+      interestResultsHeading.textContent = "Pick at least one interest above to see matches.";
+      interestResults.classList.remove('hidden');
+      interestResults.scrollIntoView({behavior:'smooth', block:'start'});
+      return;
+    }
+
+    var scored = Object.keys(diplomaInterests).map(function(code){
+      var d = diplomaInterests[code];
+      var overlap = d.tags.filter(function(t){ return selectedInterests.indexOf(t) !== -1; });
+      return {code:code, name:d.name, tags:d.tags, score:overlap.length};
+    }).filter(function(item){ return item.score > 0; });
+
+    scored.sort(function(a,b){ return b.score - a.score; });
+
+    if(scored.length === 0){
+      interestResultsHeading.textContent = "No direct matches yet — try adding another interest.";
+      var empty = document.createElement('div');
+      empty.className = 'interest-empty';
+      empty.textContent = "None of the 10 SEG courses line up with just that combination. Try broadening your picks, or browse everything below.";
+      matchList.appendChild(empty);
+    } else {
+      interestResultsHeading.textContent = "Best matches for you:";
+      var maxScore = scored[0].score;
+      scored.forEach(function(item){
+        var el = document.createElement('div');
+        el.className = 'match-item';
+        el.setAttribute('data-code', item.code);
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+
+        var pct = Math.round((item.score / Math.max(selectedInterests.length, maxScore)) * 100);
+        var matchLabel = item.score === maxScore ? "Best match" : (item.score + " of " + selectedInterests.length + " match" + (selectedInterests.length===1?"":"es"));
+
+        var tagsHtml = item.tags.map(function(t){
+          var isMatched = selectedInterests.indexOf(t) !== -1;
+          return '<span class="match-tag" style="' + (isMatched ? 'background:var(--maroon-deep);color:var(--cream);border-color:var(--maroon-deep);' : '') + '">' + interestLabels[t] + '</span>';
+        }).join('');
+
+        el.innerHTML =
+          '<div class="match-item-top">' +
+            '<div><div class="match-item-code">' + item.code + '</div><div class="match-item-name">' + item.name + '</div></div>' +
+            '<span class="match-score">' + matchLabel + '</span>' +
+          '</div>' +
+          '<div class="match-item-tags">' + tagsHtml + '</div>';
+        matchList.appendChild(el);
+      });
+    }
+
+    interestResults.classList.remove('hidden');
+    interestResults.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  retakeBtn.addEventListener('click', resetQuiz);
+
   /* ---------- LEVEL 2 MODAL ---------- */
   var modalOverlay = document.getElementById('modalOverlay');
   var modalClose = document.getElementById('modalClose');
@@ -1556,6 +2124,10 @@
       e.stopPropagation();
       closeAllGroups();
       var targetId = link.getAttribute('data-target');
+      if(targetId === 'quizSection'){
+        startQuiz();
+        return;
+      }
       var target = document.getElementById(targetId);
       if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
     });

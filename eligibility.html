@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>University Pathways | NYP School of Engineering</title>
+<title>Eligibility | NYP School of Engineering</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -358,7 +358,17 @@
   }
 
   /* ---------- COMPARE BY POINTS ---------- */
-  .points-section{padding:20px 24px 70px;}
+  .points-section{
+    max-width:880px;
+    margin:34px auto 40px;
+    padding:34px 28px 20px;
+    background:rgba(122,20,20,0.04);
+    border:3px solid var(--maroon-deep);
+    border-radius:24px;
+  }
+  @media (max-width:620px){
+    .points-section{margin-left:16px; margin-right:16px; padding:26px 18px 16px;}
+  }
   .points-header{text-align:center; max-width:600px; margin:0 auto 24px;}
   .points-header h2{font-size:1.8rem; color:var(--maroon-deep); margin:0 0 10px;}
   .points-header p{color:#5a3a3e; font-size:0.95rem; line-height:1.55;}
@@ -871,16 +881,22 @@
 
   /* ---------- ELIGIBILITY CHECKER ---------- */
   .eligibility-section{
-    padding:60px 24px 20px;
-    background:linear-gradient(180deg, var(--cream) 0%, #ffffff 100%);
+    max-width:880px;
+    margin:34px auto 10px;
+    padding:34px 28px 20px;
+    background:rgba(201,162,39,0.05);
+    border:3px solid var(--gold);
+    border-radius:24px;
   }
   .eligibility-card{
     max-width:640px; margin:0 auto;
-    background:var(--paper);
-    border-radius:24px;
-    padding:36px 30px;
-    box-shadow:0 12px 40px rgba(122,20,20,0.08);
-    border:1px solid var(--cream-dark);
+    background:none;
+    border:none;
+    box-shadow:none;
+    padding:0;
+  }
+  @media (max-width:620px){
+    .eligibility-section{margin-left:16px; margin-right:16px; padding:26px 18px 16px;}
   }
   .eligibility-card h2{
     font-size:1.55rem; text-align:center; margin:0 0 8px; color:var(--maroon-deep);
@@ -1136,93 +1152,69 @@
   }
   .home-link-pq:hover{background:rgba(233,206,122,0.25);}
   a.cta-btn{text-decoration:none;}
-  #pathwaysSection, #relatedSection{scroll-margin-top:64px;}
 
-  /* ---------- UNIVERSITY PATHWAYS ---------- */
-  .up-section{padding:40px 24px 10px;}
-  .up-how{max-width:820px; margin:0 auto 34px;}
-  .up-how-card{
-    background:var(--paper); border:1px solid var(--cream-dark); border-radius:18px;
-    padding:22px 24px; box-shadow:0 10px 28px rgba(122,20,20,0.07);
+  /* ---------- SEARCH BY SUBJECT GRADES (merged from cfinder) ---------- */
+  .sg-section{
+    max-width:880px;
+    margin:34px auto 10px;
+    padding:34px 28px 20px;
+    background:rgba(236,223,194,0.28);
+    border:3px solid var(--cream-dark);
+    border-radius:24px;
   }
-  .up-how-card h3{margin:0 0 8px; font-size:1.05rem; color:var(--maroon-deep);}
-  .up-how-card > p{margin:0; font-size:0.92rem; line-height:1.6; color:#4a2c30;}
-  .up-options{display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;}
-  .up-opt{
-    flex:1; min-width:230px; background:var(--cream); border-radius:12px; padding:13px 15px;
-    font-size:0.85rem; color:#4a2c30; line-height:1.55;
+  @media (max-width:620px){
+    .sg-section{margin-left:16px; margin-right:16px; padding:26px 18px 16px;}
   }
-  .up-opt b{color:var(--maroon-deep);}
-
-  .up-tabs{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:30px;}
-  .up-tab-btn{
-    font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:0.88rem;
-    background:var(--cream); border:2px solid var(--cream-dark); color:var(--maroon-deep);
-    padding:10px 20px; border-radius:999px; cursor:pointer; transition:all .15s;
+  .sg-inner{max-width:680px; margin:0 auto;}
+  #subjectGradesSection{scroll-margin-top:64px;}
+  .sg-subject-card{
+    background:var(--paper); border:1px solid var(--cream-dark); border-radius:14px;
+    padding:14px 14px 12px; margin-bottom:12px;
   }
-  .up-tab-btn:hover{border-color:var(--gold);}
-  .up-tab-btn.active{background:var(--maroon-deep); border-color:var(--maroon-deep); color:var(--cream);}
-  .up-panel{display:none;}
-  .up-panel.active{display:block;}
-
-  .up-selector{display:flex; flex-wrap:wrap; gap:9px; justify-content:center; margin-bottom:26px;}
-  .up-pill{
-    font-size:0.84rem; font-weight:600; background:var(--paper); border:2px solid var(--cream-dark);
-    color:var(--ink); padding:9px 15px; border-radius:999px; cursor:pointer; transition:all .15s;
+  .sg-subject-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:9px;}
+  .sg-subject-name{font-size:0.95rem; font-weight:600;}
+  .sg-subject-hint{font-size:0.78rem; color:#8a6266;}
+  .sg-grade-row{display:flex; gap:4px;}
+  .sg-grade-btn{
+    flex:1; height:36px; border-radius:8px;
+    border:1px solid var(--cream-dark); background:var(--cream);
+    color:#5a3a3e; font-family:'Inter',sans-serif; font-size:11.5px; font-weight:600;
+    cursor:pointer; padding:0; transition:all .12s;
   }
-  .up-pill:hover{border-color:var(--gold);}
-  .up-pill.active{background:var(--gold); border-color:var(--gold); color:var(--maroon-deep);}
-  .up-pill .pcode{font-weight:700; opacity:0.7; margin-right:5px;}
-
-  .up-results{max-width:820px; margin:0 auto;}
-  .up-card{
-    background:var(--paper); border:1px solid var(--cream-dark); border-left:6px solid var(--gold);
-    border-radius:16px; padding:20px 22px; margin-bottom:15px;
+  .sg-grade-btn:hover{border-color:var(--gold);}
+  .sg-grade-btn.selected{background:var(--maroon-mid); border-color:var(--maroon-mid); color:#FFFFFF;}
+  .sg-agg-label{font-size:12.5px; color:var(--gold-light);}
+  .sg-agg-sub{font-size:11px; color:rgba(233,206,122,0.75); margin-top:2px;}
+  .sg-agg-value{font-size:40px; font-weight:700; font-family:'Space Grotesk',sans-serif; line-height:1;}
+  .sg-agg-warn{
+    font-size:12px; background:rgba(233,206,122,0.15); border:1px solid rgba(233,206,122,0.4);
+    color:var(--gold-light); border-radius:10px; padding:8px 12px; margin-top:10px; line-height:1.5;
+    display:none;
   }
-  .up-card[data-uni="NUS"]{border-left-color:#003D7C;}
-  .up-card[data-uni="NTU"]{border-left-color:#00693C;}
-  .up-card[data-uni="SMU"]{border-left-color:#8E1B3A;}
-  .up-card[data-uni="SIT"]{border-left-color:#E4572E;}
-  .up-card[data-uni="SUTD"]{border-left-color:#5C2D91;}
-  .up-card-head{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:8px;}
-  .up-card-head h3{margin:0; font-size:1.12rem; color:var(--ink);}
-  .up-badge{
-    font-size:0.75rem; font-weight:700; background:var(--cream); color:var(--maroon-deep);
-    padding:5px 12px; border-radius:999px; white-space:nowrap;
+  .sg-agg-warn.show{display:block;}
+  .sg-results-heading{font-size:1.15rem; margin:14px 0 12px; color:var(--maroon-deep);}
+  .sg-results-heading span{color:#2F9E62;}
+  .sg-course-card{
+    background:var(--paper); border:1px solid var(--cream-dark); border-radius:14px;
+    padding:13px 15px; margin-bottom:10px; transition:opacity .2s;
   }
-  .up-track-name{font-size:0.9rem; font-weight:600; color:var(--maroon-mid); margin:0 0 7px;}
-  .up-desc{font-size:0.87rem; color:#4a2c30; line-height:1.6; margin:0 0 12px;}
-  .up-chips{display:flex; flex-wrap:wrap; gap:8px;}
-  .up-chip{
-    font-size:0.8rem; font-weight:600; background:var(--cream); border:1px solid var(--cream-dark);
-    padding:6px 12px; border-radius:999px; color:var(--ink);
+  .sg-course-card.eligible{border-color:#BFE3CC;}
+  .sg-course-card.out{opacity:0.62;}
+  .sg-course-top{display:flex; justify-content:space-between; gap:10px; align-items:flex-start;}
+  .sg-course-name{font-size:0.95rem; font-weight:600; line-height:1.35;}
+  .sg-course-name span{color:#8a6266; font-weight:500; font-size:0.85rem;}
+  .sg-status-badge{
+    flex-shrink:0; font-size:11px; font-weight:700; padding:4px 10px; border-radius:99px; white-space:nowrap;
   }
-  .up-chip.hit{background:var(--gold); border-color:var(--gold); color:var(--maroon-deep);}
-  .up-chip .ccode{font-weight:700; opacity:0.75; margin-right:4px;}
-  .up-empty{text-align:center; color:#8a6266; font-size:0.9rem; padding:22px; line-height:1.6;}
-
-  .up-matrix-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
-  .up-matrix{border-collapse:collapse; width:100%; min-width:780px; font-size:0.82rem;}
-  .up-matrix th, .up-matrix td{padding:10px 8px; text-align:center; border:1px solid var(--cream-dark);}
-  .up-matrix thead th{
-    background:var(--maroon-deep); color:var(--cream); font-family:'Space Grotesk',sans-serif;
-    font-weight:600; font-size:0.75rem; vertical-align:bottom; padding:12px 6px;
-  }
-  .up-matrix thead th.dipcol{text-align:left; background:var(--maroon-mid);}
-  .up-matrix tbody th{
-    text-align:left; background:var(--cream); font-weight:600; color:var(--ink);
-    white-space:nowrap; font-family:'Inter',sans-serif; font-size:0.82rem;
-  }
-  .up-matrix tbody th .mcode{font-weight:700; color:var(--gold); margin-right:6px; font-size:0.76rem;}
-  .up-yes{background:#e3d17a; color:var(--maroon-deep); font-weight:700;}
-  .up-no{color:#c9c2b4;}
-  .up-note{font-size:0.8rem; color:#8a6266; text-align:center; margin-top:14px; line-height:1.6;}
-
-  .up-extra-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:16px; max-width:900px; margin:0 auto;}
-  .up-extra-card{background:var(--cream); border-radius:16px; padding:20px 22px; border:1px solid var(--cream-dark);}
-  .up-extra-card h4{margin:0 0 8px; font-size:1rem; color:var(--maroon-deep);}
-  .up-extra-card p{margin:0; font-size:0.86rem; line-height:1.6; color:#4a2c30;}
-  .up-new{color:var(--gold); font-size:0.72rem; font-weight:700;}
+  .sg-status-eligible{background:#E7F5EC; color:#2F9E62;}
+  .sg-status-borderline{background:#FDF3E3; color:#B97A1C;}
+  .sg-status-out{background:#F3F4F7; color:#8A90A0;}
+  .sg-course-detail{font-size:0.82rem; color:#5a3a3e; margin-top:5px; line-height:1.5;}
+  .sg-course-link{font-size:0.8rem; font-weight:700; color:var(--maroon-mid); text-decoration:none; display:inline-block; margin-top:7px;}
+  .sg-course-link:hover{text-decoration:underline;}
+  .sg-agg-panel{margin:18px 0 6px;}
+  .sg-results-heading{font-size:1.1rem; margin:20px 0 12px; color:var(--maroon-deep);}
+  .sg-results-heading span{color:#2F9E62;}
 </style>
 
 <body>
@@ -1280,85 +1272,117 @@
   <a class="home-link-pq" href="index.html">⌂ Home</a>
   <div class="wrap">
     <span class="eyebrow">NYP · School of Engineering</span>
-    <h1>University <span>Pathways</span></h1>
-    <p class="sub">Every university, school, and module track your SEG diploma unlocks in the final semester — browse by diploma, by university, by track, or see the whole matrix.</p>
+    <h1>Check your <span>Eligibility</span></h1>
+    <p class="sub">Enter your JAE aggregate to see which SEG courses you qualify for, then compare every course side by side on points.</p>
     <div class="hero-btn-row">
-      <button class="cta-btn" id="upExploreBtn">Explore Pathways →</button>
-      <button class="cta-btn cta-btn-secondary" id="upRelatedBtn">Related Programmes →</button>
+      <button class="cta-btn" id="elHeroJaeBtn">JAE Score →</button>
+      <button class="cta-btn" id="elHeroSubjBtn">Subject Grades →</button>
+      <button class="cta-btn cta-btn-secondary" id="elHeroPointsBtn">Compare by Points →</button>
     </div>
   </div>
 </section>
 
 <div class="section-divider"><span class="section-divider-icon"></span></div>
 
-<section class="up-section" id="pathwaysSection">
-  <div class="up-how">
-    <div class="up-how-card">
-      <h3>How the University Pathway Programme (UPP) works</h3>
-      <p>Through partnerships with local universities, eligible NYP students can secure early conditional offers and/or module exemptions. In your <b>final semester (Year 3, Semester 2)</b>, you get one of two options:</p>
-      <div class="up-options">
-        <div class="up-opt"><b>Option 1 — University modules.</b> Take modules offered by NUS, NTU, SMU or SIT in place of NYP learning units.</div>
-        <div class="up-opt"><b>Option 2 — Immersion project.</b> Complete a 12-week final-year project co-mentored by SUTD professors (SUTD track only).</div>
+<section class="eligibility-section" id="eligibilitySection">
+  <div class="eligibility-card">
+    <h2>Check what you're eligible for</h2>
+    <p class="elig-sub">Enter your net ELR2B2-C aggregate from the O-Level JAE and we'll show which SEG diplomas you qualify for, ranked from most to least competitive.</p>
+    <div class="elig-input-row">
+      <input type="number" id="eligInput" placeholder="e.g. 8" min="0" max="30" inputmode="numeric">
+      <button class="elig-check-btn" id="eligCheckBtn">Check eligibility</button>
+    </div>
+    <p class="elig-hint">Lower aggregate = better O-Level grades. Most SEG courses range roughly 5–26 points.</p>
+
+    <div class="elig-results hidden" id="eligResults">
+      <p class="elig-results-heading" id="eligResultsHeading"></p>
+      <div class="elig-list" id="eligList"></div>
+      <p class="elig-disclaimer">Ranges shown are net ELR2B2-C aggregates for the 2026 JAE intake, based on NYP's published figures. Admission is merit-based and subject to vacancies — treat this as a guide, not a guarantee. Click any result to see full course details.</p>
+    </div>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon"></span></div>
+
+<section class="sg-section" id="subjectGradesSection">
+  <div class="points-header">
+    <h2>Search by Subject Grades</h2>
+    <p>Don't know your aggregate? Tap in your actual or expected grade for each subject — the ELR2B2-C total and your eligible courses update as you go.</p>
+  </div>
+  <div class="sg-inner">
+    <div id="sgSubjectsWrap"></div>
+
+    <div class="sg-agg-panel">
+      <div>
+        <div class="sg-agg-label">Your ELR2B2-C aggregate</div>
+        <div class="sg-agg-sub">English + Maths + Science + best 2 other subjects (lower is better)</div>
+      </div>
+      <div class="sg-agg-value" id="sgAggValue">–</div>
+    </div>
+    <div class="sg-agg-warn" id="sgMinWarn">
+      Heads up: JAE entry also needs English at D7 or better, and Maths &amp; Science at C6 or better. Adjust those grades to see eligible courses.
+    </div>
+
+    <h3 class="sg-results-heading">Courses you qualify for <span id="sgEligCount"></span></h3>
+    <div id="sgCourseList"></div>
+  </div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<div class="section-divider"><span class="section-divider-icon"></span></div>
+
+<section class="points-section" id="pointsSection">
+  <div class="points-header">
+    <h2>Compare all by points</h2>
+    <p>Every diploma and common programme's net ELR2B2-C aggregate range for the 2026 JAE, side by side. Lower points mean stronger O-Level grades were needed.</p>
+  </div>
+  <div class="points-sort-toggle">
+    <button class="points-sort-btn active" id="sortLowHighBtn">Low to High (most competitive first)</button>
+    <button class="points-sort-btn" id="sortHighLowBtn">High to Low</button>
+  </div>
+  <div class="points-list" id="pointsList"></div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
+
+<div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="modal-panel">
+    <div class="modal-head">
+      <button class="modal-close" id="modalClose" aria-label="Close">✕</button>
+      <div class="modal-kicker" id="modalKicker"></div>
+      <h2 id="modalTitle"></h2>
+      <p class="modal-tagline" id="modalTagline"></p>
+    </div>
+    <div class="modal-body">
+      <div class="modal-section">
+        <h3>What it's really about</h3>
+        <p id="modalOverview"></p>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-section">
+          <h3>You'll gain skills in</h3>
+          <div class="tag-list" id="modalSkills"></div>
+        </div>
+        <div class="modal-section">
+          <h3>Where grads end up</h3>
+          <div class="tag-list" id="modalCareers"></div>
+        </div>
+      </div>
+      <div class="modal-section">
+        <h3>Certifications & partners</h3>
+        <p id="modalCerts"></p>
+      </div>
+      <div class="modal-section">
+        <h3>University pathway</h3>
+        <p id="modalUni"></p>
+      </div>
+      <div class="modal-footer">
+        <a class="modal-official-link" id="modalOfficialLink" href="#" target="_blank" rel="noopener">Official NYP page →</a>
+        <span class="modal-contact" id="modalContact"></span>
       </div>
     </div>
   </div>
-
-  <div class="up-tabs">
-    <button class="up-tab-btn active" data-tab="byDiploma">By Diploma</button>
-    <button class="up-tab-btn" data-tab="byUni">By University</button>
-    <button class="up-tab-btn" data-tab="byTrack">By Module Track</button>
-    <button class="up-tab-btn" data-tab="matrix">Full Matrix</button>
-  </div>
-
-  <div class="up-panel active" id="panel-byDiploma">
-    <div class="points-header"><h2>Pick your diploma</h2><p>See every university, school, and module track it unlocks.</p></div>
-    <div class="up-selector" id="dipSelector"></div>
-    <div class="up-results" id="dipResults"></div>
-  </div>
-
-  <div class="up-panel" id="panel-byUni">
-    <div class="points-header"><h2>Pick a university</h2><p>See its module track(s) and which SEG diplomas can access each one.</p></div>
-    <div class="up-selector" id="uniSelector"></div>
-    <div class="up-results" id="uniResults"></div>
-  </div>
-
-  <div class="up-panel" id="panel-byTrack">
-    <div class="points-header"><h2>Browse by module track</h2><p>Every specific school or faculty track NYP partners with, and which diplomas qualify.</p></div>
-    <div class="up-results" id="trackResults"></div>
-  </div>
-
-  <div class="up-panel" id="panel-matrix">
-    <div class="points-header"><h2>Diploma × Module Track matrix</h2><p>The full picture at a glance — every diploma against every track.</p></div>
-    <div class="up-matrix-scroll"><table class="up-matrix" id="matrixTable"></table></div>
-    <p class="up-note">Gold cells mark eligibility. Streaming into a diploma from a Common Programme carries the same UPP access as entering that diploma directly.</p>
-  </div>
-
-  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
-</section>
-
-<div class="section-divider"><span class="section-divider-icon"></span></div>
-
-<section class="up-section" id="relatedSection">
-  <div class="points-header">
-    <h2>Related pathways worth knowing</h2>
-    <p>UPP isn't the only route into university-level work while still at NYP.</p>
-  </div>
-  <div class="up-extra-grid">
-    <div class="up-extra-card">
-      <h4>University Foundation Programme (UFP) <span class="up-new">NEW</span></h4>
-      <p>Offered only in Year 3, Semester 2. Take up to three learning units under UFP for 12 credit units, in place of your final-year project — builds critical thinking, professional writing, and pre-university subject knowledge to prepare for matriculation.</p>
-    </div>
-    <div class="up-extra-card">
-      <h4>Diploma-Plus Programmes</h4>
-      <p>Start as early as Year 1, Semester 2. Complete specific degree-level modules at NYP to sharpen your competitiveness for university admission — you graduate with a Dip-Plus Transcript that may also exempt you from selected modules at NUS or NTU. Applicable to selected diplomas only.</p>
-    </div>
-    <div class="up-extra-card">
-      <h4>University Preparatory Mentorship Programme</h4>
-      <p>From Year 2 through to one year after graduation, get dedicated mentorship for university interviews, portfolio development, scholarship applications, and the transition into university life.</p>
-    </div>
-  </div>
-  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
-</section>
+</div>
 
 <footer>
   Every SEG diploma includes <strong>AI co-certification</strong>, <strong>industry certs</strong> from partners like Microsoft & Siemens, <strong>university pathway</strong> head-starts, and <strong>3D printing</strong> from Year 1 — whichever path you pick.
@@ -1366,159 +1390,336 @@
 
 <script>
 (function(){
-  var diplomas = [
-    {code:"C62", name:"Advanced & Digital Manufacturing"},
-    {code:"C26", name:"Aerospace Engineering"},
-    {code:"C31", name:"AI & Data Engineering"},
-    {code:"C87", name:"AI Robotics"},
-    {code:"C71", name:"Biomedical Engineering"},
-    {code:"C75", name:"Cloud Engineering"},
-    {code:"C89", name:"Electronic & Computer Engineering"},
-    {code:"C41", name:"Sustainability in Engineering with Business"}
-  ];
-  var dipMap = {};
-  diplomas.forEach(function(d){ dipMap[d.code] = d; });
-
-  var uniFull = {
-    NUS:"National University of Singapore", NTU:"Nanyang Technological University",
-    SMU:"Singapore Management University", SIT:"Singapore Institute of Technology",
-    SUTD:"Singapore University of Technology and Design"
-  };
-  var uniOrder = ["NUS","NTU","SMU","SIT","SUTD"];
-
-  var tracks = [
-    {uni:"NUS", track:"College of Design & Engineering", type:"modules", count:3,
-     desc:"Eligible final-year students take three NUS CDE modules in place of three NYP learning units.",
-     diplomas:["C26","C87","C71","C89","C41"]},
-    {uni:"NTU", track:"School of Electrical & Electronic Engineering (EEE)", type:"modules", count:3,
-     desc:"Eligible final-year students take up to three NTU EEE modules in place of NYP learning units.",
-     diplomas:["C26","C31","C87","C71","C75","C89","C41"]},
-    {uni:"NTU", track:"School of Mechanical & Aerospace Engineering (MAE)", type:"modules", count:3,
-     desc:"Eligible final-year students take up to three NTU MAE modules in place of NYP learning units.",
-     diplomas:["C62","C26","C31","C87"]},
-    {uni:"SMU", track:"School of Computing & Information Systems (SCIS)", type:"modules", count:2,
-     desc:"Eligible final-year students take two SMU SCIS modules in place of NYP learning units.",
-     diplomas:["C31","C75","C89"]},
-    {uni:"SIT", track:"Engineering & Infocomm Technology degree programmes", type:"modules", count:2,
-     desc:"Eligible final-year students take two SIT modules in place of NYP learning units.",
-     diplomas:["C62","C26","C31","C87","C71","C75","C89","C41"]},
-    {uni:"SUTD", track:"Immersion Project Track", type:"project", count:0,
-     desc:"Selected students complete a 12-week final-year project under co-mentorship of SUTD professors and NYP lecturers \u2014 project-based, no modules taken.",
-     diplomas:["C62","C26","C31","C87","C71","C75","C89","C41"]}
-  ];
-
-  function badge(t){
-    return t.type === 'project' ? 'Immersion project' : (t.count + ' module' + (t.count === 1 ? '' : 's'));
-  }
-
-  function card(t, highlight){
-    var chips = t.diplomas.map(function(code){
-      var hl = (code === highlight) ? ' hit' : '';
-      return '<span class="up-chip' + hl + '"><span class="ccode">' + code + '</span>' + dipMap[code].name + '</span>';
-    }).join('');
-    return '<div class="up-card" data-uni="' + t.uni + '">' +
-      '<div class="up-card-head"><h3>' + uniFull[t.uni] + ' (' + t.uni + ')</h3>' +
-      '<span class="up-badge">' + badge(t) + '</span></div>' +
-      '<p class="up-track-name">' + t.track + '</p>' +
-      '<p class="up-desc">' + t.desc + '</p>' +
-      '<div class="up-chips">' + chips + '</div></div>';
-  }
-
-  /* By Diploma */
-  var dipSelector = document.getElementById('dipSelector');
-  var dipResults = document.getElementById('dipResults');
-  diplomas.forEach(function(d){
-    var pill = document.createElement('button');
-    pill.className = 'up-pill';
-    pill.innerHTML = '<span class="pcode">' + d.code + '</span>' + d.name;
-    pill.addEventListener('click', function(){
-      Array.prototype.forEach.call(dipSelector.children, function(p){ p.classList.remove('active'); });
-      pill.classList.add('active');
-      var m = tracks.filter(function(t){ return t.diplomas.indexOf(d.code) !== -1; });
-      dipResults.innerHTML = m.length
-        ? m.map(function(t){ return card(t, d.code); }).join('')
-        : '<p class="up-empty">No UPP tracks listed for this course yet.</p>';
-    });
-    dipSelector.appendChild(pill);
-  });
-  dipSelector.children[0].click();
-
-  /* By University */
-  var uniSelector = document.getElementById('uniSelector');
-  var uniResults = document.getElementById('uniResults');
-  uniOrder.forEach(function(u){
-    var pill = document.createElement('button');
-    pill.className = 'up-pill';
-    pill.textContent = u;
-    pill.addEventListener('click', function(){
-      Array.prototype.forEach.call(uniSelector.children, function(p){ p.classList.remove('active'); });
-      pill.classList.add('active');
-      uniResults.innerHTML = tracks.filter(function(t){ return t.uni === u; })
-        .map(function(t){ return card(t, null); }).join('');
-    });
-    uniSelector.appendChild(pill);
-  });
-  uniSelector.children[0].click();
-
-  /* By Track */
-  document.getElementById('trackResults').innerHTML =
-    tracks.map(function(t){ return card(t, null); }).join('');
-
-  /* Matrix */
-  var table = document.getElementById('matrixTable');
-  var thead = '<thead><tr><th class="dipcol">Diploma</th>' +
-    tracks.map(function(t){ return '<th>' + t.uni + '<br>' + t.track.split('(')[0].trim() + '</th>'; }).join('') +
-    '</tr></thead>';
-  var tbody = '<tbody>' + diplomas.map(function(d){
-    var cells = tracks.map(function(t){
-      var ok = t.diplomas.indexOf(d.code) !== -1;
-      return '<td class="' + (ok ? 'up-yes' : 'up-no') + '">' + (ok ? '\u25cf' : '\u2014') + '</td>';
-    }).join('');
-    return '<tr><th><span class="mcode">' + d.code + '</span>' + d.name + '</th>' + cells + '</tr>';
-  }).join('') + '</tbody>';
-  table.innerHTML = thead + tbody;
-
-  /* Tabs */
-  var tabBtns = document.querySelectorAll('.up-tab-btn');
-
-  function showTab(name, scroll){
-    var target = document.getElementById('panel-' + name);
-    if(!target) return false;
-    tabBtns.forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-tab') === name); });
-    document.querySelectorAll('.up-panel').forEach(function(p){ p.classList.remove('active'); });
-    target.classList.add('active');
-    if(scroll){
-      document.getElementById('pathwaysSection').scrollIntoView({behavior:'smooth', block:'start'});
+  /* ---------- LEVEL 2 DETAIL DATA (sourced from nyp.edu.sg course pages) ---------- */
+  var diplomaDetails = {
+    C62:{
+      name:"Advanced & Digital Manufacturing",
+      kicker:"Diploma · C62",
+      tagline:"Master precision engineering, design, and advanced fabrication technologies — Industry 4.0, sustainable practices, and advanced 3D printing.",
+      overview:"You'll learn how things actually get made — from a single 3D-printed prototype to a full smart factory production line. The course covers additive and subtractive manufacturing, computer-aided design and manufacturing (CAD/CAM), advanced metrology, and using data analytics to optimise production. A final-year project and either a 12- or 24-week internship put it all into practice.",
+      skills:["Additive & Subtractive Manufacturing","Product Design & Prototyping","Smart Manufacturing (Industry 4.0)","Advanced Metrology & QA","Data Analytics for Manufacturing"],
+      careers:["Additive Manufacturing Engineer","Aerospace & Mechanical Engineer","Automation & IoT Engineer","Product Designer","Quality Specialist"],
+      certs:"Every student is co-certified with industry partners including Materialise, OPEN MIND, TechTown, and AI Singapore's AI co-certification (CAIPEngg).",
+      uni:"Fast-track pathways to NTU (Mechanical/Aerospace/Robotics Engineering) and SIT with up to 3 exempted modules, plus an early conditional offer route to SUTD.",
+      contact:"Mr Kent Loo · 6550 0598 · kent_loo@nyp.edu.sg",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-advanced-digital-manufacturing"
+    },
+    C26:{
+      name:"Aerospace Engineering",
+      kicker:"Diploma · C26",
+      tagline:"Design and build aircraft and drones — choose Mechanical or Avionics and get ready for high-demand roles in aviation.",
+      overview:"You'll get the best of both aircraft worlds — mechanical systems and avionics — before picking a specialisation in Year 2. Mechanical covers aerodynamics, propulsion, and component design; Avionics covers aircraft electronics, embedded systems, and flight control. Everyone learns aircraft maintenance, safety, and sustainability practices along the way.",
+      skills:["Aircraft Maintenance","Aerodynamic Design (Mechanical)","Avionics Systems Integration (Avionics)","Unmanned Aerial Systems Design","Quality & Safety Management"],
+      careers:["Licensed Aircraft Engineer","Unmanned Aerial Vehicle (Drone) Specialist","Aircraft Engine Technologist","Avionics Specialist","Aircraft Maintenance Technologist"],
+      certs:"Industry certifications from Microchip, TechTown, and AI Singapore (CAIPEngg) throughout the course.",
+      uni:"Pathways to NUS (Mechanical Engineering, Robotics & Machine Intelligence), NTU, and SIT with up to 3 exempted modules, plus an early conditional offer route to SUTD.",
+      contact:"Mr Gan An Zhi · 6550 0795 · gan_an_zhi@nyp.edu.sg",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-aerospace-engineering"
+    },
+    C31:{
+      name:"AI & Data Engineering",
+      kicker:"Diploma · C31",
+      tagline:"Build in-demand AI and data skills to develop & deploy real-world AI solutions — predict risks, optimise processes, transform businesses.",
+      overview:"You'll learn to design and build AI systems end-to-end — from data collection and cleaning, to applied machine learning, deep learning, computer vision, and natural language processing, through to deploying AI solutions in the cloud. The course was co-developed with AI Singapore and covers ethical, responsible AI throughout.",
+      skills:["AI Systems Design & Development","Applied Machine Learning & Deep Learning","Computer Vision & NLP","Data Security & Governance","Cloud Computing Development"],
+      careers:["Data Engineer","AI Application/Product Developer","AI Infrastructure Administrator","AI Technical Support Engineer","AI Sales/Presales Engineer"],
+      certs:"Certifications from Microsoft, NVIDIA, SCS (Singapore Computer Society), and AI Singapore.",
+      uni:"Pathways to NTU, SMU (Computing & Information Systems), and SIT with up to 3 exempted modules, plus an early conditional offer route to SUTD.",
+      contact:"Ms Eunice Chia · 6550 0502 · eunice_chia@nyp.edu.sg",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-AI-data-engineering"
+    },
+    C87:{
+      name:"AI Robotics",
+      kicker:"Diploma · C87",
+      tagline:"Create intelligent robots for today and tomorrow — use machine learning and IoT to develop high-tech industrial solutions.",
+      overview:"You'll build robots that can see, decide, and move on their own — covering robot mechanisms, embedded systems, machine learning, robot middleware, navigation, and 'embodied AI'. A standout industry project has students working with IBM to build an AI-powered robot dog that patrols server rooms using computer vision and acoustic intelligence.",
+      skills:["Applied AI in Robotics","Autonomous Robotics Development","Robotics Software Development","IIoT & Smart Automation","Robotic Mechanisms Integration"],
+      careers:["Robotics Engineer","AI & Software Engineer","Automation Engineer","Mechatronics Engineer","Embedded Systems Engineer"],
+      certs:"Certifications from Mitsubishi Electric and AI Singapore (CAIPEngg).",
+      uni:"Pathways to NUS, NTU, and SIT with up to 3 exempted modules, plus an early conditional offer route to SUTD.",
+      contact:"Mr Kannappan Iynkaran · 6550 0764 · kannappan_iynkaran@nyp.edu.sg",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-ai-robotics"
+    },
+    C75:{
+      name:"Cloud Engineering",
+      kicker:"Diploma · C75",
+      tagline:"Design, develop and manage cloud solutions — become the engineer behind the next Netflix or Spotify.",
+      overview:"You'll learn cloud infrastructure, architecture, and digital solutioning — the only polytechnic course in Singapore blending both hardware and software sides of cloud engineering. In Year 2 you'll pick a specialisation that shapes your remaining learning units. Cloud engineers in Singapore earn an average of S$150,000–200,000 annually (Morgan McKinley Salary Guide).",
+      skills:["Cloud Infrastructure & Architecture","Network Technology & Virtualisation","Cybersecurity Operations","Business Process Automation","Data Analysis & Visualisation"],
+      careers:["Cloud Engineer","Cloud Solutions Architect","DevOps Engineer","Site Reliability Engineer","Systems Administrator"],
+      certs:"Internships and certification pathways with GovTech, Singtel Nxera, Oracle, and AI Singapore.",
+      uni:"Pathways to NTU, SMU (Computing & Information Systems), and SIT with up to 3 exempted modules, plus an early conditional offer route to SUTD.",
+      contact:"Visit the NYP admissions page for course-specific enquiries.",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-cloud-engineering"
+    },
+    C89:{
+      name:"Electronic & Computer Engineering",
+      kicker:"Diploma · C89",
+      tagline:"Acquire critical expertise in electronics & programming for digital systems and microcontrollers — through sustainable approaches.",
+      overview:"You'll understand every layer of a smart device — from circuit design and microcontroller programming, to IoT, cloud services integration, and deep learning applications. It's a broad electronics-meets-computing foundation that opens doors into embedded systems, AI, and autonomous systems careers.",
+      skills:["Electronic Circuit & Network Analysis","Microcontroller Programming & Interfacing","IoT Design & Wireless Connectivity","Deep Learning Application","Cross-Platform & Cloud Services Integration"],
+      careers:["Electronics Engineer","Embedded Systems Engineer","IoT Solutions Engineer","AI Application Engineer","Autonomous Systems Engineer"],
+      certs:"Industry-recognised certifications embedded throughout, alongside AI Singapore's AI co-certification.",
+      uni:"University Pathway Programme to top local universities like NUS and NTU, with module exemptions via Diploma-Plus.",
+      contact:"Visit the NYP admissions page for course-specific enquiries.",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-electronic-computer-engineering"
+    },
+    C71:{
+      name:"Biomedical Engineering",
+      kicker:"Diploma · C71",
+      tagline:"Design, develop, and manufacture medical devices and instruments for the medical technology and healthcare sectors.",
+      overview:"You'll learn to design real medical devices — from ideation and prototyping to regulatory compliance and manufacturing. Students are co-certified in medical device electrical safety and functionality assessment, working alongside partners like Smith & Nephew on medical device quality assurance, manufacturing, and regulatory compliance.",
+      skills:["Medical Device Design & Development","Regulatory Compliance (GxP)","Medical Device Manufacturing","Electrical Safety & Functionality Testing","Healthcare Technology Innovation"],
+      careers:["Biomedical Engineer","Medical Device Design Engineer","Regulatory Affairs Specialist","Quality Assurance Engineer (MedTech)","Clinical Engineering Support"],
+      certs:"Co-certification in medical device electrical safety and functionality assessment; industry ties with Smith & Nephew.",
+      uni:"University Pathway Programme to NUS (Biomedical Engineering), NTU (Electrical & Electronic Engineering / Information Engineering and Media), and SIT.",
+      contact:"Visit the NYP admissions page for course-specific enquiries.",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-biomedical-engineering"
+    },
+    C41:{
+      name:"Sustainability in Engineering with Business",
+      kicker:"Diploma · C41",
+      tagline:"Bridge engineering expertise with business insight — deliver sustainable solutions across industries.",
+      overview:"You'll design real products and build the business case behind them — engineering technology, sustainable product lifecycle management, business analytics, and global supply chain thinking, all in one diploma. A final-year project lets you choose between a Sustainable Urban Solutions track or a Sustainable Entrepreneurship track.",
+      skills:["Sustainable Product Design & Lifecycle","Business Analytics & Planning","Manufacturing Process Optimisation","Sustainable Global Supply Chain","Engineering Project Management"],
+      careers:["Sustainability Engineer","Product/Project Manager (Engineering)","Supply Chain Analyst","Business Development Engineer","ESG & Sustainability Reporting Analyst"],
+      certs:"Industry ties with Shell NXplorers and other sustainability-focused partners.",
+      uni:"University Pathway Programme to NUS with up to 3 exempted modules in your final year.",
+      contact:"Visit the NYP admissions page for course-specific enquiries.",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/diploma-sustainability-engineering-business"
+    },
+    C42:{
+      name:"Common Engineering Programme",
+      kicker:"Common Programme · C42",
+      tagline:"Explore diverse fields of engineering for a year, then choose your specialisation — aerospace, biotech, robotics, and more.",
+      overview:"Not sure which of the 8 engineering diplomas is for you? The Common Engineering Programme lets you sample across disciplines in Year 1 before committing. At the end of Year 1 Semester 2, you'll make an informed choice about which diploma to stream into for Year 2 onward — with the same AI co-certification, industry certs, and university pathway benefits as every other SEG diploma.",
+      skills:["Foundational Engineering Principles","Circuit Building & Programming","Engineering Exploration Project","Cross-disciplinary Problem Solving","LifePRO holistic development units"],
+      careers:["Keeps every SEG diploma career path open — decide once you've explored the disciplines firsthand."],
+      certs:"Same Diploma-Plus and industry-certification access as students who entered a diploma directly.",
+      uni:"Diploma-Plus module exemptions apply at NUS and NTU once you stream into your chosen diploma.",
+      contact:"Visit the NYP admissions page for course-specific enquiries.",
+      url:"https://www.nyp.edu.sg/student/study/schools/engineering/common-engineering-programme"
+    },
+    C24:{
+      name:"Common Business & Technology Programme",
+      kicker:"Common Programme · C24",
+      tagline:"Master the fundamentals of business, IT, and engineering — discover how these disciplines connect in the real world.",
+      overview:"Torn between engineering, business, and IT? This programme (nicknamed 'BITE') lets you sample all three in Semester 1 through interdisciplinary modules like Applied Business Fundamentals & Communication, Programming, and UX Design in Web Development. At the end of Semester 1, you choose which of the three Schools — and which diploma within it — to pursue, including Sustainability in Engineering with Business and other SEG options.",
+      skills:["Applied Business Fundamentals","Programming Foundations","UX Design in Web Development","Cross-disciplinary Communication","Foundational Digitalisation Skills"],
+      careers:["Keeps Business, IT, and Engineering diploma paths open — decide once you've sampled all three."],
+      certs:"Same Diploma-Plus and industry-certification access once streamed into your chosen diploma.",
+      uni:"Module exemption pathways apply once you stream into your chosen diploma at NUS/NTU/SMU/SIT.",
+      contact:"Visit the NYP admissions page for course-specific enquiries.",
+      url:"https://www.nyp.edu.sg/student/study/common-programmes/business-technology"
     }
-    return true;
+  };
+
+  document.getElementById('elHeroJaeBtn').addEventListener('click', function(){
+    document.getElementById('eligibilitySection').scrollIntoView({behavior:'smooth', block:'start'});
+    var el = document.getElementById('eligInput');
+    if(el) el.focus();
+  });
+  document.getElementById('elHeroSubjBtn').addEventListener('click', function(){
+    document.getElementById('subjectGradesSection').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('elHeroPointsBtn').addEventListener('click', function(){
+    document.getElementById('pointsSection').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  /* ---------- ELIGIBILITY DATA (2026 JAE net ELR2B2-C ranges, from nyp.edu.sg) ---------- */
+  var eligibilityData = [
+    {code:"C62", name:"Advanced & Digital Manufacturing", min:10, max:26, track:"physical", type:"Diploma"},
+    {code:"C26", name:"Aerospace Engineering", min:7, max:14, track:"physical", type:"Diploma"},
+    {code:"C31", name:"AI & Data Engineering", min:6, max:12, track:"digital", type:"Diploma"},
+    {code:"C87", name:"AI Robotics", min:11, max:26, track:"digital", type:"Diploma"},
+    {code:"C71", name:"Biomedical Engineering", min:7, max:12, track:"human", type:"Diploma"},
+    {code:"C75", name:"Cloud Engineering", min:9, max:21, track:"digital", type:"Diploma"},
+    {code:"C89", name:"Electronic & Computer Engineering", min:5, max:25, track:"digital", type:"Diploma"},
+    {code:"C41", name:"Sustainability in Engineering with Business", min:10, max:23, track:"human", type:"Diploma"},
+    {code:"C24", name:"Common Business & Technology Programme", min:5, max:16, track:"common", type:"Common Programme"},
+    {code:"C42", name:"Common Engineering Programme", min:10, max:23, track:"common", type:"Common Programme"}
+  ];
+
+  /* ---------- COMPARE BY POINTS ---------- */
+  var pointsList = document.getElementById('pointsList');
+  var sortLowHighBtn = document.getElementById('sortLowHighBtn');
+  var sortHighLowBtn = document.getElementById('sortHighLowBtn');
+  var currentSortOrder = 'lowhigh';
+
+  function renderPointsList(order){
+    var data = eligibilityData.slice();
+    if(order === 'lowhigh'){
+      data.sort(function(a,b){ return (a.max - b.max) || (a.min - b.min); });
+    } else {
+      data.sort(function(a,b){ return (b.max - a.max) || (b.min - a.min); });
+    }
+
+    pointsList.innerHTML = '';
+    data.forEach(function(d, i){
+      var row = document.createElement('div');
+      row.className = 'points-row';
+      row.setAttribute('data-code', d.code);
+      row.setAttribute('data-track', d.track);
+      row.setAttribute('tabindex', '0');
+      row.setAttribute('role', 'button');
+      row.innerHTML =
+        '<span class="points-rank">' + (i + 1) + '</span>' +
+        '<div class="points-row-main">' +
+          '<div class="points-row-code">' + d.code + '</div>' +
+          '<div class="points-row-name">' + d.name + '</div>' +
+          '<div class="points-row-type">' + d.type + '</div>' +
+        '</div>' +
+        '<div class="points-row-range">' +
+          '<div class="points-range-value">' + d.min + '–' + d.max + '</div>' +
+          '<div class="points-range-label">points</div>' +
+        '</div>';
+      pointsList.appendChild(row);
+    });
   }
 
-  tabBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){ showTab(btn.getAttribute('data-tab'), false); });
+  sortLowHighBtn.addEventListener('click', function(){
+    currentSortOrder = 'lowhigh';
+    sortLowHighBtn.classList.add('active');
+    sortHighLowBtn.classList.remove('active');
+    renderPointsList(currentSortOrder);
   });
 
-  /* Open the tab named in the URL hash (e.g. university.html#matrix) */
-  function applyHash(scroll){
-    var h = (window.location.hash || '').replace('#', '');
-    if(h) showTab(h, scroll);
+  sortHighLowBtn.addEventListener('click', function(){
+    currentSortOrder = 'highlow';
+    sortHighLowBtn.classList.add('active');
+    sortLowHighBtn.classList.remove('active');
+    renderPointsList(currentSortOrder);
+  });
+
+  renderPointsList(currentSortOrder);
+
+  var eligInput = document.getElementById('eligInput');
+  var eligCheckBtn = document.getElementById('eligCheckBtn');
+  var eligibilitySection = document.getElementById('eligibilitySection');
+  var eligResults = document.getElementById('eligResults');
+  var eligList = document.getElementById('eligList');
+  var eligResultsHeading = document.getElementById('eligResultsHeading');
+
+  function checkEligibility(){
+    var score = parseFloat(eligInput.value);
+    if(isNaN(score) || score < 0){
+      eligResultsHeading.textContent = "Enter a valid aggregate score to check.";
+      eligList.innerHTML = '';
+      eligResults.classList.remove('hidden');
+      return;
+    }
+
+    var eligible = eligibilityData.filter(function(d){ return score <= d.max; });
+    eligible.sort(function(a,b){ return a.max - b.max; });
+
+    eligList.innerHTML = '';
+
+    if(eligible.length === 0){
+      eligResultsHeading.textContent = "No SEG courses matched at aggregate " + score + ".";
+      var emptyMsg = document.createElement('div');
+      emptyMsg.className = 'elig-empty';
+      emptyMsg.textContent = "This is above the published 2026 JAE ranges for SEG diplomas. Admission still depends on vacancies each year, and other pathways like ITE or PFP may apply — check NYP Admissions for your options.";
+      eligList.appendChild(emptyMsg);
+    } else {
+      eligResultsHeading.textContent = "You're within range for " + eligible.length + " of 10 SEG course" + (eligible.length === 1 ? "" : "s") + ":";
+      eligible.forEach(function(d){
+        var item = document.createElement('div');
+        item.className = 'elig-item';
+        item.setAttribute('data-code', d.code);
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.innerHTML =
+          '<div class="elig-item-main"><span class="elig-item-code">' + d.code + '</span><span class="elig-item-name">' + d.name + '</span></div>' +
+          '<span class="elig-item-range">' + d.min + '–' + d.max + ' pts</span>';
+        eligList.appendChild(item);
+      });
+    }
+
+    eligResults.classList.remove('hidden');
+    eligResults.scrollIntoView({behavior:'smooth', block:'nearest'});
   }
-  applyHash(true);
-  window.addEventListener('hashchange', function(){ applyHash(true); });
 
-  /* Hero buttons */
-  document.getElementById('upExploreBtn').addEventListener('click', function(){
-    document.getElementById('pathwaysSection').scrollIntoView({behavior:'smooth', block:'start'});
-  });
-  document.getElementById('upRelatedBtn').addEventListener('click', function(){
-    document.getElementById('relatedSection').scrollIntoView({behavior:'smooth', block:'start'});
+  eligCheckBtn.addEventListener('click', checkEligibility);
+  eligInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ checkEligibility(); }
   });
 
-  /* Nav dropdowns + scroll-spy */
+  /* ---------- LEVEL 2 MODAL ---------- */
+  var modalOverlay = document.getElementById('modalOverlay');
+  var modalClose = document.getElementById('modalClose');
+
+  function openModal(code){
+    var d = diplomaDetails[code];
+    if(!d) return;
+    document.getElementById('modalKicker').textContent = d.kicker;
+    document.getElementById('modalTitle').textContent = d.name;
+    document.getElementById('modalTagline').textContent = d.tagline;
+    document.getElementById('modalOverview').textContent = d.overview;
+    document.getElementById('modalCerts').textContent = d.certs;
+    document.getElementById('modalUni').textContent = d.uni;
+    document.getElementById('modalContact').textContent = d.contact;
+    document.getElementById('modalOfficialLink').href = d.url;
+
+    var skillsEl = document.getElementById('modalSkills');
+    skillsEl.innerHTML = '';
+    d.skills.forEach(function(s){
+      var pill = document.createElement('span');
+      pill.className = 'tag-pill';
+      pill.textContent = s;
+      skillsEl.appendChild(pill);
+    });
+
+    var careersEl = document.getElementById('modalCareers');
+    careersEl.innerHTML = '';
+    d.careers.forEach(function(c){
+      var pill = document.createElement('span');
+      pill.className = 'tag-pill';
+      pill.textContent = c;
+      careersEl.appendChild(pill);
+    });
+
+    modalOverlay.classList.add('active');
+    modalClose.focus();
+  }
+
+  function closeModal(){
+    modalOverlay.classList.remove('active');
+  }
+
+  // Event delegation: catch clicks on any element with data-code, anywhere in the document
+  document.addEventListener('click', function(e){
+    var target = e.target.closest('[data-code]');
+    if(target){
+      openModal(target.getAttribute('data-code'));
+    }
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' '){
+      var el = document.activeElement;
+      if(el && el.hasAttribute('data-code')){
+        e.preventDefault();
+        openModal(el.getAttribute('data-code'));
+      }
+    }
+    if(e.key === 'Escape' && modalOverlay.classList.contains('active')){
+      closeModal();
+    }
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', function(e){
+    if(e.target === modalOverlay) closeModal();
+  });
+
+  /* ---------- TOP NAV: dropdown groups + click-to-scroll + scroll-spy ---------- */
   var navTargets = Array.prototype.slice.call(document.querySelectorAll('.top-nav [data-target]'));
   var navGroupBtns = document.querySelectorAll('.nav-group-btn');
+
   function closeAllGroups(){
     document.querySelectorAll('.nav-group').forEach(function(g){ g.classList.remove('open'); });
   }
+
   navGroupBtns.forEach(function(btn){
     btn.addEventListener('click', function(e){
       e.stopPropagation();
@@ -1528,18 +1729,22 @@
       if(!wasOpen){ group.classList.add('open'); }
     });
   });
+
   document.addEventListener('click', closeAllGroups);
+
   navTargets.forEach(function(link){
     link.addEventListener('click', function(e){
       e.stopPropagation();
       closeAllGroups();
-      var target = document.getElementById(link.getAttribute('data-target'));
+      var targetId = link.getAttribute('data-target');
+      var target = document.getElementById(targetId);
       if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
     });
   });
+
   function updateActiveNavLink(){
     var scrollPos = window.scrollY + 90;
-    var activeIndex = -1;
+    var activeIndex = 0;
     navTargets.forEach(function(link, i){
       var sec = document.getElementById(link.getAttribute('data-target'));
       if(sec && sec.offsetParent !== null && sec.offsetTop <= scrollPos){ activeIndex = i; }
@@ -1554,13 +1759,127 @@
       }
     });
   }
+
   window.addEventListener('scroll', updateActiveNavLink, {passive:true});
   updateActiveNavLink();
 
-  /* Back to top */
+  /* ---------- BACK TO TOP ---------- */
   document.querySelectorAll('.back-to-top').forEach(function(btn){
-    btn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+    btn.addEventListener('click', function(){
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
   });
+
+})();
+</script>
+
+<script>
+(function(){
+  var gradeLabels = ['A1','A2','B3','B4','C5','C6','D7','E8','F9'];
+
+  var subjects = [
+    {key:'en', label:'English Language', hint:'EL — must be D7 or better'},
+    {key:'ma', label:'Mathematics', hint:'R2 — must be C6 or better'},
+    {key:'sc', label:'Best Science', hint:'R2 — must be C6 or better'},
+    {key:'o1', label:'Best other subject', hint:'B2'},
+    {key:'o2', label:'2nd best other subject', hint:'B2'}
+  ];
+
+  var grades = {en:3, ma:3, sc:4, o1:4, o2:5};
+
+  var base = 'https://www.nyp.edu.sg/student/study/schools/engineering/';
+  var courses = [
+    {name:'Electronic & Computer Engineering', code:'C89', min:5, cop:25, url:base+'diploma-electronic-computer-engineering'},
+    {name:'AI & Data Engineering', code:'C31', min:6, cop:12, url:base+'diploma-AI-data-engineering'},
+    {name:'Aerospace Engineering', code:'C26', min:7, cop:14, url:base+'diploma-aerospace-engineering'},
+    {name:'Biomedical Engineering', code:'C71', min:7, cop:12, url:base+'diploma-biomedical-engineering'},
+    {name:'Cloud Engineering', code:'C75', min:9, cop:21, url:base+'diploma-cloud-engineering'},
+    {name:'Advanced & Digital Manufacturing', code:'C62', min:10, cop:26, url:base+'diploma-advanced-digital-manufacturing'},
+    {name:'AI Robotics', code:'C87', min:11, cop:26, url:base+'diploma-ai-robotics'},
+    {name:'Sustainability in Engineering with Business', code:'C41', min:10, cop:23, url:base+'diploma-sustainability-engineering-business'},
+    {name:'Common Engineering Programme', code:'C42', min:10, cop:23, url:base+'common-engineering-programme'},
+    {name:'Common Business & Technology Programme', code:'C24', min:5, cop:16, url:'https://www.nyp.edu.sg/student/study/common-programmes'}
+  ];
+
+  var sgSubjectsWrap = document.getElementById('sgSubjectsWrap');
+
+  subjects.forEach(function(sub){
+    var card = document.createElement('div');
+    card.className = 'sg-subject-card';
+    var head = '<div class="sg-subject-head"><span class="sg-subject-name">' + sub.label + '</span><span class="sg-subject-hint">' + sub.hint + '</span></div>';
+    var row = document.createElement('div');
+    row.className = 'sg-grade-row';
+    gradeLabels.forEach(function(lab, i){
+      var v = i + 1;
+      var btn = document.createElement('button');
+      btn.className = 'sg-grade-btn' + (grades[sub.key] === v ? ' selected' : '');
+      btn.textContent = lab;
+      btn.addEventListener('click', function(){
+        grades[sub.key] = v;
+        Array.prototype.forEach.call(row.children, function(b, j){
+          b.classList.toggle('selected', j === i);
+        });
+        update();
+      });
+      row.appendChild(btn);
+    });
+    card.innerHTML = head;
+    card.appendChild(row);
+    sgSubjectsWrap.appendChild(card);
+  });
+
+  function update(){
+    var agg = grades.en + grades.ma + grades.sc + grades.o1 + grades.o2;
+    var meetsMin = grades.en <= 7 && grades.ma <= 6 && grades.sc <= 6;
+
+    document.getElementById('sgAggValue').textContent = agg;
+    document.getElementById('sgMinWarn').classList.toggle('show', !meetsMin);
+
+    var list = document.getElementById('sgCourseList');
+    list.innerHTML = '';
+
+    var scored = courses.map(function(c){
+      var inCop = agg <= c.cop;
+      var eligible = inCop && meetsMin;
+      var margin = c.cop - agg;
+      var status, badgeClass, detail, cardClass;
+      if(eligible){
+        if(margin <= 1){
+          status = 'Borderline'; badgeClass = 'sg-status-borderline';
+        } else {
+          status = 'Eligible'; badgeClass = 'sg-status-eligible';
+        }
+        cardClass = 'eligible';
+        detail = '2026 COP ' + c.cop + ' — you\u2019re ' + (margin === 0 ? 'right at the cut-off' : margin + ' point' + (margin > 1 ? 's' : '') + ' inside') + '. Range ' + c.min + '\u2013' + c.cop + '.';
+      } else {
+        status = 'Out of range'; badgeClass = 'sg-status-out'; cardClass = 'out';
+        detail = !meetsMin
+          ? 'Needs English \u2264 D7, Maths & Science \u2264 C6.'
+          : '2026 COP ' + c.cop + ' — ' + (agg - c.cop) + ' point' + (agg - c.cop > 1 ? 's' : '') + ' above cut-off. Range ' + c.min + '\u2013' + c.cop + '.';
+      }
+      return {c:c, eligible:eligible, status:status, badgeClass:badgeClass, detail:detail, cardClass:cardClass};
+    }).sort(function(a, b){
+      return (b.eligible - a.eligible) || (a.c.cop - b.c.cop);
+    });
+
+    var sgEligCount = scored.filter(function(s){ return s.eligible; }).length;
+    document.getElementById('sgEligCount').textContent = sgEligCount + ' of ' + courses.length;
+
+    scored.forEach(function(s){
+      var card = document.createElement('div');
+      card.className = 'sg-course-card ' + s.cardClass;
+      card.innerHTML =
+        '<div class="sg-course-top">' +
+          '<div class="sg-course-name">' + s.c.name + ' <span>' + s.c.code + '</span></div>' +
+          '<span class="sg-status-badge ' + s.badgeClass + '">' + s.status + '</span>' +
+        '</div>' +
+        '<div class="sg-course-detail">' + s.detail + '</div>' +
+        '<a class="sg-course-link" href="' + s.c.url + '" target="_blank" rel="noopener">Full course on nyp.edu.sg \u2197</a>';
+      list.appendChild(card);
+    });
+  }
+
+  update();
 })();
 </script>
 

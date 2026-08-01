@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Which Engineer Are You? | NYP School of Engineering</title>
+<title>Play the Diploma — Games | NYP School of Engineering</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -105,63 +105,10 @@
   }
   .hero-group-label{
     font-family:'Space Grotesk',sans-serif;
-    font-size:23px; font-weight:700;
-    line-height:1.1;
-    letter-spacing:0.04em; text-transform:uppercase;
+    font-size:15px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase;
     color:var(--gold-light);
-    margin-bottom:16px;
-  }
-  @media (max-width:700px){
-    .hero-group-label{font-size:19px; letter-spacing:0.05em;}
-  }
-  /* ---------- QUICK LINKS (moved out of the hero) ---------- */
-  .quicklinks-section{padding:10px 24px 20px;}
-  .quicklinks-header{text-align:center; max-width:620px; margin:0 auto 26px;}
-  .quicklinks-header h2{font-size:1.8rem; color:var(--maroon-deep); margin:0 0 10px;}
-  .quicklinks-header p{color:#5a3a3e; font-size:0.95rem; line-height:1.55; margin:0;}
-  #quickLinks{scroll-margin-top:64px;}
-
-  .hero-group-box{
-    max-width:880px;
-    margin:0 auto 18px;
-    padding:34px 28px 24px;
-    border-radius:24px;
-    border:3px solid;
-  }
-  .hero-box-quiz{
-    border-color:var(--gold);
-    background:rgba(201,162,39,0.05);
-  }
-  .hero-box-games{
-    border-color:var(--c-human);
-    background:rgba(181,74,44,0.05);
-  }
-  .hero-box-elig{
-    border-color:var(--maroon-deep);
-    background:rgba(122,20,20,0.04);
-  }
-  .hero-box-uni{
-    border-color:var(--c-digital);
-    background:rgba(138,106,30,0.05);
-  }
-  .hero-group-box .hero-group-label{
-    margin-bottom:18px;
-    color:var(--maroon-deep);
-  }
-  /* outlined buttons need dark ink now that they sit on white */
-  .quicklinks-section .cta-btn-secondary{
-    color:var(--maroon-deep);
-    border-color:var(--maroon-mid);
-  }
-  .quicklinks-section .cta-btn-secondary:hover{
-    background:rgba(122,20,20,0.06);
-    border-color:var(--maroon-deep);
-  }
-  .quicklinks-section .cta-btn{
-    box-shadow:0 6px 16px rgba(122,20,20,0.12);
-  }
-  @media (max-width:620px){
-    .hero-group-box{margin-left:16px; margin-right:16px; padding:24px 18px 18px; border-radius:18px;}
+    margin-bottom:10px;
   }
   .cta-btn-secondary{
     background:transparent;
@@ -641,7 +588,25 @@
   .pulse-replay-btn:hover{background:var(--maroon-mid); color:var(--cream);}
 
   /* ---------- GAMES SECTION ---------- */
-  .games-section{padding:60px 24px 20px;}
+  .games-section{
+    max-width:880px;
+    margin:34px auto 10px;
+    padding:34px 28px 20px;
+    border-radius:24px;
+    border:3px solid var(--cream-dark);
+    background:rgba(236,223,194,0.28);
+  }
+  #gamesDiplomas{
+    border-color:var(--gold);
+    background:rgba(201,162,39,0.06);
+  }
+  #gamesCommon{
+    border-color:var(--maroon-deep);
+    background:rgba(122,20,20,0.04);
+  }
+  @media (max-width:620px){
+    .games-section{margin-left:16px; margin-right:16px; padding:26px 18px 16px;}
+  }
   .games-header{text-align:center; max-width:620px; margin:0 auto 30px;}
   .games-header h2{font-size:1.8rem; color:var(--maroon-deep); margin:0 0 10px;}
   .games-header p{color:#5a3a3e; font-size:0.95rem; line-height:1.55;}
@@ -1179,6 +1144,18 @@
     .result-card{padding:32px 20px;}
   }
 </style>
+<style>
+  .home-link-pq{
+    position:absolute; top:16px; right:18px;
+    display:inline-flex; align-items:center; gap:6px; height:32px; padding:0 14px;
+    border-radius:99px; border:1.5px solid rgba(233,206,122,0.55);
+    background:rgba(233,206,122,0.12); color:var(--gold-light);
+    font-size:12px; font-weight:700; text-decoration:none; z-index:5;
+  }
+  .home-link-pq:hover{background:rgba(233,206,122,0.25);}
+  a.cta-btn{text-decoration:none;}
+  #gamesDiplomas, #gamesCommon{scroll-margin-top:64px;}
+</style>
 
 <body>
 
@@ -1232,67 +1209,39 @@
 </nav>
 
 <section class="hero" id="heroSection">
+  <a class="home-link-pq" href="index.html">⌂ Home</a>
   <div class="wrap">
     <span class="eyebrow">NYP · School of Engineering</span>
-    <h1>Which <span>Engineer</span><br>Are You?</h1>
-    <p class="sub">8 diplomas. 2 common programmes. One quiz that sorts it out in 60 seconds — based on what actually excites you, not a list of course names.</p>
-    <div class="promise-strip">
-      <span class="promise-chip">🤖 AI certification in every diploma</span>
-      <span class="promise-chip">🏆 Certs from Microsoft & Schneider Electric</span>
-      <span class="promise-chip">🎓 Head-start to NUS / NTU / SMU / SIT / SUTD</span>
-      <span class="promise-chip">🖨️ 3D printing from Year 1</span>
+    <h1>Play the <span>Diploma</span></h1>
+    <p class="sub">Ten quick games — one per course. Each plays like the actual problem that discipline solves, not a quiz in a costume.</p>
+    <div class="hero-btn-row">
+      <button class="cta-btn" id="gmDiplomasBtn">Diploma Games →</button>
+      <button class="cta-btn" id="gmCommonBtn">Common Programmes →</button>
     </div>
   </div>
 </section>
 
 <div class="section-divider"><span class="section-divider-icon"></span></div>
 
-<section class="quicklinks-section" id="quickLinks">
-  <div class="quicklinks-header">
-    <h2>Where do you want to start?</h2>
-    <p>Four ways in — take a quiz, play a game, check what you qualify for, or look at university pathways.</p>
+<section class="games-section" id="gamesDiplomas">
+  <div class="games-header">
+    <h2>Diploma Games</h2>
+    <p>One game for each of the 8 SEG diplomas — from stacking 3D-print layers to landing a plane in a crosswind.</p>
   </div>
-  <div class="hero-group-box hero-box-quiz">
-    <div class="hero-group-label">Interest/Personality Quiz</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn" href="personalityquiz.html#interestSection">Interests →</a>
-      <a class="cta-btn" href="personalityquiz.html#quizSection">Start the Sort →</a>
-      <a class="cta-btn" href="personalityquiz.html#pulseSection">Pulse Games →</a>
-    </div>
-  </div>
-
-  <div class="hero-group-box hero-box-games">
-    <div class="hero-group-label">Games</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn cta-btn-secondary" href="games.html#gamesDiplomas">Diplomas →</a>
-      <a class="cta-btn cta-btn-secondary" href="games.html#gamesCommon">Common Programmes →</a>
-    </div>
-  </div>
-
-  <div class="hero-group-box hero-box-elig">
-    <div class="hero-group-label">Eligibility</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn" href="eligibility.html#eligibilitySection">JAE Score →</a>
-      <a class="cta-btn" href="eligibility.html#subjectGradesSection">Subject Grades →</a>
-      <a class="cta-btn" href="eligibility.html#pointsSection">Compare by Points →</a>
-    </div>
-  </div>
-
-  <div class="hero-group-box hero-box-uni">
-    <div class="hero-group-label">Universities</div>
-    <div class="hero-btn-row">
-      <a class="cta-btn cta-btn-secondary" href="university.html#byDiploma">By Diploma →</a>
-      <a class="cta-btn cta-btn-secondary" href="university.html#byUni">By University →</a>
-      <a class="cta-btn cta-btn-secondary" href="university.html#byTrack">By Module Track →</a>
-      <a class="cta-btn cta-btn-secondary" href="university.html#matrix">Full Matrix →</a>
-    </div>
-  </div>
+  <div class="games-grid" id="gamesGridDiplomas"></div>
   <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
 </section>
 
+<div class="section-divider"><span class="section-divider-icon"></span></div>
 
-
-
+<section class="games-section" id="gamesCommon">
+  <div class="games-header">
+    <h2>Common Programme Games</h2>
+    <p>Not ready to pick a diploma yet? These two mirror what the Common Programmes actually let you do — sample first, choose later.</p>
+  </div>
+  <div class="games-grid" id="gamesGridCommon"></div>
+  <div class="back-to-top-row"><button class="back-to-top">↑ Back to top</button></div>
+</section>
 
 <div class="modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
   <div class="modal-panel">
@@ -1463,6 +1412,13 @@
     }
   };
 
+  document.getElementById('gmDiplomasBtn').addEventListener('click', function(){
+    document.getElementById('gamesDiplomas').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+  document.getElementById('gmCommonBtn').addEventListener('click', function(){
+    document.getElementById('gamesCommon').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
   /* ---------- LEVEL 2 MODAL ---------- */
   var modalOverlay = document.getElementById('modalOverlay');
   var modalClose = document.getElementById('modalClose');
@@ -1589,6 +1545,829 @@
     });
   });
 
+  /* ======================================================================
+     GAMES SECTION — one mini-game per diploma, mechanic tied to its concept
+     ====================================================================== */
+  var gamesConfig = [
+    {
+      code:"C62", icon:"🖨️", title:"Layer Stacker", track:"physical",
+      tagline:"Each layer slowly drops — steer it with shift left/right and lock it in before (or as) it lands.",
+      type:"stacker",
+      params:{initialWidthPct:70, layerHeight:16, layerGap:3, layersNeeded:6, minOverlapPct:12, shiftStepPct:4, holdIntervalMs:80,
+        fallDurationMs:2400, containerHeight:190,
+        completeMsg:"6 layers stacked clean — print complete! That's manufacturing tolerance in action.",
+        failMsg:"Misaligned too far — the layer sheared off. Close and Play to start a new print.", barColor:"var(--c-physical)"}
+    },
+    {
+      code:"C26", icon:"✈️", title:"Land the Plane", track:"physical",
+      tagline:"Fight the crosswind and steer the plane down onto the pad — real approach-and-landing control.",
+      type:"landing",
+      params:{
+        padWidthPct:26, perfectWidthPct:10, planeWidthPct:12, containerHeight:190,
+        descendDurationMs:3200, shiftStepPct:4, holdIntervalMs:80,
+        windStartPctPerSec:5, windStepPerRound:2.2, landingsNeeded:3,
+        completeMsg:"3 safe landings — that's active flight control against real crosswind.",
+        crashMsg:"Missed the pad — crash landing. Close and Play to try again.", barColor:"var(--c-physical)"
+      }
+    },
+    {
+      code:"C71", icon:"🩺", title:"Calibrate the Device", track:"human",
+      tagline:"Lock the reading only when the needle sits in the safe zone — medical devices don't get second chances.",
+      type:"zone",
+      params:{actionLabel:"Lock Reading", zoneMin:45, zoneMax:55, speed:1.1, successNeeded:3, maxAttempts:8,
+        completeMsg:"Device calibrated and certified safe — ready for patients.", barColor:"var(--c-human)"}
+    },
+    {
+      code:"C87", icon:"🦾", title:"Program the Robot", track:"digital",
+      tagline:"Watch the move sequence, then repeat it exactly — this is literally how you'd programme a robot arm.",
+      type:"sequence",
+      params:{
+        items:[{emoji:"⬆️",label:"Up"},{emoji:"⬇️",label:"Down"},{emoji:"⬅️",label:"Left"},{emoji:"➡️",label:"Right"}],
+        sequenceLength:4, flashDuration:600, lives:3,
+        successMsg:"Sequence executed — the robot reached its goal.", barColor:"var(--c-digital)"
+      }
+    },
+    {
+      code:"C89", icon:"🔌", title:"Complete the Circuit", track:"digital",
+      tagline:"Connect the components in the right order to light the LED — real circuit debugging in miniature.",
+      type:"sequence",
+      params:{
+        items:[{emoji:"🔋",label:"Battery"},{emoji:"🔘",label:"Switch"},{emoji:"➰",label:"Resistor"},{emoji:"💡",label:"LED"}],
+        sequenceLength:4, flashDuration:600, lives:3,
+        successMsg:"Circuit complete — the LED lights up!", barColor:"var(--c-digital)"
+      }
+    },
+    {
+      code:"C31", icon:"🤖", title:"Label the Data", track:"digital",
+      tagline:"Tag each image correctly and fast — an AI model is only as good as the data it's trained on.",
+      type:"label",
+      params:{
+        rounds:[
+          {emoji:"🐱", answer:"Cat"}, {emoji:"🐶", answer:"Dog"}, {emoji:"🐈", answer:"Cat"},
+          {emoji:"🐕", answer:"Dog"}, {emoji:"🐈‍⬛", answer:"Cat"}, {emoji:"🐩", answer:"Dog"},
+          {emoji:"🦮", answer:"Dog"}, {emoji:"🐱", answer:"Cat"}
+        ],
+        roundTime:3000, barColor:"var(--c-digital)"
+      }
+    },
+    {
+      code:"C41", icon:"🌱", title:"Balance the Books", track:"human",
+      tagline:"Every choice trades off profit against sustainability — keep both alive across 5 decisions.",
+      type:"balance",
+      params:{
+        rounds:[
+          {prompt:"Choose your material supplier", optionA:{label:"Cheapest supplier (fast, high emissions)", profit:20, sustain:-12}, optionB:{label:"Green-certified supplier (costs more)", profit:-10, sustain:22}},
+          {prompt:"Packaging design", optionA:{label:"Standard plastic (cheap)", profit:15, sustain:-15}, optionB:{label:"Recycled cardboard", profit:-5, sustain:18}},
+          {prompt:"Factory power upgrade", optionA:{label:"Delay upgrade, save cash", profit:15, sustain:-10}, optionB:{label:"Invest in solar power", profit:-15, sustain:24}},
+          {prompt:"Shipping method", optionA:{label:"Air freight (fast, costly emissions)", profit:10, sustain:-15}, optionB:{label:"Sea freight (slower, greener)", profit:-5, sustain:14}},
+          {prompt:"End-of-life plan", optionA:{label:"Landfill disposal", profit:10, sustain:-18}, optionB:{label:"Design for recycling", profit:-8, sustain:20}}
+        ],
+        startProfit:50, startSustain:50, passThreshold:50, barColor:"var(--c-human)"
+      }
+    },
+    {
+      code:"C75", icon:"☁️", title:"Scale the Cloud", track:"digital",
+      tagline:"Traffic keeps climbing — keep clicking to scale capacity before demand causes downtime.",
+      type:"meter",
+      params:{duration:15, demandRatePerSec:6, boostAmount:12, capacityDecayPerSec:2, maxDowntime:2.2, barColor:"var(--c-digital)"}
+    },
+    {
+      code:"C42", icon:"🧭", title:"Sample the Labs", track:"common",
+      tagline:"Match the pairs of engineering disciplines — exactly what the Common Engineering year lets you explore.",
+      type:"memory",
+      params:{pairs:["🔧","🤖","✈️"], barColor:"var(--gold)"}
+    },
+    {
+      code:"C24", icon:"🍔", title:"Pick Your BITE", track:"common",
+      tagline:"Preview a day in Business, IT, and Engineering — then pick one, just like the programme's first semester.",
+      type:"reveal",
+      params:{
+        cards:[
+          {label:"Business", snippet:"Pitch a new product to investors and manage a marketing budget."},
+          {label:"IT", snippet:"Debug a crashing app an hour before a client demo."},
+          {label:"Engineering", snippet:"Prototype a sensor, then stress-test it until it breaks."}
+        ],
+        barColor:"var(--gold)"
+      }
+    }
+  ];
+
+  var gmCleanup = {};
+
+  function gmClear(code){
+    if(gmCleanup[code]){ gmCleanup[code](); gmCleanup[code] = null; }
+  }
+
+  function buildGameCards(){
+    var gridD = document.getElementById('gamesGridDiplomas');
+    var gridC = document.getElementById('gamesGridCommon');
+    gamesConfig.forEach(function(g){
+      var grid = (g.track === 'common') ? gridC : gridD;
+      var card = document.createElement('div');
+      card.className = 'game-card';
+      card.setAttribute('data-track', g.track);
+      card.innerHTML =
+        '<div class="game-card-head">' +
+          '<span class="game-icon">' + g.icon + '</span>' +
+          '<div><div class="game-code">' + g.code + '</div><h4>' + g.title + '</h4></div>' +
+        '</div>' +
+        '<p class="game-tagline">' + g.tagline + '</p><br>' +
+        '<button class="game-play-btn" id="gmPlayBtn-' + g.code + '">Play →</button>' +
+        '<div class="game-panel" id="gamePanel-' + g.code + '"></div>' +
+        '<div style="margin-top:10px; text-align:center;"><span class="card-more" data-code="' + g.code + '" style="cursor:pointer;">Course details →</span></div>';
+      grid.appendChild(card);
+
+      document.getElementById('gmPlayBtn-' + g.code).addEventListener('click', function(){
+        var panel = document.getElementById('gamePanel-' + g.code);
+        var btn = document.getElementById('gmPlayBtn-' + g.code);
+        var isOpen = panel.classList.contains('open');
+        if(isOpen){
+          gmClear(g.code);
+          panel.classList.remove('open');
+          panel.innerHTML = '';
+          btn.textContent = 'Play →';
+        } else {
+          panel.classList.add('open');
+          btn.textContent = 'Close ✕';
+          gmStartGame(g, panel);
+        }
+      });
+    });
+  }
+
+  function gmStartGame(g, panel){
+    gmClear(g.code);
+    if(g.type === 'zone'){ gmRenderZoneGame(panel, g); }
+    else if(g.type === 'stacker'){ gmRenderStackerGame(panel, g); }
+    else if(g.type === 'landing'){ gmRenderLandingGame(panel, g); }
+    else if(g.type === 'sequence'){ gmRenderSequenceGame(panel, g); }
+    else if(g.type === 'label'){ gmRenderLabelGame(panel, g); }
+    else if(g.type === 'balance'){ gmRenderBalanceGame(panel, g); }
+    else if(g.type === 'meter'){ gmRenderMeterGame(panel, g); }
+    else if(g.type === 'memory'){ gmRenderMemoryGame(panel, g); }
+    else if(g.type === 'reveal'){ gmRenderRevealGame(panel, g); }
+  }
+
+  /* ---- ZONE TIMING GAME (C62, C26, C71) ---- */
+  function gmRenderZoneGame(panel, g){
+    var p = g.params;
+    panel.innerHTML =
+      '<div class="gm-zone-track"><div class="gm-zone-highlight" style="left:' + p.zoneMin + '%;width:' + (p.zoneMax - p.zoneMin) + '%;"></div><div class="gm-zone-marker" id="gmMarker-' + g.code + '"></div></div>' +
+      '<button class="gm-action-btn" id="gmZoneBtn-' + g.code + '">' + p.actionLabel + '</button>' +
+      '<div class="gm-status-row"><span id="gmZoneProgress-' + g.code + '">0 / ' + p.successNeeded + '</span><span id="gmZoneAttempts-' + g.code + '">Attempts left: ' + p.maxAttempts + '</span></div>' +
+      '<p class="gm-status-msg" id="gmZoneMsg-' + g.code + '"></p>';
+
+    var marker = document.getElementById('gmMarker-' + g.code);
+    var state = {success:0, attempts:0, running:true, startTime:performance.now(), pos:50, raf:null};
+
+    function frame(now){
+      var t = (now - state.startTime) / 1000;
+      state.pos = 50 + 45 * Math.sin(t * p.speed);
+      marker.style.left = state.pos + '%';
+      state.raf = requestAnimationFrame(frame);
+    }
+    state.raf = requestAnimationFrame(frame);
+    gmCleanup[g.code] = function(){ if(state.raf) cancelAnimationFrame(state.raf); };
+
+    document.getElementById('gmZoneBtn-' + g.code).addEventListener('click', function(){
+      if(!state.running) return;
+      state.attempts++;
+      var hit = state.pos >= p.zoneMin && state.pos <= p.zoneMax;
+      if(hit) state.success++;
+      document.getElementById('gmZoneProgress-' + g.code).textContent = state.success + ' / ' + p.successNeeded;
+      document.getElementById('gmZoneAttempts-' + g.code).textContent = 'Attempts left: ' + Math.max(0, p.maxAttempts - state.attempts);
+      var msg = document.getElementById('gmZoneMsg-' + g.code);
+      if(state.success >= p.successNeeded){
+        msg.textContent = p.completeMsg;
+        state.running = false;
+        if(state.raf) cancelAnimationFrame(state.raf);
+      } else if(state.attempts >= p.maxAttempts){
+        msg.textContent = "Out of attempts — hit Close then Play to try again.";
+        state.running = false;
+        if(state.raf) cancelAnimationFrame(state.raf);
+      } else {
+        msg.textContent = hit ? "Right on target!" : "Missed the zone — watch the marker's rhythm.";
+      }
+    });
+  }
+
+  /* ---- BLOCK STACKER GAME (C62) ---- */
+  function gmRenderStackerGame(panel, g){
+    var p = g.params;
+    panel.innerHTML =
+      '<div class="gm-stack-wrap" id="gmStackWrap-' + g.code + '" style="height:' + p.containerHeight + 'px;"></div>' +
+      '<div class="gm-stack-controls">' +
+        '<button class="gm-shift-btn" id="gmStackLeftBtn-' + g.code + '">◀ Shift</button>' +
+        '<button class="gm-action-btn gm-drop-btn" id="gmStackBtn-' + g.code + '">Drop Layer</button>' +
+        '<button class="gm-shift-btn" id="gmStackRightBtn-' + g.code + '">Shift ▶</button>' +
+      '</div>' +
+      '<div class="gm-status-row"><span id="gmStackProgress-' + g.code + '">Layer 0 / ' + p.layersNeeded + '</span><span id="gmStackWidth-' + g.code + '">Width: ' + p.initialWidthPct + '%</span></div>' +
+      '<p class="gm-status-msg" id="gmStackMsg-' + g.code + '">It\'s falling — shift left/right, then drop it (or let it land).</p>';
+
+    var wrap = document.getElementById('gmStackWrap-' + g.code);
+    var startTopPx = 8;
+    var state = {
+      layers:[{leftPct:(100 - p.initialWidthPct) / 2, widthPct:p.initialWidthPct}],
+      placed:1, running:true, movingLeftPct:(100 - p.initialWidthPct) / 2,
+      holdInterval:null, raf:null, fallStart:0, landingTopPx:0
+    };
+
+    function renderLayers(){
+      wrap.querySelectorAll('.gm-stack-layer').forEach(function(el){ el.remove(); });
+      state.layers.forEach(function(layer, i){
+        var el = document.createElement('div');
+        el.className = 'gm-stack-layer';
+        el.style.left = layer.leftPct + '%';
+        el.style.width = layer.widthPct + '%';
+        el.style.height = p.layerHeight + 'px';
+        el.style.bottom = (i * (p.layerHeight + p.layerGap)) + 'px';
+        wrap.appendChild(el);
+      });
+    }
+    renderLayers();
+
+    var movingEl = document.createElement('div');
+    movingEl.className = 'gm-stack-moving';
+    movingEl.style.width = state.layers[0].widthPct + '%';
+    movingEl.style.left = state.movingLeftPct + '%';
+    movingEl.style.height = p.layerHeight + 'px';
+    wrap.appendChild(movingEl);
+
+    function currentTop(){ return state.layers[state.layers.length - 1]; }
+
+    function clampMoving(){
+      var top = currentTop();
+      var maxLeft = 100 - top.widthPct;
+      state.movingLeftPct = Math.max(0, Math.min(maxLeft, state.movingLeftPct));
+      movingEl.style.left = state.movingLeftPct + '%';
+    }
+
+    function shift(dir){
+      if(!state.running) return;
+      state.movingLeftPct += dir * p.shiftStepPct;
+      clampMoving();
+    }
+
+    function attachHold(btn, dir){
+      function start(e){
+        e.preventDefault();
+        shift(dir);
+        clearInterval(state.holdInterval);
+        state.holdInterval = setInterval(function(){ shift(dir); }, p.holdIntervalMs);
+      }
+      function stop(){ clearInterval(state.holdInterval); }
+      btn.addEventListener('mousedown', start);
+      btn.addEventListener('touchstart', start, {passive:false});
+      btn.addEventListener('mouseup', stop);
+      btn.addEventListener('mouseleave', stop);
+      btn.addEventListener('touchend', stop);
+    }
+    attachHold(document.getElementById('gmStackLeftBtn-' + g.code), -1);
+    attachHold(document.getElementById('gmStackRightBtn-' + g.code), 1);
+
+    gmCleanup[g.code] = function(){
+      state.running = false;
+      clearInterval(state.holdInterval);
+      if(state.raf) cancelAnimationFrame(state.raf);
+    };
+
+    function startFall(){
+      var stackHeightPx = state.layers.length * (p.layerHeight + p.layerGap);
+      state.landingTopPx = p.containerHeight - stackHeightPx - p.layerHeight;
+      state.fallStart = performance.now();
+      movingEl.style.top = startTopPx + 'px';
+
+      function frame(now){
+        if(!state.running) return;
+        var elapsed = now - state.fallStart;
+        var progress = Math.min(1, elapsed / p.fallDurationMs);
+        var topPx = startTopPx + progress * (state.landingTopPx - startTopPx);
+        movingEl.style.top = topPx + 'px';
+        if(progress >= 1){
+          finalizeDrop();
+          return;
+        }
+        state.raf = requestAnimationFrame(frame);
+      }
+      state.raf = requestAnimationFrame(frame);
+    }
+
+    function finalizeDrop(){
+      if(!state.running) return;
+      state.running = false;
+      clearInterval(state.holdInterval);
+      if(state.raf) cancelAnimationFrame(state.raf);
+
+      var top = currentTop();
+      var movingLeft = state.movingLeftPct;
+      var movingRight = movingLeft + top.widthPct;
+      var topLeft = top.leftPct;
+      var topRight = top.leftPct + top.widthPct;
+      var overlapLeft = Math.max(movingLeft, topLeft);
+      var overlapRight = Math.min(movingRight, topRight);
+      var overlapWidth = overlapRight - overlapLeft;
+
+      var msg = document.getElementById('gmStackMsg-' + g.code);
+      if(overlapWidth < p.minOverlapPct){
+        msg.textContent = p.failMsg;
+        return;
+      }
+
+      state.layers.push({leftPct:overlapLeft, widthPct:overlapWidth});
+      state.placed++;
+      state.movingLeftPct = overlapLeft;
+      renderLayers();
+      wrap.appendChild(movingEl);
+      movingEl.style.width = overlapWidth + '%';
+      clampMoving();
+
+      document.getElementById('gmStackProgress-' + g.code).textContent = 'Layer ' + state.placed + ' / ' + p.layersNeeded;
+      document.getElementById('gmStackWidth-' + g.code).textContent = 'Width: ' + Math.round(overlapWidth) + '%';
+
+      if(state.placed >= p.layersNeeded){
+        msg.textContent = p.completeMsg;
+      } else {
+        msg.textContent = overlapWidth < top.widthPct * 0.6
+          ? "Getting narrower — the print's losing strength. Aim for dead centre."
+          : "Solid layer — keep it up.";
+        state.running = true;
+        startFall();
+      }
+    }
+
+    document.getElementById('gmStackBtn-' + g.code).addEventListener('click', function(){
+      finalizeDrop();
+    });
+
+    startFall();
+  }
+
+  /* ---- LANDING GAME (C26) ---- */
+  function gmRenderLandingGame(panel, g){
+    var p = g.params;
+    panel.innerHTML =
+      '<div class="gm-land-wrap" id="gmLandWrap-' + g.code + '" style="height:' + p.containerHeight + 'px;">' +
+        '<div class="gm-land-pad" id="gmLandPad-' + g.code + '"><div class="gm-land-pad-sweet" id="gmLandSweet-' + g.code + '"></div></div>' +
+        '<div class="gm-land-plane" id="gmLandPlane-' + g.code + '">✈️</div>' +
+      '</div>' +
+      '<div class="gm-stack-controls">' +
+        '<button class="gm-shift-btn" id="gmLandLeftBtn-' + g.code + '">◀ Steer</button>' +
+        '<button class="gm-action-btn gm-drop-btn" id="gmLandBtn-' + g.code + '">Land Now</button>' +
+        '<button class="gm-shift-btn" id="gmLandRightBtn-' + g.code + '">Steer ▶</button>' +
+      '</div>' +
+      '<div class="gm-status-row"><span id="gmLandProgress-' + g.code + '">Landing 0 / ' + p.landingsNeeded + '</span><span id="gmLandWind-' + g.code + '">Crosswind: light</span></div>' +
+      '<p class="gm-status-msg" id="gmLandMsg-' + g.code + '">Crosswind is pushing you — steer to correct, then land on the pad.</p>';
+
+    var wrap = document.getElementById('gmLandWrap-' + g.code);
+    var padEl = document.getElementById('gmLandPad-' + g.code);
+    var sweetEl = document.getElementById('gmLandSweet-' + g.code);
+    var planeEl = document.getElementById('gmLandPlane-' + g.code);
+    var startTopPx = 8;
+    var landingTopPx = p.containerHeight - 30;
+
+    var state = {
+      round:0, landed:0, running:true, planeLeftPct:50 - p.planeWidthPct / 2,
+      padLeftPct:0, windDir:1, windMag:p.windStartPctPerSec,
+      holdInterval:null, raf:null, fallStart:0
+    };
+
+    planeEl.style.width = p.planeWidthPct + '%';
+
+    function clampPlane(){
+      var maxLeft = 100 - p.planeWidthPct;
+      state.planeLeftPct = Math.max(0, Math.min(maxLeft, state.planeLeftPct));
+      planeEl.style.left = state.planeLeftPct + '%';
+    }
+
+    function shift(dir){
+      if(!state.running) return;
+      state.planeLeftPct += dir * p.shiftStepPct;
+      clampPlane();
+    }
+
+    function attachHold(btn, dir){
+      function start(e){
+        e.preventDefault();
+        shift(dir);
+        clearInterval(state.holdInterval);
+        state.holdInterval = setInterval(function(){ shift(dir); }, p.holdIntervalMs);
+      }
+      function stop(){ clearInterval(state.holdInterval); }
+      btn.addEventListener('mousedown', start);
+      btn.addEventListener('touchstart', start, {passive:false});
+      btn.addEventListener('mouseup', stop);
+      btn.addEventListener('mouseleave', stop);
+      btn.addEventListener('touchend', stop);
+    }
+    attachHold(document.getElementById('gmLandLeftBtn-' + g.code), -1);
+    attachHold(document.getElementById('gmLandRightBtn-' + g.code), 1);
+
+    gmCleanup[g.code] = function(){
+      state.running = false;
+      clearInterval(state.holdInterval);
+      if(state.raf) cancelAnimationFrame(state.raf);
+    };
+
+    function newRound(){
+      state.round++;
+      state.windMag = p.windStartPctPerSec + (state.round - 1) * p.windStepPerRound;
+      state.windDir = Math.random() < 0.5 ? -1 : 1;
+      var maxPadLeft = 100 - p.padWidthPct;
+      state.padLeftPct = Math.max(4, Math.min(maxPadLeft - 4, Math.random() * maxPadLeft));
+      padEl.style.left = state.padLeftPct + '%';
+      padEl.style.width = p.padWidthPct + '%';
+      var sweetLeft = (p.padWidthPct - p.perfectWidthPct) / 2;
+      sweetEl.style.left = sweetLeft + '%';
+      sweetEl.style.width = p.perfectWidthPct + '%';
+
+      state.planeLeftPct = 50 - p.planeWidthPct / 2;
+      clampPlane();
+      planeEl.style.top = startTopPx + 'px';
+
+      var windLabel = state.windMag < 8 ? 'light' : (state.windMag < 14 ? 'moderate' : 'strong');
+      document.getElementById('gmLandWind-' + g.code).textContent = 'Crosswind: ' + windLabel;
+
+      state.fallStart = performance.now();
+      state.lastFrameTime = state.fallStart;
+      state.running = true;
+
+      function frame(now){
+        if(!state.running) return;
+        var dt = (now - state.lastFrameTime) / 1000;
+        state.lastFrameTime = now;
+        var elapsed = now - state.fallStart;
+        var progress = Math.min(1, elapsed / p.descendDurationMs);
+        var topPx = startTopPx + progress * (landingTopPx - startTopPx);
+        planeEl.style.top = topPx + 'px';
+
+        state.planeLeftPct += state.windDir * state.windMag * dt;
+        clampPlane();
+
+        if(progress >= 1){
+          finalizeLanding();
+          return;
+        }
+        state.raf = requestAnimationFrame(frame);
+      }
+      state.raf = requestAnimationFrame(frame);
+    }
+
+    function finalizeLanding(){
+      if(!state.running) return;
+      state.running = false;
+      clearInterval(state.holdInterval);
+      if(state.raf) cancelAnimationFrame(state.raf);
+
+      var planeCenter = state.planeLeftPct + p.planeWidthPct / 2;
+      var padLeft = state.padLeftPct;
+      var padRight = state.padLeftPct + p.padWidthPct;
+      var sweetLeft = state.padLeftPct + (p.padWidthPct - p.perfectWidthPct) / 2;
+      var sweetRight = sweetLeft + p.perfectWidthPct;
+      var msg = document.getElementById('gmLandMsg-' + g.code);
+
+      if(planeCenter < padLeft || planeCenter > padRight){
+        msg.textContent = p.crashMsg;
+        return;
+      }
+
+      state.landed++;
+      document.getElementById('gmLandProgress-' + g.code).textContent = 'Landing ' + state.landed + ' / ' + p.landingsNeeded;
+
+      if(planeCenter >= sweetLeft && planeCenter <= sweetRight){
+        msg.textContent = "Perfect landing — dead centre on the pad.";
+      } else {
+        msg.textContent = "Landed, but off-centre — a rough touchdown counts too.";
+      }
+
+      if(state.landed >= p.landingsNeeded){
+        msg.textContent = p.completeMsg;
+      } else {
+        newRound();
+      }
+    }
+
+    document.getElementById('gmLandBtn-' + g.code).addEventListener('click', function(){
+      finalizeLanding();
+    });
+
+    newRound();
+  }
+
+  /* ---- SEQUENCE TAP GAME (C87, C89) ---- */
+  function gmRenderSequenceGame(panel, g){
+    var p = g.params;
+    var target = [];
+    for(var i = 0; i < p.sequenceLength; i++){
+      target.push(Math.floor(Math.random() * p.items.length));
+    }
+
+    panel.innerHTML =
+      '<p class="gm-status-msg" id="gmSeqMsg-' + g.code + '">Watch the sequence…</p>' +
+      '<div class="gm-seq-grid" id="gmSeqGrid-' + g.code + '"></div>' +
+      '<div class="gm-status-row"><span id="gmSeqProgress-' + g.code + '">Step 0 / ' + p.sequenceLength + '</span><span id="gmSeqLives-' + g.code + '">Lives: ' + p.lives + '</span></div>';
+
+    var grid = document.getElementById('gmSeqGrid-' + g.code);
+    var tiles = p.items.map(function(item, idx){
+      var tile = document.createElement('div');
+      tile.className = 'gm-seq-item';
+      tile.innerHTML = '<span class="gm-seq-emoji">' + item.emoji + '</span><span class="gm-seq-label">' + item.label + '</span>';
+      grid.appendChild(tile);
+      return tile;
+    });
+
+    var state = {step:0, lives:p.lives, accepting:false, timeouts:[]};
+    gmCleanup[g.code] = function(){ state.timeouts.forEach(clearTimeout); };
+
+    function flashSequence(){
+      state.accepting = false;
+      target.forEach(function(idx, i){
+        var t1 = setTimeout(function(){ tiles[idx].classList.add('flashing'); }, i * (p.flashDuration + 200));
+        var t2 = setTimeout(function(){ tiles[idx].classList.remove('flashing'); }, i * (p.flashDuration + 200) + p.flashDuration);
+        state.timeouts.push(t1, t2);
+      });
+      var doneT = setTimeout(function(){
+        state.accepting = true;
+        document.getElementById('gmSeqMsg-' + g.code).textContent = "Your turn — repeat the sequence.";
+      }, target.length * (p.flashDuration + 200) + 100);
+      state.timeouts.push(doneT);
+    }
+
+    tiles.forEach(function(tile, idx){
+      tile.addEventListener('click', function(){
+        if(!state.accepting) return;
+        var expected = target[state.step];
+        if(idx === expected){
+          tile.classList.add('correct');
+          setTimeout(function(){ tile.classList.remove('correct'); }, 300);
+          state.step++;
+          document.getElementById('gmSeqProgress-' + g.code).textContent = 'Step ' + state.step + ' / ' + p.sequenceLength;
+          if(state.step >= target.length){
+            state.accepting = false;
+            document.getElementById('gmSeqMsg-' + g.code).textContent = p.successMsg;
+          }
+        } else {
+          tile.classList.add('wrong');
+          setTimeout(function(){ tile.classList.remove('wrong'); }, 300);
+          state.lives--;
+          document.getElementById('gmSeqLives-' + g.code).textContent = 'Lives: ' + state.lives;
+          state.step = 0;
+          document.getElementById('gmSeqProgress-' + g.code).textContent = 'Step 0 / ' + p.sequenceLength;
+          if(state.lives <= 0){
+            state.accepting = false;
+            document.getElementById('gmSeqMsg-' + g.code).textContent = "Out of lives — hit Close then Play to retry.";
+          } else {
+            document.getElementById('gmSeqMsg-' + g.code).textContent = "Wrong move — sequence resets, try again.";
+          }
+        }
+      });
+    });
+
+    flashSequence();
+  }
+
+  /* ---- LABEL / DATA TAGGING GAME (C31) ---- */
+  function gmRenderLabelGame(panel, g){
+    var p = g.params;
+    panel.innerHTML =
+      '<div class="gm-bar-row"><div class="gm-bar-label"><span>Model accuracy</span><span id="gmLabelPct-' + g.code + '">0%</span></div>' +
+      '<div class="gm-bar-outer"><div class="gm-bar-inner" id="gmLabelBar-' + g.code + '" style="width:0%; background:' + p.barColor + ';"></div></div></div>' +
+      '<div class="gm-label-emoji" id="gmLabelEmoji-' + g.code + '"></div>' +
+      '<div class="gm-label-btns" id="gmLabelBtns-' + g.code + '"></div>' +
+      '<p class="gm-status-msg" id="gmLabelMsg-' + g.code + '"></p>';
+
+    var state = {index:0, correct:0, timeoutHandle:null};
+    gmCleanup[g.code] = function(){ if(state.timeoutHandle) clearTimeout(state.timeoutHandle); };
+
+    function renderRound(){
+      if(state.index >= p.rounds.length){
+        var pct = Math.round((state.correct / p.rounds.length) * 100);
+        document.getElementById('gmLabelEmoji-' + g.code).textContent = '';
+        document.getElementById('gmLabelBtns-' + g.code).innerHTML = '';
+        document.getElementById('gmLabelMsg-' + g.code).textContent =
+          'Training complete — final model accuracy: ' + pct + '%. Real AI Engineers chase this number for a living.';
+        return;
+      }
+      var round = p.rounds[state.index];
+      document.getElementById('gmLabelEmoji-' + g.code).textContent = round.emoji;
+      var btnsWrap = document.getElementById('gmLabelBtns-' + g.code);
+      btnsWrap.innerHTML =
+        '<button class="gm-label-btn" data-ans="Cat">🐱 Cat</button>' +
+        '<button class="gm-label-btn" data-ans="Dog">🐶 Dog</button>';
+      document.getElementById('gmLabelMsg-' + g.code).textContent = '';
+
+      Array.prototype.forEach.call(btnsWrap.querySelectorAll('.gm-label-btn'), function(btn){
+        btn.addEventListener('click', function(){
+          clearTimeout(state.timeoutHandle);
+          answer(btn.getAttribute('data-ans'));
+        });
+      });
+
+      state.timeoutHandle = setTimeout(function(){ answer(null); }, p.roundTime);
+    }
+
+    function answer(choice){
+      var round = p.rounds[state.index];
+      if(choice === round.answer){ state.correct++; }
+      state.index++;
+      var pct = Math.round((state.correct / p.rounds.length) * 100);
+      document.getElementById('gmLabelPct-' + g.code).textContent = pct + '%';
+      document.getElementById('gmLabelBar-' + g.code).style.width = pct + '%';
+      renderRound();
+    }
+
+    renderRound();
+  }
+
+  /* ---- BALANCE GAME (C41) ---- */
+  function gmRenderBalanceGame(panel, g){
+    var p = g.params;
+    panel.innerHTML =
+      '<div class="gm-bar-row"><div class="gm-bar-label"><span>Profit</span><span id="gmBalProfitVal-' + g.code + '">' + p.startProfit + '</span></div>' +
+      '<div class="gm-bar-outer"><div class="gm-bar-inner" id="gmBalProfitBar-' + g.code + '" style="width:' + p.startProfit + '%; background:var(--gold);"></div></div></div>' +
+      '<div class="gm-bar-row"><div class="gm-bar-label"><span>Sustainability</span><span id="gmBalSustainVal-' + g.code + '">' + p.startSustain + '</span></div>' +
+      '<div class="gm-bar-outer"><div class="gm-bar-inner" id="gmBalSustainBar-' + g.code + '" style="width:' + p.startSustain + '%; background:' + p.barColor + ';"></div></div></div>' +
+      '<p class="gm-balance-prompt" id="gmBalPrompt-' + g.code + '"></p>' +
+      '<div class="gm-balance-options" id="gmBalOptions-' + g.code + '"></div>' +
+      '<p class="gm-status-msg" id="gmBalMsg-' + g.code + '"></p>';
+
+    var state = {index:0, profit:p.startProfit, sustain:p.startSustain};
+    gmCleanup[g.code] = function(){};
+
+    function clamp(v){ return Math.max(0, Math.min(100, v)); }
+
+    function updateBars(){
+      document.getElementById('gmBalProfitVal-' + g.code).textContent = Math.round(state.profit);
+      document.getElementById('gmBalProfitBar-' + g.code).style.width = state.profit + '%';
+      document.getElementById('gmBalSustainVal-' + g.code).textContent = Math.round(state.sustain);
+      document.getElementById('gmBalSustainBar-' + g.code).style.width = state.sustain + '%';
+    }
+
+    function renderRound(){
+      if(state.index >= p.rounds.length){
+        document.getElementById('gmBalPrompt-' + g.code).textContent = '';
+        document.getElementById('gmBalOptions-' + g.code).innerHTML = '';
+        var passed = state.profit >= p.passThreshold && state.sustain >= p.passThreshold;
+        document.getElementById('gmBalMsg-' + g.code).textContent = passed
+          ? "Balanced! You kept the business profitable AND sustainable — that's the real job."
+          : "One side tipped over — in the real diploma, you'd rebalance the plan and try again.";
+        return;
+      }
+      var round = p.rounds[state.index];
+      document.getElementById('gmBalPrompt-' + g.code).textContent = round.prompt;
+      var opts = document.getElementById('gmBalOptions-' + g.code);
+      opts.innerHTML =
+        '<button class="gm-balance-btn" data-opt="A">' + round.optionA.label + '</button>' +
+        '<button class="gm-balance-btn" data-opt="B">' + round.optionB.label + '</button>';
+      document.getElementById('gmBalMsg-' + g.code).textContent = '';
+
+      Array.prototype.forEach.call(opts.querySelectorAll('.gm-balance-btn'), function(btn){
+        btn.addEventListener('click', function(){
+          var chosen = btn.getAttribute('data-opt') === 'A' ? round.optionA : round.optionB;
+          state.profit = clamp(state.profit + chosen.profit);
+          state.sustain = clamp(state.sustain + chosen.sustain);
+          updateBars();
+          state.index++;
+          renderRound();
+        });
+      });
+    }
+
+    updateBars();
+    renderRound();
+  }
+
+  /* ---- METER SUSTAIN GAME (C75) ---- */
+  function gmRenderMeterGame(panel, g){
+    var p = g.params;
+    panel.innerHTML =
+      '<div class="gm-bar-row"><div class="gm-bar-label"><span>Capacity</span><span id="gmMeterCapVal-' + g.code + '">20</span></div>' +
+      '<div class="gm-bar-outer"><div class="gm-bar-inner" id="gmMeterCapBar-' + g.code + '" style="width:20%; background:' + p.barColor + ';"></div></div></div>' +
+      '<div class="gm-bar-row"><div class="gm-bar-label"><span>Demand</span><span id="gmMeterDemVal-' + g.code + '">0</span></div>' +
+      '<div class="gm-bar-outer"><div class="gm-bar-inner" id="gmMeterDemBar-' + g.code + '" style="width:0%; background:#c97a7a;"></div></div></div>' +
+      '<button class="gm-action-btn" id="gmMeterBtn-' + g.code + '">Scale Up</button>' +
+      '<p class="gm-status-msg" id="gmMeterMsg-' + g.code + '">Traffic incoming — keep capacity ahead of demand for ' + p.duration + 's.</p>';
+
+    var state = {capacity:20, demand:0, downtime:0, elapsed:0, running:true, lastTime:performance.now(), raf:null};
+    gmCleanup[g.code] = function(){ state.running = false; if(state.raf) cancelAnimationFrame(state.raf); };
+
+    function frame(now){
+      if(!state.running) return;
+      var dt = (now - state.lastTime) / 1000;
+      state.lastTime = now;
+      state.elapsed += dt;
+      state.demand = Math.min(100, state.demand + p.demandRatePerSec * dt);
+      state.capacity = Math.max(0, state.capacity - p.capacityDecayPerSec * dt);
+
+      if(state.demand > state.capacity){ state.downtime += dt; } 
+
+      document.getElementById('gmMeterCapVal-' + g.code).textContent = Math.round(state.capacity);
+      document.getElementById('gmMeterCapBar-' + g.code).style.width = Math.min(100, state.capacity) + '%';
+      document.getElementById('gmMeterDemVal-' + g.code).textContent = Math.round(state.demand);
+      document.getElementById('gmMeterDemBar-' + g.code).style.width = state.demand + '%';
+
+      if(state.downtime >= p.maxDowntime){
+        state.running = false;
+        document.getElementById('gmMeterMsg-' + g.code).textContent = "Downtime! Demand outran capacity for too long — hit Close then Play to retry.";
+        return;
+      }
+      if(state.elapsed >= p.duration){
+        state.running = false;
+        document.getElementById('gmMeterMsg-' + g.code).textContent = "Survived the traffic spike — that's what cloud engineers call five-nines uptime.";
+        return;
+      }
+      state.raf = requestAnimationFrame(frame);
+    }
+    state.raf = requestAnimationFrame(frame);
+
+    document.getElementById('gmMeterBtn-' + g.code).addEventListener('click', function(){
+      if(!state.running) return;
+      state.capacity = Math.min(150, state.capacity + p.boostAmount);
+    });
+  }
+
+  /* ---- MEMORY MATCH (C42) ---- */
+  function gmRenderMemoryGame(panel, g){
+    var p = g.params;
+    var deck = p.pairs.concat(p.pairs);
+    for(var i = deck.length - 1; i > 0; i--){
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = deck[i]; deck[i] = deck[j]; deck[j] = tmp;
+    }
+
+    panel.innerHTML =
+      '<div class="gm-memory-grid" id="gmMemGrid-' + g.code + '"></div>' +
+      '<p class="gm-status-msg" id="gmMemMsg-' + g.code + '">Find all ' + p.pairs.length + ' matching pairs.</p>';
+
+    var grid = document.getElementById('gmMemGrid-' + g.code);
+    var cards = deck.map(function(emoji){
+      var card = document.createElement('button');
+      card.className = 'gm-memory-card';
+      card.textContent = '❓';
+      card.setAttribute('data-emoji', emoji);
+      grid.appendChild(card);
+      return card;
+    });
+
+    var state = {first:null, second:null, matches:0, flips:0, busy:false};
+    gmCleanup[g.code] = function(){};
+
+    cards.forEach(function(card){
+      card.addEventListener('click', function(){
+        if(state.busy || card.classList.contains('matched') || card.classList.contains('revealed')) return;
+        card.classList.add('revealed');
+        card.textContent = card.getAttribute('data-emoji');
+
+        if(!state.first){
+          state.first = card;
+        } else {
+          state.second = card;
+          state.flips++;
+          state.busy = true;
+          if(state.first.getAttribute('data-emoji') === state.second.getAttribute('data-emoji')){
+            state.first.classList.add('matched');
+            state.second.classList.add('matched');
+            state.matches++;
+            state.first = null; state.second = null; state.busy = false;
+            if(state.matches >= p.pairs.length){
+              document.getElementById('gmMemMsg-' + g.code).textContent =
+                'All pairs matched in ' + state.flips + ' flips — that\'s exactly how a taster year works: sample, compare, then commit.';
+            }
+          } else {
+            setTimeout(function(){
+              state.first.classList.remove('revealed'); state.first.textContent = '❓';
+              state.second.classList.remove('revealed'); state.second.textContent = '❓';
+              state.first = null; state.second = null; state.busy = false;
+            }, 700);
+          }
+        }
+      });
+    });
+  }
+
+  /* ---- REVEAL & CHOOSE (C24) ---- */
+  function gmRenderRevealGame(panel, g){
+    var p = g.params;
+    panel.innerHTML =
+      '<div class="gm-reveal-row" id="gmRevealRow-' + g.code + '"></div>' +
+      '<p class="gm-status-msg" id="gmRevealMsg-' + g.code + '">Tap each track to preview a day in the life.</p>';
+
+    var row = document.getElementById('gmRevealRow-' + g.code);
+    gmCleanup[g.code] = function(){};
+
+    p.cards.forEach(function(c){
+      var card = document.createElement('div');
+      card.className = 'gm-reveal-card';
+      card.innerHTML = '<h5>' + c.label + '</h5><p>' + c.snippet + '</p>';
+      card.addEventListener('click', function(){
+        card.classList.toggle('expanded');
+        document.getElementById('gmRevealMsg-' + g.code).textContent =
+          'That\'s exactly the taste BITE gives you in Semester 1 — before you choose.';
+      });
+      row.appendChild(card);
+    });
+  }
+
+  buildGameCards();
 })();
 </script>
 
